@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}{{ page.title }} · {{ config.title }}{% endblock title %}
+{% block content %}
+<article class="prose">
+  <h1>{{ page.title }}</h1>
+  {{ page.content | safe }}
+  <h2>Källor</h2>
+  {% set sources = load_data(path='data/sources.json') %}
+  <ul>
+    {% for id, source in sources %}
+    <li><a href="{{ source.url }}">{{ source.name }} ↗</a></li>
+    {% endfor %}
+  </ul>
+  <h2 id="bilder">Bilder</h2>
+  <p><a href="https://github.com/openfarmcc/open-crop-icons">Open Crop Icons ↗</a> · CC0</p>
+</article>
+{% endblock content %}

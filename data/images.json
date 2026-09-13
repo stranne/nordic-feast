@@ -1,0 +1,79 @@
+{
+  "project": "Open Crop Icons",
+  "url": "https://github.com/openfarmcc/open-crop-icons",
+  "commit": "d41f1197a14bb82f12037dc47585152ae1e3074f",
+  "license": "CC0-1.0",
+  "license_url": "https://github.com/openfarmcc/open-crop-icons/blob/d41f1197a14bb82f12037dc47585152ae1e3074f/README.md#license",
+  "images": [
+    {
+      "ingredient": "gurka",
+      "file": "images/crops/gurka.svg",
+      "upstream": "https://raw.githubusercontent.com/openfarmcc/open-crop-icons/d41f1197a14bb82f12037dc47585152ae1e3074f/icons/cucumber/cucumber.svg",
+      "modifications": "none",
+      "note": ""
+    },
+    {
+      "ingredient": "hallon",
+      "file": "images/crops/hallon.svg",
+      "upstream": "https://raw.githubusercontent.com/openfarmcc/open-crop-icons/d41f1197a14bb82f12037dc47585152ae1e3074f/icons/raspberry/raspberry.svg",
+      "modifications": "none",
+      "note": ""
+    },
+    {
+      "ingredient": "jordgubbar",
+      "file": "images/crops/jordgubbar.svg",
+      "upstream": "https://raw.githubusercontent.com/openfarmcc/open-crop-icons/d41f1197a14bb82f12037dc47585152ae1e3074f/icons/strawberry/strawberry.svg",
+      "modifications": "none",
+      "note": ""
+    },
+    {
+      "ingredient": "morot",
+      "file": "images/crops/morot.svg",
+      "upstream": "https://raw.githubusercontent.com/openfarmcc/open-crop-icons/d41f1197a14bb82f12037dc47585152ae1e3074f/icons/carrot/carrot.svg",
+      "modifications": "none",
+      "note": ""
+    },
+    {
+      "ingredient": "palsternacka",
+      "file": "images/crops/palsternacka.svg",
+      "upstream": "https://raw.githubusercontent.com/openfarmcc/open-crop-icons/d41f1197a14bb82f12037dc47585152ae1e3074f/icons/parsnip/parsnip.svg",
+      "modifications": "none",
+      "note": ""
+    },
+    {
+      "ingredient": "plommon",
+      "file": "images/crops/plommon.svg",
+      "upstream": "https://raw.githubusercontent.com/openfarmcc/open-crop-icons/d41f1197a14bb82f12037dc47585152ae1e3074f/icons/plum/plum.svg",
+      "modifications": "none",
+      "note": ""
+    },
+    {
+      "ingredient": "paron",
+      "file": "images/crops/paron.svg",
+      "upstream": "https://raw.githubusercontent.com/openfarmcc/open-crop-icons/d41f1197a14bb82f12037dc47585152ae1e3074f/icons/green-bartlett-pear/green-bartlett-pear.svg",
+      "modifications": "none",
+      "note": "Illustrates a pear; does not identify a Swedish cultivar."
+    },
+    {
+      "ingredient": "sparris",
+      "file": "images/crops/sparris.svg",
+      "upstream": "https://raw.githubusercontent.com/openfarmcc/open-crop-icons/d41f1197a14bb82f12037dc47585152ae1e3074f/icons/asparagus/asparagus.svg",
+      "modifications": "none",
+      "note": "Illustrates green asparagus; the calendar also covers white asparagus."
+    },
+    {
+      "ingredient": "vitkal",
+      "file": "images/crops/vitkal.svg",
+      "upstream": "https://raw.githubusercontent.com/openfarmcc/open-crop-icons/d41f1197a14bb82f12037dc47585152ae1e3074f/icons/green-cabbage/green-cabbage.svg",
+      "modifications": "none",
+      "note": ""
+    },
+    {
+      "ingredient": "apple",
+      "file": "images/crops/apple.svg",
+      "upstream": "https://raw.githubusercontent.com/openfarmcc/open-crop-icons/d41f1197a14bb82f12037dc47585152ae1e3074f/icons/generic-apple/generic-apple.svg",
+      "modifications": "none",
+      "note": ""
+    }
+  ]
+}

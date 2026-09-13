@@ -1,0 +1,5 @@
+<nav class="month-nav" aria-label="Månad">
+  {% for month in months %}
+  <a href="{{ get_url(path='sverige/' ~ month.slug ~ '/') }}" aria-label="{{ month.name }}" {% if month.number == page.extra.month %}aria-current="page"{% endif %}>{{ month.short }}</a>
+  {% endfor %}
+</nav>

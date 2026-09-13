@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}{{ page.title }} · {{ config.title }}{% endblock title %}
+{% block ingredients_current %}aria-current="true"{% endblock ingredients_current %}
+{% block content %}
+{% set sources = load_data(path='data/sources.json') %}
+{% set season = page.extra.seasons[config.extra.country] %}
+{% set source = sources[season.source] %}
+<a class="back-link" href="{{ get_url(path='@/ravaror/_index.md') }}">← Alla råvaror</a>
+<article class="ingredient-detail">
+  <div class="detail-art"><img src="{{ get_url(path=page.extra.image) }}" alt="" width="256" height="256"></div>
+  <div class="detail-copy">
+    <h1>{{ page.title }}</h1>
+    {% if season.note %}<p class="ingredient-note">{{ season.note }}</p>{% endif %}
+    {% set bar_season = season %}
+    {% set bar_labelled = true %}
+    {% set bar_id = 'season-' ~ page.extra.id %}
+    {% include "partials/season-bar.html" %}
+    <div class="legend"><span><i class="season-fill--listed" aria-hidden="true"></i>I säsong</span><span><i class="season-fill--unknown" aria-hidden="true"></i>Uppgift saknas</span></div>
+    <div class="source-note">
+      <a href="{{ source.url }}">{{ source.name }} ↗</a>
+      <span>Kontrollerad {{ season.checked }}</span>
+    </div>
+  </div>
+</article>
+{% endblock content %}

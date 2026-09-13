@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}{{ section.title }} · {{ config.title }}{% endblock title %}
+{% block ingredients_current %}aria-current="page"{% endblock ingredients_current %}
+{% block content %}
+<div class="page-heading"><h1>{{ section.title }}</h1></div>
+<ul class="ingredient-grid" aria-label="Alla råvaror">
+  {% for ingredient in section.pages %}{% include "partials/card.html" %}{% endfor %}
+</ul>
+{% endblock content %}

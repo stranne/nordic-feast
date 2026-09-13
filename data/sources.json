@@ -1,0 +1,47 @@
+{
+  "ica-se": {
+    "name": "ICA:s säsongskalender",
+    "publisher": "ICA",
+    "url": "https://www.ica.se/artikel/svenska-gronsaker-och-frukt-i-sasong/",
+    "country": "se",
+    "checked": "2026-09-13",
+    "publication_date": null,
+    "basis": "domestic_availability_including_storage",
+    "coverage": "positive_monthly_lists",
+    "review_note": "All twelve monthly lists reviewed. Positive examples, not proof of absence or complete season boundaries. See docs/source-decision.md."
+  },
+  "fran-sverige": {
+    "name": "Från Sveriges säsongsguider",
+    "publisher": "Svenskmärkning AB",
+    "url": "https://fransverige.se/om-fran-sverige/sasongsguider/",
+    "country": "se",
+    "checked": "2026-09-13",
+    "publication_date": null,
+    "basis": "domestic_seasonal_guidance",
+    "coverage": "positive_monthly_posters",
+    "review_note": "All twelve currently linked posters visually reviewed for the ten sample ingredients. January-April filenames are 2027; May-December are 2026. Used for raspberries listed in June-August. See docs/evidence/source-comparison-2026-09-13.json."
+  },
+  "sydgront-calendar": {
+    "name": "SydGrönts produktkalender",
+    "publisher": "SydGrönt",
+    "url": "https://sydgront.se/upload/produktkalender/produktkalender-2025-staende-med-bilder.pdf",
+    "country": "se",
+    "checked": "2026-09-13",
+    "publication_date": null,
+    "edition": "2025",
+    "basis": "domestic_availability_including_storage",
+    "coverage": "explicit_monthly_producer_calendar",
+    "review_note": "Current linked calendar reviewed visually. Used for carrots: all twelve cells on page 1, July-June range on page 2. Other products are not imported automatically."
+  },
+  "hebe-plommon": {
+    "name": "Hebe Frukt & Grönt",
+    "publisher": "Hebe Frukt & Grönt",
+    "url": "https://www.hebe.se/aktuellt/svenska-paron/",
+    "country": "se",
+    "checked": "2026-09-13",
+    "publication_date": null,
+    "basis": "domestic_seasonal_availability",
+    "coverage": "explicit_month_range",
+    "review_note": "The Swedish plum section explicitly gives August into September. Do not apply pear cultivar dates from the same page to plums."
+  }
+}

@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block country_current %}aria-current="page"{% endblock country_current %}
+{% block head %}<script src="{{ get_url(path='current-month.js') }}" defer></script>{% endblock head %}
+{% block content %}
+{% set months = load_data(path='data/months.json') %}
+<div class="page-heading"><h1>Välj månad</h1></div>
+<nav class="year-grid" aria-label="Månad">
+  {% for month in months %}
+  <a href="{{ get_url(path='sverige/' ~ month.slug ~ '/') }}" data-month="{{ month.number }}">{{ month.name }}<span aria-hidden="true">↗</span></a>
+  {% endfor %}
+</nav>
+{% endblock content %}

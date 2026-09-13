@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}{{ page.title }} · {{ config.title }}{% endblock title %}
+{% block country_current %}aria-current="true"{% endblock country_current %}
+{% block content %}
+{% set ingredients = get_section(path='ravaror/_index.md') %}
+{% set months = load_data(path='data/months.json') %}
+{% set previous_index = (page.extra.month + 10) % 12 %}
+{% set next_index = page.extra.month % 12 %}
+<div class="page-heading">
+  <h1>{{ page.title }}</h1>
+  <nav class="month-step" aria-label="Byt månad">
+    <a href="{{ get_url(path='sverige/' ~ months[previous_index].slug ~ '/') }}" aria-label="{{ months[previous_index].name }}">←</a>
+    <a href="{{ get_url(path='sverige/' ~ months[next_index].slug ~ '/') }}" aria-label="{{ months[next_index].name }}">→</a>
+  </nav>
+</div>
+{% include "partials/month-nav.html" %}
+<ul class="ingredient-grid" aria-label="Råvaror i säsong">
+  {% for ingredient in ingredients.pages %}
+    {% set season = ingredient.extra.seasons[config.extra.country] %}
+    {% if page.extra.month in season.listed_months %}
+      {% include "partials/card.html" %}
+    {% endif %}
+  {% endfor %}
+</ul>
+{% endblock content %}

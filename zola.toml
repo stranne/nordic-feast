@@ -1,0 +1,16 @@
+base_url = "http://127.0.0.1:1111"
+title = "Nordic Feast"
+default_language = "sv"
+compile_sass = false
+build_search_index = false
+generate_feeds = false
+generate_sitemap = false
+
+[markdown]
+smart_punctuation = true
+
+[extra]
+country = "se"
+country_name = "Sverige"
+# Controls search-engine indexing of the local preview; does not deploy the site.
+publication_ready = false

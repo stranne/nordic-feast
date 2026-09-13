@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>{% block title %}{{ config.title }}{% endblock title %}</title>
+  {% if not config.extra.publication_ready %}<meta name="robots" content="noindex, nofollow">{% endif %}
+  <link rel="icon" href="{{ get_url(path='favicon.svg') }}" type="image/svg+xml">
+  <link rel="stylesheet" href="{{ get_url(path='style.css') }}">
+  <script src="{{ get_url(path='season-tooltips.js') }}" defer></script>
+  {% block head %}{% endblock head %}
+</head>
+<body>
+  <a class="skip-link" href="#innehall">Till innehållet</a>
+  <header class="site-header shell">
+    <a class="wordmark" href="{{ get_url(path='/') }}">Nordic Feast<span aria-hidden="true">.</span></a>
+    <nav class="site-nav" aria-label="Huvudmeny">
+      <a href="{{ get_url(path='@/sverige/_index.md') }}" {% block country_current %}{% endblock country_current %}>Sverige</a>
+      <a href="{{ get_url(path='@/ravaror/_index.md') }}" {% block ingredients_current %}{% endblock ingredients_current %}>Alla råvaror</a>
+    </nav>
+  </header>
+  <main id="innehall" class="shell" tabindex="-1">
+    {% block content %}{% endblock content %}
+  </main>
+  <footer class="site-footer shell">
+    <a href="{{ get_url(path='@/om.md') }}">Om kalendern</a>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,330 @@
+{
+  "reviewed": "2026-09-13",
+  "country": "se",
+  "scope": "Ten existing ingredients only. All twelve ICA lists and all twelve currently linked Fran Sverige posters reviewed. Empty months are omissions, not negative evidence. No runtime season records changed.",
+  "method": "ICA HTML manually reviewed; Fran Sverige PDFs downloaded from the live guide index and all page images visually inspected. No OCR-derived claims. PDF filenames identify editions, not observed harvest years.",
+  "ica_url": "https://www.ica.se/artikel/svenska-gronsaker-och-frukt-i-sasong/",
+  "fran_sverige_url": "https://fransverige.se/om-fran-sverige/sasongsguider/",
+  "rows": [
+    {
+      "ingredient": "apple",
+      "title": "Äpple",
+      "ica_listed_months": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "fran_sverige_listed_months": [
+        1,
+        2,
+        3,
+        4,
+        9,
+        10,
+        11,
+        12
+      ],
+      "fran_only_months": [],
+      "ica_only_months": [
+        5,
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "ingredient": "gurka",
+      "title": "Gurka",
+      "ica_listed_months": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "fran_sverige_listed_months": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "fran_only_months": [
+        10,
+        11
+      ],
+      "ica_only_months": []
+    },
+    {
+      "ingredient": "hallon",
+      "title": "Hallon",
+      "ica_listed_months": [
+        7,
+        8
+      ],
+      "fran_sverige_listed_months": [
+        6,
+        7,
+        8
+      ],
+      "fran_only_months": [
+        6
+      ],
+      "ica_only_months": []
+    },
+    {
+      "ingredient": "jordgubbar",
+      "title": "Jordgubbar",
+      "ica_listed_months": [
+        6,
+        7,
+        8
+      ],
+      "fran_sverige_listed_months": [
+        5,
+        6,
+        7,
+        8
+      ],
+      "fran_only_months": [
+        5
+      ],
+      "ica_only_months": []
+    },
+    {
+      "ingredient": "morot",
+      "title": "Morot",
+      "ica_listed_months": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "fran_sverige_listed_months": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        12
+      ],
+      "fran_only_months": [
+        5
+      ],
+      "ica_only_months": [
+        11
+      ]
+    },
+    {
+      "ingredient": "palsternacka",
+      "title": "Palsternacka",
+      "ica_listed_months": [
+        1,
+        2,
+        9,
+        10,
+        11
+      ],
+      "fran_sverige_listed_months": [
+        1,
+        2,
+        3,
+        4,
+        10,
+        11
+      ],
+      "fran_only_months": [
+        3,
+        4
+      ],
+      "ica_only_months": [
+        9
+      ]
+    },
+    {
+      "ingredient": "paron",
+      "title": "Päron",
+      "ica_listed_months": [
+        8,
+        9,
+        10
+      ],
+      "fran_sverige_listed_months": [
+        9,
+        10
+      ],
+      "fran_only_months": [],
+      "ica_only_months": [
+        8
+      ]
+    },
+    {
+      "ingredient": "plommon",
+      "title": "Plommon",
+      "ica_listed_months": [
+        8
+      ],
+      "fran_sverige_listed_months": [],
+      "fran_only_months": [],
+      "ica_only_months": [
+        8
+      ]
+    },
+    {
+      "ingredient": "sparris",
+      "title": "Sparris",
+      "ica_listed_months": [
+        5,
+        6
+      ],
+      "fran_sverige_listed_months": [
+        4,
+        5,
+        6
+      ],
+      "fran_only_months": [
+        4
+      ],
+      "ica_only_months": []
+    },
+    {
+      "ingredient": "vitkal",
+      "title": "Vitkål",
+      "ica_listed_months": [
+        1,
+        2,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "fran_sverige_listed_months": [
+        1,
+        2,
+        3,
+        11,
+        12
+      ],
+      "fran_only_months": [
+        3
+      ],
+      "ica_only_months": [
+        6,
+        7,
+        8,
+        9,
+        10
+      ]
+    }
+  ],
+  "reviewed_pdf_files": [
+    {
+      "url": "https://fransverige.se/wp-content/uploads/2026/08/Sasongsguide_2027_01.pdf",
+      "sha256": "233bff9687243b5c044eea365068ab9f9162424ba0accfd9a0a136e24ea83ffc",
+      "pages": 1,
+      "file": "Sasongsguide_2027_01.pdf"
+    },
+    {
+      "url": "https://fransverige.se/wp-content/uploads/2026/08/Sasongsguide_2027_02.pdf",
+      "sha256": "114c72c9e24b868741abeda9842a76850d71445b7390667955168dcb106e8fec",
+      "pages": 1,
+      "file": "Sasongsguide_2027_02.pdf"
+    },
+    {
+      "url": "https://fransverige.se/wp-content/uploads/2026/08/Sasongsguide_2027_03.pdf",
+      "sha256": "7b0e86a3a0b384001d1ac94e538ad12192dbf7b01f66aff0565ff89e8679b7ff",
+      "pages": 1,
+      "file": "Sasongsguide_2027_03.pdf"
+    },
+    {
+      "url": "https://fransverige.se/wp-content/uploads/2026/08/Sasongsguide_2027_04.pdf",
+      "sha256": "af6af419233d2f50766d72580186cfd2d90651a87124789c020f80ba8148651f",
+      "pages": 1,
+      "file": "Sasongsguide_2027_04.pdf"
+    },
+    {
+      "url": "https://fransverige.se/wp-content/uploads/2026/08/Sasongsguide_2026_05.pdf",
+      "sha256": "c78906d31cacd13a4c54108fa6a32c61d5422d4452cded508af667a17864edc3",
+      "pages": 1,
+      "file": "Sasongsguide_2026_05.pdf"
+    },
+    {
+      "url": "https://fransverige.se/wp-content/uploads/2026/08/Sasongsguide_2026_06.pdf",
+      "sha256": "83643f29fbc21f407503ccea785e93497a4267dc335b5719c44d7c45f8006763",
+      "pages": 1,
+      "file": "Sasongsguide_2026_06.pdf"
+    },
+    {
+      "url": "https://fransverige.se/wp-content/uploads/2026/08/Sasongsguide_2026_07.pdf",
+      "sha256": "7b371ca5334c9a1d45425070555a7136fc9052d3296a909185b5eebea4c53cd8",
+      "pages": 1,
+      "file": "Sasongsguide_2026_07.pdf"
+    },
+    {
+      "url": "https://fransverige.se/wp-content/uploads/2026/08/Sasongsguide_2026_08.pdf",
+      "sha256": "7aaae27ae900086f30c180f49999ea6c782a850147719d57b706cf40f7bd6e8a",
+      "pages": 1,
+      "file": "Sasongsguide_2026_08.pdf"
+    },
+    {
+      "url": "https://fransverige.se/wp-content/uploads/2026/08/Sasongsguide_2026_09.pdf",
+      "sha256": "43b02f27d3829b765eabfc46da5f150cde97a1100bedb2577efa50430abbb5d2",
+      "pages": 1,
+      "file": "Sasongsguide_2026_09.pdf"
+    },
+    {
+      "url": "https://fransverige.se/wp-content/uploads/2026/08/Sasongsguide_2026_10.pdf",
+      "sha256": "4ac915d5fef315e539b34580c800283083407a2c8b2e560a5ef6669fa7cc6a96",
+      "pages": 1,
+      "file": "Sasongsguide_2026_10.pdf"
+    },
+    {
+      "url": "https://fransverige.se/wp-content/uploads/2026/08/Sasongsguide_2026_11.pdf",
+      "sha256": "eb6b0af490af441ac94d5a835030e8bf9fec618b0baa4a7e2d0cd087f60b818f",
+      "pages": 1,
+      "file": "Sasongsguide_2026_11.pdf"
+    },
+    {
+      "url": "https://fransverige.se/wp-content/uploads/2026/08/Sasongsguide_2026_12.pdf",
+      "sha256": "b7bd429c77d32880c27d62b16dbaf6375131e81732c1f5a461673f28c15b4d7e",
+      "pages": 1,
+      "file": "Sasongsguide_2026_12.pdf"
+    },
+    {
+      "url": "https://sydgront.se/upload/produktkalender/produktkalender-2025-staende-med-bilder.pdf",
+      "sha256": "36ec5065a06b9d2ff15c5b90e5b43eed89805182e9c5c9c61feaaac758195499",
+      "pages": 3,
+      "file": "produktkalender-2025-staende-med-bilder.pdf"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+[
+  {"number": 1, "name": "Januari", "short": "Jan", "slug": "januari"},
+  {"number": 2, "name": "Februari", "short": "Feb", "slug": "februari"},
+  {"number": 3, "name": "Mars", "short": "Mar", "slug": "mars"},
+  {"number": 4, "name": "April", "short": "Apr", "slug": "april"},
+  {"number": 5, "name": "Maj", "short": "Maj", "slug": "maj"},
+  {"number": 6, "name": "Juni", "short": "Jun", "slug": "juni"},
+  {"number": 7, "name": "Juli", "short": "Jul", "slug": "juli"},
+  {"number": 8, "name": "Augusti", "short": "Aug", "slug": "augusti"},
+  {"number": 9, "name": "September", "short": "Sep", "slug": "september"},
+  {"number": 10, "name": "Oktober", "short": "Okt", "slug": "oktober"},
+  {"number": 11, "name": "November", "short": "Nov", "slug": "november"},
+  {"number": 12, "name": "December", "short": "Dec", "slug": "december"}
+]
