@@ -106,3 +106,11 @@ Added ten ingredients, bringing the catalogue to thirty. Reviewed all twelve mon
 | Rotselleri | Jan–Apr, Sep–Dec | Rotselleri; January's duplicate counts once |
 
 ICA explicitly includes stored Swedish produce. These observations do not distinguish harvest from storage or establish complete national season boundaries. Each addition has an unmodified CC0 illustration from the same pinned Open Crop Icons revision, recorded in `data/images.json`. Illustrations do not establish a particular cultivar or species. Sort weights now leave gaps between names in Swedish alphabetical order for future additions.
+
+## Three season states, 2026-09-14
+
+The interface now distinguishes months outside documented source ranges from missing evidence. This supersedes the earlier blanket unknown treatment for unlisted months in explicit ranges. Ingredient records explicitly store `out_of_season_months`; the UI never derives negative evidence from an omission.
+
+Applied the complement of the selected SydGrönt ranges to its nine ingredient records and of Hebe's August–September range to plums, with two exceptions from the review above: February red cabbage and June–July plums remain unknown because sources conflict. Year-round ranges have no out-of-season months. ICA and Från Sverige monthly examples retain unknown omissions, including internal gaps.
+
+These statuses describe the cited source's season, not guaranteed nationwide availability. Detail pages with out-of-season months explain that scope. No new agricultural evidence was collected for this interface change; source checked dates are unchanged.

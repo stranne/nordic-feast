@@ -1,9 +1,10 @@
+{% set out_months = bar_season.out_of_season_months | default(value=[]) %}
 {% set bar_months = load_data(path='data/months.json') %}
-<div id="{{ bar_id }}" class="season-bar{% if bar_labelled %} season-bar--labelled{% endif %}" role="img" aria-label="Säsong i {{ config.extra.country_name }}. {% for month in bar_months %}{{ month.name }}: {% if month.number in bar_season.listed_months %}i säsong{% else %}uppgift saknas{% endif %}. {% endfor %}">
+<div id="{{ bar_id }}" class="season-bar{% if bar_labelled %} season-bar--labelled{% endif %}" role="img" aria-label="Säsong i {{ config.extra.country_name }}. {% for month in bar_months %}{{ month.name }}: {% if month.number in bar_season.listed_months %}i säsong{% elif month.number in out_months %}ur säsong{% else %}uppgift saknas{% endif %}. {% endfor %}">
   {% for month in bar_months %}
     {% if month.number % 3 == 1 %}<span class="season-quarter" aria-hidden="true">{% endif %}
-      <span class="season-month" data-month="{{ month.name }}" data-status="{% if month.number in bar_season.listed_months %}I säsong{% else %}Uppgift saknas{% endif %}">
-        <span class="season-fill {% if month.number in bar_season.listed_months %}season-fill--listed{% else %}season-fill--unknown{% endif %}"></span>
+      <span class="season-month" data-month="{{ month.name }}" data-status="{% if month.number in bar_season.listed_months %}I säsong{% elif month.number in out_months %}Ur säsong{% else %}Uppgift saknas{% endif %}">
+        <span class="season-fill {% if month.number in bar_season.listed_months %}season-fill--listed{% elif month.number in out_months %}season-fill--out{% else %}season-fill--unknown{% endif %}"></span>
         {% if bar_labelled %}<span class="season-label">{{ month.short }}</span>{% endif %}
       </span>
     {% if month.number % 3 == 0 %}</span>{% endif %}

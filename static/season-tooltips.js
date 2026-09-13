@@ -38,7 +38,7 @@ for (const card of document.querySelectorAll(".ingredient-card")) {
   }
 
   function showYear() {
-    const statuses = ["I säsong", "Uppgift saknas"].filter(status => months.some(month => month.dataset.status === status));
+    const statuses = ["I säsong", "Ur säsong", "Uppgift saknas"].filter(status => months.some(month => month.dataset.status === status));
     show(statuses.map(status => `${status}: ${months.filter(month => month.dataset.status === status).map(month => month.dataset.month).join(", ")}.`));
   }
 

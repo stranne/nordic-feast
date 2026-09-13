@@ -8,7 +8,7 @@ Aim for WCAG 2.2 AA while keeping the interface minimal. This is an implementati
 - Hovering a segment shows its month and status. Keyboard focus shows the annual summary. Tooltips persist while hovered and Escape dismisses them, following [W3C's guidance on hover/focus content](https://www.w3.org/WAI/WCAG22/Understanding/content-on-hover-or-focus.html).
 - The popup is a visual equivalent of the existing accessible description, so it is hidden from the accessibility tree to avoid duplicate announcements. It contains no controls.
 - Touch opens the ingredient's labelled calendar directly. The labelled calendar and accessible descriptions work without JavaScript.
-- Green fill and hatching distinguish listed and unknown months. Forced colours use solid and dashed marks. Missing evidence never means out of season.
+- Green fill, empty outlined segments and hatching distinguish in-season, out-of-season and unknown months. Forced colours preserve filled, solid-outline and dashed-outline marks. Missing evidence never means out of season.
 - With enlarged text, the detail calendar wraps by whole quarters to preserve readable month labels.
 
 ## Verified locally, 2026-09-13

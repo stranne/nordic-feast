@@ -72,6 +72,11 @@ def check():
             listed = season["listed_months"]
             require(all(type(m) is int and m in MONTHS for m in listed), f"Invalid month: {identifier}")
             require(listed == sorted(set(listed)), f"Duplicate/unordered month: {identifier}")
+            outside = season.get("out_of_season_months", [])
+            require(type(outside) is list and all(type(m) is int and m in MONTHS for m in outside), f"Invalid out-of-season month: {identifier}")
+            require(outside == sorted(set(outside)), f"Duplicate/unordered out-of-season month: {identifier}")
+            require(not set(listed) & set(outside), f"Conflicting season states: {identifier}")
+            require(not outside or source["coverage"] in {"explicit_monthly_producer_calendar", "explicit_month_range"}, f"Out-of-season months require explicit range evidence: {identifier}")
             require(season["source_terms"], f"Missing source locator terms: {identifier}")
 
     require(ids and ids == set(images), "Ingredient and image catalogues do not match")
