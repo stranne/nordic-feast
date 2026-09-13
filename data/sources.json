@@ -4,11 +4,11 @@
     "publisher": "ICA",
     "url": "https://www.ica.se/artikel/svenska-gronsaker-och-frukt-i-sasong/",
     "country": "se",
-    "checked": "2026-09-13",
+    "checked": "2026-09-14",
     "publication_date": null,
     "basis": "domestic_availability_including_storage",
     "coverage": "positive_monthly_lists",
-    "review_note": "All twelve monthly lists reviewed. Positive examples, not proof of absence or complete season boundaries. See docs/source-decision.md."
+    "review_note": "All twelve monthly lists reviewed. Positive examples, not proof of absence or complete season boundaries. See docs/source-decision.md. All twelve lists reviewed again on 2026-09-14 for the third catalogue expansion; conditional January kale availability retained in its ingredient note."
   },
   "fran-sverige": {
     "name": "Från Sveriges säsongsguider",

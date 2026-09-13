@@ -214,6 +214,76 @@
       "upstream": "https://raw.githubusercontent.com/openfarmcc/open-crop-icons/d41f1197a14bb82f12037dc47585152ae1e3074f/icons/celeriac-root/celeriac-root.svg",
       "modifications": "none",
       "note": ""
+    },
+    {
+      "ingredient": "blekselleri",
+      "file": "images/crops/blekselleri.svg",
+      "upstream": "https://raw.githubusercontent.com/openfarmcc/open-crop-icons/d41f1197a14bb82f12037dc47585152ae1e3074f/icons/celery/celery.svg",
+      "modifications": "none",
+      "note": ""
+    },
+    {
+      "ingredient": "brytbona",
+      "file": "images/crops/brytbona.svg",
+      "upstream": "https://raw.githubusercontent.com/openfarmcc/open-crop-icons/d41f1197a14bb82f12037dc47585152ae1e3074f/icons/blue-lake-bean/blue-lake-bean.svg",
+      "modifications": "none",
+      "note": "Illustrative; does not identify a Swedish cultivar."
+    },
+    {
+      "ingredient": "dill",
+      "file": "images/crops/dill.svg",
+      "upstream": "https://raw.githubusercontent.com/openfarmcc/open-crop-icons/d41f1197a14bb82f12037dc47585152ae1e3074f/icons/dill/dill.svg",
+      "modifications": "none",
+      "note": ""
+    },
+    {
+      "ingredient": "graslok",
+      "file": "images/crops/graslok.svg",
+      "upstream": "https://raw.githubusercontent.com/openfarmcc/open-crop-icons/d41f1197a14bb82f12037dc47585152ae1e3074f/icons/onion-chive/onion-chive.svg",
+      "modifications": "none",
+      "note": ""
+    },
+    {
+      "ingredient": "gronkal",
+      "file": "images/crops/gronkal.svg",
+      "upstream": "https://raw.githubusercontent.com/openfarmcc/open-crop-icons/d41f1197a14bb82f12037dc47585152ae1e3074f/icons/curly-kale/curly-kale.svg",
+      "modifications": "none",
+      "note": ""
+    },
+    {
+      "ingredient": "gulbeta",
+      "file": "images/crops/gulbeta.svg",
+      "upstream": "https://raw.githubusercontent.com/openfarmcc/open-crop-icons/d41f1197a14bb82f12037dc47585152ae1e3074f/icons/golden-beet/golden-beet.svg",
+      "modifications": "none",
+      "note": ""
+    },
+    {
+      "ingredient": "korsbar",
+      "file": "images/crops/korsbar.svg",
+      "upstream": "https://raw.githubusercontent.com/openfarmcc/open-crop-icons/d41f1197a14bb82f12037dc47585152ae1e3074f/icons/bing-cherry/bing-cherry.svg",
+      "modifications": "none",
+      "note": "Illustrative; does not identify a Swedish cultivar."
+    },
+    {
+      "ingredient": "persilja",
+      "file": "images/crops/persilja.svg",
+      "upstream": "https://raw.githubusercontent.com/openfarmcc/open-crop-icons/d41f1197a14bb82f12037dc47585152ae1e3074f/icons/parsley/parsley.svg",
+      "modifications": "none",
+      "note": ""
+    },
+    {
+      "ingredient": "rod-lok",
+      "file": "images/crops/rod-lok.svg",
+      "upstream": "https://raw.githubusercontent.com/openfarmcc/open-crop-icons/d41f1197a14bb82f12037dc47585152ae1e3074f/icons/red-onion/red-onion.svg",
+      "modifications": "none",
+      "note": ""
+    },
+    {
+      "ingredient": "savoykal",
+      "file": "images/crops/savoykal.svg",
+      "upstream": "https://raw.githubusercontent.com/openfarmcc/open-crop-icons/d41f1197a14bb82f12037dc47585152ae1e3074f/icons/savoy-cabbage/savoy-cabbage.svg",
+      "modifications": "none",
+      "note": ""
     }
   ]
 }

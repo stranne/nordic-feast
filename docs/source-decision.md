@@ -107,6 +107,27 @@ Added ten ingredients, bringing the catalogue to thirty. Reviewed all twelve mon
 
 ICA explicitly includes stored Swedish produce. These observations do not distinguish harvest from storage or establish complete national season boundaries. Each addition has an unmodified CC0 illustration from the same pinned Open Crop Icons revision, recorded in `data/images.json`. Illustrations do not establish a particular cultivar or species. Sort weights now leave gaps between names in Swedish alphabetical order for future additions.
 
+## Third catalogue expansion, 2026-09-14
+
+Added ten ingredients, bringing the catalogue to forty. Reviewed all twelve lists in [ICA's calendar](https://www.ica.se/artikel/svenska-gronsaker-och-frukt-i-sasong/).
+
+| Addition | Supported months |
+| --- | --- |
+| Blekselleri | Aug–Oct |
+| Brytböna | Jul–Aug |
+| Dill | Jun–Aug |
+| Gräslök | May–Aug |
+| Grönkål | Jan, Jun–Jul, Oct–Dec |
+| Gulbeta | Jan–Feb, Jul |
+| Körsbär | Jul–Aug |
+| Persilja | Jun, Aug–Nov |
+| Röd lök | Jan–Mar, Jun–Dec |
+| Savoykål | Jul–Dec |
+
+January kale is conditional on frost and Swedish availability; the detail page retains that caveat. Celery includes the synonym stjälkselleri. Red onion includes explicitly named red bunch onions, but not unspecified onions. Dill excludes generic potted herbs; parsley's July omission remains unknown. No gaps are interpolated.
+
+Existing ingredient records are unchanged. New illustrations are unmodified CC0 Open Crop Icons from the existing pinned revision, with provenance in `data/images.json`. The cherry and bean illustrations do not identify Swedish cultivars. Sort weights use existing gaps to preserve Swedish alphabetical order.
+
 ## Three season states, 2026-09-14
 
 The interface now distinguishes months outside documented source ranges from missing evidence. This supersedes the earlier blanket unknown treatment for unlisted months in explicit ranges. Ingredient records explicitly store `out_of_season_months`; the UI never derives negative evidence from an omission.
