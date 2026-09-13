@@ -74,6 +74,76 @@
       "upstream": "https://raw.githubusercontent.com/openfarmcc/open-crop-icons/d41f1197a14bb82f12037dc47585152ae1e3074f/icons/generic-apple/generic-apple.svg",
       "modifications": "none",
       "note": ""
+    },
+    {
+      "ingredient": "blomkal",
+      "file": "images/crops/blomkal.svg",
+      "upstream": "https://raw.githubusercontent.com/openfarmcc/open-crop-icons/d41f1197a14bb82f12037dc47585152ae1e3074f/icons/cauliflower/cauliflower.svg",
+      "modifications": "none",
+      "note": ""
+    },
+    {
+      "ingredient": "broccoli",
+      "file": "images/crops/broccoli.svg",
+      "upstream": "https://raw.githubusercontent.com/openfarmcc/open-crop-icons/d41f1197a14bb82f12037dc47585152ae1e3074f/icons/broccoli/broccoli.svg",
+      "modifications": "none",
+      "note": ""
+    },
+    {
+      "ingredient": "gul-lok",
+      "file": "images/crops/gul-lok.svg",
+      "upstream": "https://raw.githubusercontent.com/openfarmcc/open-crop-icons/d41f1197a14bb82f12037dc47585152ae1e3074f/icons/yellow-onion/yellow-onion.svg",
+      "modifications": "none",
+      "note": ""
+    },
+    {
+      "ingredient": "potatis",
+      "file": "images/crops/potatis.svg",
+      "upstream": "https://raw.githubusercontent.com/openfarmcc/open-crop-icons/d41f1197a14bb82f12037dc47585152ae1e3074f/icons/youkon-gold-potato/youkon-gold-potato.svg",
+      "modifications": "none",
+      "note": "Generic potato illustration; does not identify a Swedish cultivar."
+    },
+    {
+      "ingredient": "purjolok",
+      "file": "images/crops/purjolok.svg",
+      "upstream": "https://raw.githubusercontent.com/openfarmcc/open-crop-icons/d41f1197a14bb82f12037dc47585152ae1e3074f/icons/leek/leek.svg",
+      "modifications": "none",
+      "note": ""
+    },
+    {
+      "ingredient": "rodbeta",
+      "file": "images/crops/rodbeta.svg",
+      "upstream": "https://raw.githubusercontent.com/openfarmcc/open-crop-icons/d41f1197a14bb82f12037dc47585152ae1e3074f/icons/beet/beet.svg",
+      "modifications": "none",
+      "note": ""
+    },
+    {
+      "ingredient": "rodkal",
+      "file": "images/crops/rodkal.svg",
+      "upstream": "https://raw.githubusercontent.com/openfarmcc/open-crop-icons/d41f1197a14bb82f12037dc47585152ae1e3074f/icons/red-cabbage/red-cabbage.svg",
+      "modifications": "none",
+      "note": ""
+    },
+    {
+      "ingredient": "spenat",
+      "file": "images/crops/spenat.svg",
+      "upstream": "https://raw.githubusercontent.com/openfarmcc/open-crop-icons/d41f1197a14bb82f12037dc47585152ae1e3074f/icons/spinach/spinach.svg",
+      "modifications": "none",
+      "note": ""
+    },
+    {
+      "ingredient": "tomat",
+      "file": "images/crops/tomat.svg",
+      "upstream": "https://raw.githubusercontent.com/openfarmcc/open-crop-icons/d41f1197a14bb82f12037dc47585152ae1e3074f/icons/tomato/tomato.svg",
+      "modifications": "none",
+      "note": ""
+    },
+    {
+      "ingredient": "zucchini",
+      "file": "images/crops/zucchini.svg",
+      "upstream": "https://raw.githubusercontent.com/openfarmcc/open-crop-icons/d41f1197a14bb82f12037dc47585152ae1e3074f/icons/zucchini/zucchini.svg",
+      "modifications": "none",
+      "note": ""
     }
   ]
 }

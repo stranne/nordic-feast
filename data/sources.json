@@ -31,7 +31,7 @@
     "edition": "2025",
     "basis": "domestic_availability_including_storage",
     "coverage": "explicit_monthly_producer_calendar",
-    "review_note": "Current linked calendar reviewed visually. Used for carrots: all twelve cells on page 1, July-June range on page 2. Other products are not imported automatically."
+    "review_note": "Visually reviewed monthly grid and product ranges. Used for carrots and eight additions: cauliflower, broccoli, yellow onion, potatoes, leeks, beetroot, red cabbage and spinach. Supplier availability includes storage; not a national harvest calendar. See docs/source-decision.md for selection and discrepancies."
   },
   "hebe-plommon": {
     "name": "Hebe Frukt & Grönt",

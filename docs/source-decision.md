@@ -66,3 +66,24 @@ Each ingredient page now links its own primary reference. Other ingredient recor
 ## Next content pass
 
 Review the remaining seven ingredients against precise Swedish evidence, then expand the catalogue in a small batch. Prioritise useful coverage and traceable month ranges. Do not add statuses or product features to compensate for missing evidence.
+
+## Catalogue expansion, 2026-09-13
+
+Added ten everyday vegetables, bringing the catalogue to twenty. Existing ingredient records are unchanged. All twelve months were assessed for each addition; unsupported months remain unknown.
+
+| Addition | Supported months | Primary evidence |
+| --- | --- | --- |
+| Blomkål | Jun–Nov | SydGrönt, grid p. 1 and range p. 2 |
+| Broccoli | Jun–Oct | SydGrönt, pp. 1–2 |
+| Gul lök | Jan–Apr, Jul–Dec | SydGrönt, pp. 1–2; excludes separate bunch onions |
+| Potatis | Jan–Dec | SydGrönt, pp. 1–2; includes storage |
+| Purjolök | Jul–Dec | SydGrönt, pp. 1–2 |
+| Rödbeta | Jan–Dec | SydGrönt, pp. 1 and 3; includes storage |
+| Rödkål | Jan, Jun–Dec | SydGrönt, pp. 1 and 3 |
+| Spenat | May–Oct | SydGrönt, grid p. 1; baby spinach p. 3 |
+| Tomat | Apr–Oct | ICA's twelve monthly lists |
+| Zucchini | Jul–Sep | ICA's twelve monthly lists |
+
+The SydGrönt PDF was visually inspected. These are supplier availability ranges, not national harvest boundaries. ICA corroborates the broccoli and cauliflower ranges. Its February red-cabbage listing falls outside the selected producer range; it is not silently merged. Tomato uses ICA's narrower monthly guidance; SydGrönt instead lists year-round supply. Zucchini uses ICA because SydGrönt's grid says June–September while its illustrated range says June–December. These differences remain unresolved.
+
+Each addition uses an unmodified CC0 Open Crop Icons illustration pinned in `data/images.json`. The potato image is illustrative, not a cultivar claim.
