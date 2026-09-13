@@ -17,7 +17,13 @@ A one-off check in headless Microsoft Edge covered the catalogue, ingredient det
 
 Browser checks passed for the skip link, keyboard focus summary, Escape, one tab stop per card, Enter navigation, all twelve hover labels, moving onto the tooltip, and closing on pointer exit. Chromium's accessibility tree exposes each card's ingredient name and full annual description. Touch and JavaScript-disabled navigation also passed.
 
-The four content page layouts were checked at 320 CSS pixels with normal and 200% text, without horizontal page overflow. The detail calendar was visually checked under forced colours. The interface contains no animation or smooth scrolling.
+The four content page layouts were checked at 320 CSS pixels with normal and 200% text, without horizontal page overflow. The detail calendar was visually checked under forced colours. These checks preceded the card and page-transition update below.
+
+## Cards and page transitions
+
+Ingredient links have a light card surface, rounded border and visible focus outline. Diagonal arrows are reserved for external links. A 180ms native page-content crossfade and subtle card hover transitions are enabled only with `prefers-reduced-motion: no-preference`. The header and month controls remain steady. Browsers without cross-document view transitions retain normal navigation, including when JavaScript is disabled. There is no smooth scrolling.
+
+Verified in headless Edge: native navigation ran the 180ms fade; reduced motion disabled page and hover transitions; skip-link/card keyboard navigation, tooltip dismissal and JavaScript-disabled detail navigation passed. Catalogue, detail and month layouts had no horizontal overflow at 320, 375, 760 and 1280 CSS pixels. The catalogue also passed at 320px with 200% text, with screenshots inspected in normal and forced colours. Axe reported no automatic violations on the five previously audited pages. The older full audit stopped on a stale first-ingredient assumption; the focused card check used the current catalogue order.
 
 The audit tools and scripts are local ignored files under `.cache/`, not application dependencies or a frontend test suite.
 

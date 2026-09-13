@@ -144,6 +144,76 @@
       "upstream": "https://raw.githubusercontent.com/openfarmcc/open-crop-icons/d41f1197a14bb82f12037dc47585152ae1e3074f/icons/zucchini/zucchini.svg",
       "modifications": "none",
       "note": ""
+    },
+    {
+      "ingredient": "blabar",
+      "file": "images/crops/blabar.svg",
+      "upstream": "https://raw.githubusercontent.com/openfarmcc/open-crop-icons/d41f1197a14bb82f12037dc47585152ae1e3074f/icons/blueberry/blueberry.svg",
+      "modifications": "none",
+      "note": ""
+    },
+    {
+      "ingredient": "bondbona",
+      "file": "images/crops/bondbona.svg",
+      "upstream": "https://raw.githubusercontent.com/openfarmcc/open-crop-icons/d41f1197a14bb82f12037dc47585152ae1e3074f/icons/broad-bean/broad-bean.svg",
+      "modifications": "none",
+      "note": ""
+    },
+    {
+      "ingredient": "brysselkal",
+      "file": "images/crops/brysselkal.svg",
+      "upstream": "https://raw.githubusercontent.com/openfarmcc/open-crop-icons/d41f1197a14bb82f12037dc47585152ae1e3074f/icons/brussel-sprout/brussel-sprout.svg",
+      "modifications": "none",
+      "note": ""
+    },
+    {
+      "ingredient": "fankal",
+      "file": "images/crops/fankal.svg",
+      "upstream": "https://raw.githubusercontent.com/openfarmcc/open-crop-icons/d41f1197a14bb82f12037dc47585152ae1e3074f/icons/fennel/fennel.svg",
+      "modifications": "none",
+      "note": ""
+    },
+    {
+      "ingredient": "isbergssallad",
+      "file": "images/crops/isbergssallad.svg",
+      "upstream": "https://raw.githubusercontent.com/openfarmcc/open-crop-icons/d41f1197a14bb82f12037dc47585152ae1e3074f/icons/iceberg/iceberg.svg",
+      "modifications": "none",
+      "note": ""
+    },
+    {
+      "ingredient": "kalrabbi",
+      "file": "images/crops/kalrabbi.svg",
+      "upstream": "https://raw.githubusercontent.com/openfarmcc/open-crop-icons/d41f1197a14bb82f12037dc47585152ae1e3074f/icons/kohlrabi/kohlrabi.svg",
+      "modifications": "none",
+      "note": ""
+    },
+    {
+      "ingredient": "kalrot",
+      "file": "images/crops/kalrot.svg",
+      "upstream": "https://raw.githubusercontent.com/openfarmcc/open-crop-icons/d41f1197a14bb82f12037dc47585152ae1e3074f/icons/rutabaga/rutabaga.svg",
+      "modifications": "none",
+      "note": ""
+    },
+    {
+      "ingredient": "majs",
+      "file": "images/crops/majs.svg",
+      "upstream": "https://raw.githubusercontent.com/openfarmcc/open-crop-icons/d41f1197a14bb82f12037dc47585152ae1e3074f/icons/corn/corn.svg",
+      "modifications": "none",
+      "note": ""
+    },
+    {
+      "ingredient": "pumpa",
+      "file": "images/crops/pumpa.svg",
+      "upstream": "https://raw.githubusercontent.com/openfarmcc/open-crop-icons/d41f1197a14bb82f12037dc47585152ae1e3074f/icons/pumpkin/pumpkin.svg",
+      "modifications": "none",
+      "note": ""
+    },
+    {
+      "ingredient": "rotselleri",
+      "file": "images/crops/rotselleri.svg",
+      "upstream": "https://raw.githubusercontent.com/openfarmcc/open-crop-icons/d41f1197a14bb82f12037dc47585152ae1e3074f/icons/celeriac-root/celeriac-root.svg",
+      "modifications": "none",
+      "note": ""
     }
   ]
 }

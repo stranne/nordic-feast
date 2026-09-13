@@ -1,6 +1,6 @@
 +++
 title = "Äpple"
-weight = 100
+weight = 300
 
 [extra]
 id = "apple"

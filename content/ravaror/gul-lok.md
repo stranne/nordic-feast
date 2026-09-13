@@ -1,6 +1,6 @@
 +++
 title = "Gul lök"
-weight = 3
+weight = 70
 
 [extra]
 id = "gul-lok"

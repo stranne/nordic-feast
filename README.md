@@ -2,7 +2,7 @@
 
 A small, Swedish-language seasonal produce calendar. Built with Zola; all pages and illustrations are local static files.
 
-**Status: local prototype with twenty reviewed ingredients.** Seasonal data uses a suitable source per ingredient. The current catalogue draws on ICA, Från Sverige, SydGrönt and Hebe. See the [source review](docs/source-decision.md) for evidence and remaining coverage gaps.
+**Status: local prototype with thirty reviewed ingredients.** Seasonal data uses a suitable source per ingredient. The current catalogue draws on ICA, Från Sverige, SydGrönt and Hebe. See the [source review](docs/source-decision.md) for evidence and remaining coverage gaps.
 
 The first corrections add June for raspberries, May for carrots, and September for plums. Unknown months remain unknown until supported by evidence.
 
@@ -25,6 +25,10 @@ zola serve
 
 The home page selects the current month in Stockholm time using a small optional script. Without JavaScript it provides twelve month links. Month navigation, ingredient pages, images and source links work without JavaScript. Changing months never requires a rebuild.
 
+Month cards include a `from-month` query parameter so the detail page's optional script can point the back link to that month, display its name and keep “Sverige” selected in the main navigation, even when referrer information is unavailable. Older links also support same-site month referrers with or without a trailing slash. Visits without a known month or without JavaScript keep the “Alla råvaror” fallback.
+
+The back-link script is included directly in the generated HTML, immediately after the link. It runs during parsing without a separate download or waiting for deferred scripts, avoiding a visible change from the fallback label to the month name.
+
 ## Content
 
 - `content/ravaror/`: one ingredient per Markdown file, with country-specific seasonal evidence in TOML frontmatter.
@@ -33,11 +37,13 @@ The home page selects the current month in Stockholm time using a small optional
 - `data/months.json`: Swedish month labels and URLs.
 - `templates/` and `static/style.css`: the shared layout and visual design.
 
+Source citations share `templates/partials/source.html`. Set `citation` to a record from `data/sources.json` and `citation_id` to a unique ID on the page; optionally set `citation_checked` to the ingredient's review date. The component uses a small, muted inline source link with a document icon and an assistive-text “Källa” label. Hovering or focusing the citation reveals the checked date and publisher; tapping the document icon also opens the information. The source link navigates normally; Escape and outside taps dismiss it. Without JavaScript the metadata stays visible. Used on ingredient pages and the about page's source list. Ingredient details share one cream card with a fine border around the illustration and content, matching the catalogue cards; the source stays a compact metadata line with a subtle rounded border around its icon and link.
+
 `listed_months` means the source explicitly supports the ingredient in those months, through a monthly list, calendar or stated range. Other months mean **unknown**, never automatically out of season. `reviewed_months` records which months were assessed against that source; an explicit range can be assessed across all twelve months. No early, peak, late, harvest or storage periods are calculated.
 
 Cards show a text-free annual bar: twelve segments, with larger gaps between quarters. Solid green means listed; hatching means unknown. Ingredient pages use the same bar with January–December labels and a legend. Both views share `templates/partials/season-bar.html` and expose a full month-by-month text alternative to assistive technology. The bars need no JavaScript. The optional `static/season-tooltips.js` adds month/status tooltips on hover and a full-year summary on keyboard focus. Escape dismisses them; moving onto the tooltip keeps it open. Hover tooltips close when the pointer leaves the bar and tooltip, including when it moves onto the rest of the card. Cards remain a single tab stop, and touch users open the labelled detail page normally.
 
-Accessibility is a design requirement: Swedish document language, landmarks, skip link, visible keyboard focus, descriptive navigation, patterned season states, and Windows high-contrast styles. There is no animation or smooth scrolling. After UI changes, check keyboard-only navigation (including skip link, tooltip focus/Escape and Enter), narrow/zoomed layouts, forced colours, and the JavaScript-disabled detail view. A manual screen-reader pass with NVDA or VoiceOver is still needed before claiming accessibility conformance; automated checks alone are insufficient.
+Accessibility is a design requirement: Swedish document language, landmarks, skip link, visible keyboard focus, descriptive navigation, patterned season states, and Windows high-contrast styles. Ingredient cards use a light surface and subtle border. Supporting browsers crossfade page content over 180ms while keeping the header and month controls steady; reduced-motion preferences disable transitions, including card hover effects. Other browsers use normal navigation. There is no smooth scrolling. Diagonal arrows identify external links only. After UI changes, check keyboard-only navigation (including skip link, tooltip focus/Escape and Enter), narrow/zoomed layouts, forced colours, reduced motion, and the JavaScript-disabled detail view. A manual screen-reader pass with NVDA or VoiceOver is still needed before claiming accessibility conformance; automated checks alone are insufficient.
 
 See the [accessibility review](docs/accessibility.md) for verified behaviour and remaining release checks.
 
@@ -71,4 +77,4 @@ GitHub Actions can build Zola and publish `public/` with GitHub's Pages artifact
 
 ## Images
 
-The twenty illustrations are unmodified [Open Crop Icons](https://github.com/openfarmcc/open-crop-icons), licensed CC0. See [third-party notices](THIRD_PARTY_NOTICES.md). They are reference illustrations, not claims about a particular cultivar.
+The thirty illustrations are unmodified [Open Crop Icons](https://github.com/openfarmcc/open-crop-icons), licensed CC0. See [third-party notices](THIRD_PARTY_NOTICES.md). They are reference illustrations, not claims about a particular cultivar.

@@ -5,7 +5,10 @@
 {% set sources = load_data(path='data/sources.json') %}
 {% set season = page.extra.seasons[config.extra.country] %}
 {% set source = sources[season.source] %}
-<a class="back-link" href="{{ get_url(path='@/ravaror/_index.md') }}">← Alla råvaror</a>
+{% set months = load_data(path='data/months.json') %}
+<a class="back-link" href="{{ get_url(path='@/ravaror/_index.md') }}" data-month-root="{{ get_url(path='@/sverige/_index.md') }}" data-months="{{ months | json_encode() }}">{% set icon_direction = "left" %}{% include "partials/icon.html" %} <span data-back-label>Alla råvaror</span></a>
+{# Run during parsing: no download or deferred script can delay the correct label. #}
+{% include "partials/detail-back.html" %}
 <article class="ingredient-detail">
   <div class="detail-art"><img src="{{ get_url(path=page.extra.image) }}" alt="" width="256" height="256"></div>
   <div class="detail-copy">
@@ -16,10 +19,10 @@
     {% set bar_id = 'season-' ~ page.extra.id %}
     {% include "partials/season-bar.html" %}
     <div class="legend"><span><i class="season-fill--listed" aria-hidden="true"></i>I säsong</span><span><i class="season-fill--unknown" aria-hidden="true"></i>Uppgift saknas</span></div>
-    <div class="source-note">
-      <a href="{{ source.url }}">{{ source.name }} ↗</a>
-      <span>Kontrollerad {{ season.checked }}</span>
-    </div>
+    {% set citation = source %}
+    {% set citation_id = 'source-' ~ page.extra.id %}
+    {% set citation_checked = season.checked %}
+    {% include "partials/source.html" %}
   </div>
 </article>
 {% endblock content %}

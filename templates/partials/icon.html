@@ -1,0 +1,6 @@
+{# Lucide a79b2d131dab2bf20cb224bd0937b439a9c4fa99; see static/licenses/lucide.txt. #}
+<svg class="icon icon--{{ icon_direction }}" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+  {% if icon_direction == "left" %}<path d="m12 19-7-7 7-7" /><path d="M19 12H5" />
+  {% elif icon_direction == "right" %}<path d="M5 12h14" /><path d="m12 5 7 7-7 7" />
+  {% elif icon_direction == "up-right" %}<path d="M7 7h10v10" /><path d="M7 17 17 7" />{% endif %}
+</svg>

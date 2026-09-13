@@ -1,6 +1,6 @@
 +++
 title = "Rödbeta"
-weight = 71
+weight = 230
 
 [extra]
 id = "rodbeta"

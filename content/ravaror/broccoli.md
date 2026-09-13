@@ -1,6 +1,6 @@
 +++
 title = "Broccoli"
-weight = 2
+weight = 40
 
 [extra]
 id = "broccoli"

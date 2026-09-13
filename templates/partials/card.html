@@ -1,5 +1,5 @@
 <li class="ingredient-card">
-  <a href="{{ ingredient.permalink }}" aria-labelledby="name-{{ ingredient.extra.id }}" aria-describedby="season-{{ ingredient.extra.id }}">
+  <a href="{{ ingredient.permalink }}{% if page is defined and page.extra.month is defined %}?from-month={{ page.extra.month }}{% endif %}" aria-labelledby="name-{{ ingredient.extra.id }}" aria-describedby="season-{{ ingredient.extra.id }}">
     <div class="ingredient-art">
       <img src="{{ get_url(path=ingredient.extra.image) }}" alt="" width="144" height="144" decoding="async">
     </div>
@@ -8,6 +8,5 @@
     {% set bar_id = 'season-' ~ ingredient.extra.id %}
     {% include "partials/season-bar.html" %}
     <h2 id="name-{{ ingredient.extra.id }}">{{ ingredient.title }}</h2>
-    <span class="card-arrow" aria-hidden="true">↗</span>
   </a>
 </li>

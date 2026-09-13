@@ -1,5 +1,5 @@
 {% extends "base.html" %}
 {% block title %}Sidan saknas · {{ config.title }}{% endblock title %}
 {% block content %}
-<div class="prose"><h1>Sidan saknas</h1><a href="{{ get_url(path='/') }}">Till kalendern →</a></div>
+<div class="prose"><h1>Sidan saknas</h1><a href="{{ get_url(path='/') }}">Till kalendern {% set icon_direction = "right" %}{% include "partials/icon.html" %}</a></div>
 {% endblock content %}

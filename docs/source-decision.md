@@ -87,3 +87,22 @@ Added ten everyday vegetables, bringing the catalogue to twenty. Existing ingred
 The SydGrönt PDF was visually inspected. These are supplier availability ranges, not national harvest boundaries. ICA corroborates the broccoli and cauliflower ranges. Its February red-cabbage listing falls outside the selected producer range; it is not silently merged. Tomato uses ICA's narrower monthly guidance; SydGrönt instead lists year-round supply. Zucchini uses ICA because SydGrönt's grid says June–September while its illustrated range says June–December. These differences remain unresolved.
 
 Each addition uses an unmodified CC0 Open Crop Icons illustration pinned in `data/images.json`. The potato image is illustrative, not a cultivar claim.
+
+## Second catalogue expansion, 2026-09-13
+
+Added ten ingredients, bringing the catalogue to thirty. Reviewed all twelve monthly lists in [ICA's Swedish seasonal calendar](https://www.ica.se/artikel/svenska-gronsaker-och-frukt-i-sasong/) for these additions. The table records positive listings; omissions remain unknown, including gaps between listed months. Existing seasonal records are unchanged.
+
+| Addition | Supported months | Source locator |
+| --- | --- | --- |
+| Blåbär | Jul–Aug | Blåbär |
+| Bondböna | Jul–Aug | Bondböna |
+| Brysselkål | Jan, Sep–Dec | Brysselkål |
+| Fänkål | Jul–Sep | Fänkål |
+| Isbergssallad | May–Sep | Isbergssallad |
+| Kålrabbi | Sep–Oct | Kålrabbi |
+| Kålrot | Jan–Mar, Jun–Dec | Kålrot |
+| Majs | Aug–Sep | Majskolv in August; Majs in September |
+| Pumpa | Aug–Nov | Pumpa |
+| Rotselleri | Jan–Apr, Sep–Dec | Rotselleri; January's duplicate counts once |
+
+ICA explicitly includes stored Swedish produce. These observations do not distinguish harvest from storage or establish complete national season boundaries. Each addition has an unmodified CC0 illustration from the same pinned Open Crop Icons revision, recorded in `data/images.json`. Illustrations do not establish a particular cultivar or species. Sort weights now leave gaps between names in Swedish alphabetical order for future additions.

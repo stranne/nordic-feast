@@ -1,0 +1,31 @@
+<script>
+// Inlined immediately after the back link so its label is ready for the first paint.
+// Month cards carry their origin explicitly, including when referrers are disabled.
+(() => {
+  const link = document.querySelector(".back-link[data-months]");
+  if (!link) return;
+
+  const months = JSON.parse(link.dataset.months);
+  const fromMonth = new URLSearchParams(window.location.search).get("from-month");
+  const monthUrl = ({ slug }) => new URL(`${slug}/`, link.dataset.monthRoot);
+  let month = months.find(({ number }) => String(number) === fromMonth);
+
+  // Older links can still use a same-site referrer, with or without a trailing slash.
+  if (fromMonth === null && document.referrer) {
+    const previous = new URL(document.referrer);
+    if (previous.origin === window.location.origin) {
+      month = months.find(candidate =>
+        monthUrl(candidate).pathname.replace(/\/$/, "") === previous.pathname.replace(/\/$/, "")
+      );
+    }
+  }
+  if (!month) return;
+
+  link.href = monthUrl(month).href;
+  link.querySelector("[data-back-label]").textContent = month.name;
+
+  // Keep the main navigation aligned with the month context as well as the back link.
+  document.querySelector("[data-nav-country]")?.setAttribute("aria-current", "true");
+  document.querySelector("[data-nav-ingredients]")?.removeAttribute("aria-current");
+})();
+</script>

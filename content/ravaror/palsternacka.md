@@ -1,6 +1,6 @@
 +++
 title = "Palsternacka"
-weight = 50
+weight = 160
 
 [extra]
 id = "palsternacka"

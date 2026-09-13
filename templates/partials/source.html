@@ -1,0 +1,16 @@
+{# Required: citation (source record), citation_id (unique on page).
+   Optional: citation_checked (ingredient-specific review date). #}
+{% set checked = citation_checked | default(value=citation.checked) %}
+<div class="source" data-source>
+  <button class="source-info" type="button" aria-label="Visa källinformation för {{ citation.name }}" aria-describedby="{{ citation_id }}" disabled>
+    <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 3H6a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8Z"/><path d="M14 3v5h5M9 12h6M9 16h6"/></svg>
+  </button>
+  <a class="source-link" href="{{ citation.url }}" aria-describedby="{{ citation_id }}"><span class="visually-hidden">Källa: </span><span>{{ citation.name }}</span>{% set icon_direction = "up-right" %}{% include "partials/icon.html" %}</a>
+    <span class="source-tooltip" id="{{ citation_id }}" role="tooltip" hidden>
+      <span class="source-tooltip-content">
+        <span class="source-tooltip-label">Senast kontrollerad</span>
+        <time datetime="{{ checked }}">{{ checked | date(format="%d") | int }} {% set month_number = checked | date(format="%m") | int %}{% set month_names = ["januari", "februari", "mars", "april", "maj", "juni", "juli", "augusti", "september", "oktober", "november", "december"] %}{{ month_names[month_number - 1] }} {{ checked | date(format="%Y") }}</time>
+        <span class="source-publisher">Utgivare: {{ citation.publisher }}</span>
+      </span>
+    </span>
+</div>
