@@ -26,12 +26,56 @@
     "publisher": "SydGrönt",
     "url": "https://sydgront.se/upload/produktkalender/produktkalender-2025-staende-med-bilder.pdf",
     "country": "se",
-    "checked": "2026-09-13",
+    "checked": "2026-09-19",
     "publication_date": null,
     "edition": "2025",
     "basis": "domestic_availability_including_storage",
     "coverage": "explicit_monthly_producer_calendar",
-    "review_note": "Visually reviewed monthly grid and product ranges. Used for carrots and eight additions: cauliflower, broccoli, yellow onion, potatoes, leeks, beetroot, red cabbage and spinach. Supplier availability includes storage; not a national harvest calendar. See docs/source-decision.md for selection and discrepancies."
+    "review_note": "Visually reviewed monthly grid and product ranges. Used for carrots and the catalogue additions documented in docs/source-decision.md. Supplier availability includes storage and protected cultivation; it is not a national harvest calendar. The 2025 edition remained the latest calendar found on 2026-09-19."
+  },
+  "sasongensbasta-aubergine": {
+    "name": "Säsongens Bästa: Aubergine",
+    "publisher": "LRF Trädgård / Säsongens Bästa",
+    "url": "https://sasongensbasta.se/vegetables/aubergine/",
+    "country": "se",
+    "checked": "2026-09-19",
+    "publication_date": null,
+    "basis": "domestic_seasonal_availability",
+    "coverage": "explicit_month_range",
+    "review_note": "Explicitly states that Swedish-grown aubergine is available May-October, in limited quantities."
+  },
+  "sasongensbasta-kal": {
+    "name": "Säsongens Bästa: Kål",
+    "publisher": "LRF Trädgård / Säsongens Bästa",
+    "url": "https://sasongensbasta.se/vegetables/kal/",
+    "country": "se",
+    "checked": "2026-09-19",
+    "publication_date": null,
+    "basis": "domestic_seasonal_availability",
+    "coverage": "explicit_month_range",
+    "review_note": "The cabbage overview explicitly gives June-October for Swedish Chinese cabbage (salladskål)."
+  },
+  "sasongensbasta-lok": {
+    "name": "Säsongens Bästa: Lök",
+    "publisher": "LRF Trädgård / Säsongens Bästa",
+    "url": "https://sasongensbasta.se/vegetables/lok-2/",
+    "country": "se",
+    "checked": "2026-09-19",
+    "publication_date": null,
+    "basis": "domestic_seasonal_availability",
+    "coverage": "explicit_month_range",
+    "review_note": "Explicitly gives May-August for Swedish spring onion. SydGrönt gives May-October, so September-October remain unknown rather than out of season."
+  },
+  "sasongensbasta-artskidor": {
+    "name": "Säsongens Bästa: Ärtskidor och bönor",
+    "publisher": "LRF Trädgård / Säsongens Bästa",
+    "url": "https://sasongensbasta.se/vegetables/artskidor-haricots-verts-och-bondbonor-m-fl/",
+    "country": "se",
+    "checked": "2026-09-19",
+    "publication_date": null,
+    "basis": "domestic_seasonal_availability",
+    "coverage": "explicit_month_range",
+    "review_note": "The page covers sugar peas and wax beans and gives July-October as the Swedish season. SydGrönt starts sugar peas in June, so June remains unknown for that ingredient."
   },
   "hebe-plommon": {
     "name": "Hebe Frukt & Grönt",

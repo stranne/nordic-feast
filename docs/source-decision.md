@@ -135,3 +135,35 @@ The interface now distinguishes months outside documented source ranges from mis
 Applied the complement of the selected SydGrönt ranges to its nine ingredient records and of Hebe's August–September range to plums, with two exceptions from the review above: February red cabbage and June–July plums remain unknown because sources conflict. Year-round ranges have no out-of-season months. ICA and Från Sverige monthly examples retain unknown omissions, including internal gaps.
 
 These statuses describe the cited source's season, not guaranteed nationwide availability. Detail pages with out-of-season months explain that scope. No new agricultural evidence was collected for this interface change; source checked dates are unchanged.
+
+## Fourth catalogue expansion, 2026-09-19
+
+Added nineteen ingredients, bringing the catalogue to fifty-nine. The complete pinned Open Crop Icons revision was reviewed: it contains 247 canonical illustrations, forty were already used, and these nineteen additional ingredients had both suitable artwork and sufficiently specific Swedish evidence. The remaining icons are cultivar or colour variants, duplicate existing catalogue concepts, fall outside the current fruit/berry/vegetable scope, or lack sufficiently precise Swedish evidence.
+
+| Addition | Supported months | Primary evidence |
+| --- | --- | --- |
+| Aubergine | May–Oct | Säsongens Bästa explicit Swedish range |
+| Björnbär | May–Oct | SydGrönt, pp. 1–2 |
+| Knipplök | Jun–Sep | SydGrönt, pp. 1–2 |
+| Koriander | May–Oct | SydGrönt, pp. 1–2 |
+| Mangold | Jun–Jul | SydGrönt's Mangold Mix, pp. 1–2 |
+| Mynta | May–Oct | SydGrönt, pp. 1–2 |
+| Pak choi | May–Oct | SydGrönt, pp. 1–2 |
+| Romansallat | May–Oct | SydGrönt, pp. 1–2 |
+| Rosmarin | Jan–Dec | SydGrönt's Aug–Jul range, pp. 1–2 |
+| Rucola | May–Oct | SydGrönt's Ruccula/småblad, pp. 1 and 3 |
+| Rättika | Jul–Sep | SydGrönt, pp. 1 and 3 |
+| Salladskål | Jun–Oct | Säsongens Bästa cabbage overview |
+| Salladslök | May–Aug | Säsongens Bästa onion overview |
+| Sockerärt | Jul–Oct | Säsongens Bästa bean and pea overview |
+| Spetskål | Jun–Dec | SydGrönt, pp. 1 and 3 |
+| Svartkål | Jul–Dec | SydGrönt, pp. 1 and 3 |
+| Timjan | Apr–Aug | SydGrönt, pp. 1 and 3 |
+| Vaxböna | Jul–Oct | Säsongens Bästa bean and pea overview |
+| Vitlök | Jul–Aug | SydGrönt, pp. 1 and 3 |
+
+SydGrönt ranges describe the supplier's availability, including protected cultivation where applicable, not uniform national harvest boundaries. Säsongens Bästa is operated by Swedish horticultural producers through LRF Trädgård and is used where its ingredient-specific range is clearer.
+
+Two source differences are retained as unknown shoulders rather than silently resolved. Säsongens Bästa gives May–August for spring onion while SydGrönt gives May–October, so September–October are unknown. Säsongens Bästa gives July–October for sugar peas while SydGrönt starts in June, so June is unknown. SydGrönt's July–December black-kale supplier range is broader than Säsongens Bästa's qualitative harvest description beginning in September; the ingredient note states that distinction.
+
+All nineteen illustrations are unmodified CC0 Open Crop Icons from the existing pinned revision. The radish illustration depicts a white elongated form, the chard illustration depicts mixed colours, and none of the artwork establishes a Swedish cultivar.

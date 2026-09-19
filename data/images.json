@@ -284,6 +284,139 @@
       "upstream": "https://raw.githubusercontent.com/openfarmcc/open-crop-icons/d41f1197a14bb82f12037dc47585152ae1e3074f/icons/savoy-cabbage/savoy-cabbage.svg",
       "modifications": "none",
       "note": ""
+    },
+    {
+      "ingredient": "aubergine",
+      "file": "images/crops/aubergine.svg",
+      "upstream": "https://raw.githubusercontent.com/openfarmcc/open-crop-icons/d41f1197a14bb82f12037dc47585152ae1e3074f/icons/eggplant/eggplant.svg",
+      "modifications": "none",
+      "note": ""
+    },
+    {
+      "ingredient": "bjornbar",
+      "file": "images/crops/bjornbar.svg",
+      "upstream": "https://raw.githubusercontent.com/openfarmcc/open-crop-icons/d41f1197a14bb82f12037dc47585152ae1e3074f/icons/blackberry/blackberry.svg",
+      "modifications": "none",
+      "note": ""
+    },
+    {
+      "ingredient": "knipplok",
+      "file": "images/crops/knipplok.svg",
+      "upstream": "https://raw.githubusercontent.com/openfarmcc/open-crop-icons/d41f1197a14bb82f12037dc47585152ae1e3074f/icons/spring-onion/spring-onion.svg",
+      "modifications": "none",
+      "note": "Illustrates an immature bulb onion sold with its leaves."
+    },
+    {
+      "ingredient": "koriander",
+      "file": "images/crops/koriander.svg",
+      "upstream": "https://raw.githubusercontent.com/openfarmcc/open-crop-icons/d41f1197a14bb82f12037dc47585152ae1e3074f/icons/cilantro/cilantro.svg",
+      "modifications": "none",
+      "note": ""
+    },
+    {
+      "ingredient": "mangold",
+      "file": "images/crops/mangold.svg",
+      "upstream": "https://raw.githubusercontent.com/openfarmcc/open-crop-icons/d41f1197a14bb82f12037dc47585152ae1e3074f/icons/rainbow-chard/rainbow-chard.svg",
+      "modifications": "none",
+      "note": "Illustrates mixed-colour chard."
+    },
+    {
+      "ingredient": "mynta",
+      "file": "images/crops/mynta.svg",
+      "upstream": "https://raw.githubusercontent.com/openfarmcc/open-crop-icons/d41f1197a14bb82f12037dc47585152ae1e3074f/icons/mint/mint.svg",
+      "modifications": "none",
+      "note": ""
+    },
+    {
+      "ingredient": "pak-choi",
+      "file": "images/crops/pak-choi.svg",
+      "upstream": "https://raw.githubusercontent.com/openfarmcc/open-crop-icons/d41f1197a14bb82f12037dc47585152ae1e3074f/icons/bok-choy/bok-choy.svg",
+      "modifications": "none",
+      "note": ""
+    },
+    {
+      "ingredient": "romansallat",
+      "file": "images/crops/romansallat.svg",
+      "upstream": "https://raw.githubusercontent.com/openfarmcc/open-crop-icons/d41f1197a14bb82f12037dc47585152ae1e3074f/icons/romaine/romaine.svg",
+      "modifications": "none",
+      "note": ""
+    },
+    {
+      "ingredient": "rosmarin",
+      "file": "images/crops/rosmarin.svg",
+      "upstream": "https://raw.githubusercontent.com/openfarmcc/open-crop-icons/d41f1197a14bb82f12037dc47585152ae1e3074f/icons/rosemary/rosemary.svg",
+      "modifications": "none",
+      "note": ""
+    },
+    {
+      "ingredient": "rucola",
+      "file": "images/crops/rucola.svg",
+      "upstream": "https://raw.githubusercontent.com/openfarmcc/open-crop-icons/d41f1197a14bb82f12037dc47585152ae1e3074f/icons/arugula/arugula.svg",
+      "modifications": "none",
+      "note": ""
+    },
+    {
+      "ingredient": "rattika",
+      "file": "images/crops/rattika.svg",
+      "upstream": "https://raw.githubusercontent.com/openfarmcc/open-crop-icons/d41f1197a14bb82f12037dc47585152ae1e3074f/icons/icicle-radish/icicle-radish.svg",
+      "modifications": "none",
+      "note": "Illustrates a white, elongated radish; it does not identify a Swedish cultivar."
+    },
+    {
+      "ingredient": "salladskal",
+      "file": "images/crops/salladskal.svg",
+      "upstream": "https://raw.githubusercontent.com/openfarmcc/open-crop-icons/d41f1197a14bb82f12037dc47585152ae1e3074f/icons/napa-cabbage/napa-cabbage.svg",
+      "modifications": "none",
+      "note": ""
+    },
+    {
+      "ingredient": "salladslok",
+      "file": "images/crops/salladslok.svg",
+      "upstream": "https://raw.githubusercontent.com/openfarmcc/open-crop-icons/d41f1197a14bb82f12037dc47585152ae1e3074f/icons/green-onion/green-onion.svg",
+      "modifications": "none",
+      "note": ""
+    },
+    {
+      "ingredient": "sockerart",
+      "file": "images/crops/sockerart.svg",
+      "upstream": "https://raw.githubusercontent.com/openfarmcc/open-crop-icons/d41f1197a14bb82f12037dc47585152ae1e3074f/icons/snap-pea/snap-pea.svg",
+      "modifications": "none",
+      "note": "Illustrative pea pod; the source distinguishes sugar peas from salad peas."
+    },
+    {
+      "ingredient": "spetskal",
+      "file": "images/crops/spetskal.svg",
+      "upstream": "https://raw.githubusercontent.com/openfarmcc/open-crop-icons/d41f1197a14bb82f12037dc47585152ae1e3074f/icons/pointed-cabbage/pointed-cabbage.svg",
+      "modifications": "none",
+      "note": ""
+    },
+    {
+      "ingredient": "svartkal",
+      "file": "images/crops/svartkal.svg",
+      "upstream": "https://raw.githubusercontent.com/openfarmcc/open-crop-icons/d41f1197a14bb82f12037dc47585152ae1e3074f/icons/lacianto-kale/lacianto-kale.svg",
+      "modifications": "none",
+      "note": "The upstream directory misspells lacinato as lacianto."
+    },
+    {
+      "ingredient": "timjan",
+      "file": "images/crops/timjan.svg",
+      "upstream": "https://raw.githubusercontent.com/openfarmcc/open-crop-icons/d41f1197a14bb82f12037dc47585152ae1e3074f/icons/thyme/thyme.svg",
+      "modifications": "none",
+      "note": ""
+    },
+    {
+      "ingredient": "vaxbona",
+      "file": "images/crops/vaxbona.svg",
+      "upstream": "https://raw.githubusercontent.com/openfarmcc/open-crop-icons/d41f1197a14bb82f12037dc47585152ae1e3074f/icons/wax-bean/wax-bean.svg",
+      "modifications": "none",
+      "note": ""
+    },
+    {
+      "ingredient": "vitlok",
+      "file": "images/crops/vitlok.svg",
+      "upstream": "https://raw.githubusercontent.com/openfarmcc/open-crop-icons/d41f1197a14bb82f12037dc47585152ae1e3074f/icons/garlic/garlic.svg",
+      "modifications": "none",
+      "note": ""
     }
   ]
 }

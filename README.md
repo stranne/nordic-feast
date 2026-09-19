@@ -2,7 +2,7 @@
 
 A small, Swedish-language seasonal produce calendar. Built with Zola; all pages and illustrations are local static files.
 
-**Status: local prototype with forty reviewed ingredients.** Seasonal data uses a suitable source per ingredient. The current catalogue draws on ICA, Från Sverige, SydGrönt and Hebe. See the [source review](docs/source-decision.md) for evidence and remaining coverage gaps.
+**Status: local prototype with fifty-nine reviewed ingredients.** Seasonal data uses a suitable source per ingredient. The current catalogue draws on ICA, Från Sverige, SydGrönt, Säsongens Bästa and Hebe. See the [source review](docs/source-decision.md) for evidence and remaining coverage gaps.
 
 The first corrections add June for raspberries, May for carrots, and September for plums. Unknown months remain unknown until supported by evidence.
 
@@ -77,4 +77,4 @@ GitHub Actions can build Zola and publish `public/` with GitHub's Pages artifact
 
 ## Images
 
-The forty illustrations are unmodified [Open Crop Icons](https://github.com/openfarmcc/open-crop-icons), licensed CC0. See [third-party notices](THIRD_PARTY_NOTICES.md). They are reference illustrations, not claims about a particular cultivar.
+The fifty-nine illustrations are unmodified [Open Crop Icons](https://github.com/openfarmcc/open-crop-icons), licensed CC0. See [third-party notices](THIRD_PARTY_NOTICES.md). They are reference illustrations, not claims about a particular cultivar.
