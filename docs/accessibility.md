@@ -8,12 +8,12 @@ Aim for WCAG 2.2 AA while keeping the interface minimal. This is an implementati
 - Hovering a segment shows its month and status. Keyboard focus shows the annual summary. Tooltips persist while hovered and Escape dismisses them, following [W3C's guidance on hover/focus content](https://www.w3.org/WAI/WCAG22/Understanding/content-on-hover-or-focus.html).
 - The popup is a visual equivalent of the existing accessible description, so it is hidden from the accessibility tree to avoid duplicate announcements. It contains no controls.
 - Touch opens the ingredient's labelled calendar directly. The labelled calendar and accessible descriptions work without JavaScript.
-- Green fill, empty outlined segments and hatching distinguish in-season, out-of-season and unknown months. Forced colours preserve filled, solid-outline and dashed-outline marks. Missing evidence never means out of season.
+- Green fill and empty outlined segments distinguish in-season and out-of-season months. Forced colours preserve the filled and outlined marks.
 - With enlarged text, the detail calendar wraps by whole quarters to preserve readable month labels.
 
 ## Verified locally, 2026-09-13
 
-A one-off check in headless Microsoft Edge covered the catalogue, ingredient detail, monthly listing, about page and 404. Axe reported no automatic violations against its WCAG A/AA and best-practice checks. It could not assess the two arrow glyphs' contrast automatically; their foreground/background ratio was calculated as 10.70:1. Muted text is 5.15:1, accent against paper 7.85:1, and hatching against its background 3.61:1.
+A one-off check in headless Microsoft Edge covered the catalogue, ingredient detail, monthly listing, about page and 404. Axe reported no automatic violations against its WCAG A/AA and best-practice checks. It could not assess the two arrow glyphs' contrast automatically; their foreground/background ratio was calculated as 10.70:1. Muted text is 5.15:1 and accent against paper is 7.85:1.
 
 Browser checks passed for the skip link, keyboard focus summary, Escape, one tab stop per card, Enter navigation, all twelve hover labels, moving onto the tooltip, and closing on pointer exit. Chromium's accessibility tree exposes each card's ingredient name and full annual description. Touch and JavaScript-disabled navigation also passed.
 

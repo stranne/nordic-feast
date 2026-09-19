@@ -10,18 +10,18 @@ The sample uses [ICA's Swedish seasonal calendar](https://www.ica.se/artikel/sve
 
 [Från Sverige](https://fransverige.se/om-fran-sverige/sasongsguider/) remains a candidate for the final reference. Three posters were visually inspected for comparison. This limited comparison is not independent validation of every month and not proof that either source is exhaustive. ICA also participates in the industry represented in Svenskmärkning; the sources should not be described as wholly independent.
 
-The source's month headings, together with each ingredient's `source_terms`, locate the evidence. All twelve ICA lists were read. A positive listing supports an availability claim. An omission is recorded as unknown. No season boundaries, midpoint peaks, regional offsets or storage months are inferred.
+The source's month headings, together with each ingredient's `source_terms`, locate the evidence. All twelve ICA lists were read. A positive listing supports an availability claim. The original evidence review treated an omission as inconclusive; the current product rule classifies every unlisted month as out of season. No midpoint peaks, regional offsets or storage months are inferred.
 
 ## Annual sample
 
-Numbers below are calendar months. These reproduce the positive observations in the ingredient files; all other months remain unknown. Names are normalised to everyday Swedish ingredient names. The text, images and layout of the source are not reproduced.
+Numbers below are calendar months. These reproduce the positive observations in the original sample; the current interface shows every other month as out of season. Names are normalised to everyday Swedish ingredient names. The text, images and layout of the source are not reproduced.
 
 | Ingredient | Months explicitly listed by ICA | Editorial handling |
 | --- | --- | --- |
 | Gurka | 3, 4, 5, 6, 7, 8, 9 | No assumed extension into October. |
 | Hallon | 7, 8 | June has a discrepancy to resolve; see below. |
 | Jordgubbar | 6, 7, 8 | No inferred early or late stages. |
-| Morot | 1, 2, 3, 4, 6, 7, 8, 9, 10, 11, 12 | Includes bunch carrots. May remains unknown. |
+| Morot | 1, 2, 3, 4, 6, 7, 8, 9, 10, 11, 12 | Includes bunch carrots. A later source correction made the runtime record year-round. |
 | Palsternacka | 1, 2, 9, 10, 11 | Missing winter/spring months are not filled by analogy. |
 | Plommon | 8 | A one-month listing is not evidence of a one-month national season. |
 | Päron | 8, 9, 10 | The source specifies different cultivars within these months. |
@@ -41,13 +41,13 @@ The PDFs inspected are image-based. Text extraction alone returned no text; visu
 
 ## What this establishes
 
-- It is possible to build a useful, source-attributed monthly sample without guessing missing values.
+- It is possible to build a useful, source-attributed monthly sample from explicit positive listings, while clearly documenting the product decision to classify the complement as out of season.
 - Stored produce makes winter useful, but the evidence does not support labelling exact storage versus harvest periods throughout the year.
 - A single source provides a tractable initial structure, but its omissions leave visible gaps. A fuller launch catalogue needs editorial decisions about those gaps and the preferred reference.
 - Illustrations exist for all ten sample ingredients, under an explicit CC0 licence. The pear image is a generic reference illustration for this interface; it does not depict every cultivar named by the calendar. The asparagus image depicts the green form.
 
 ## Next increment
 
-Follow the current [source decision](source-decision.md): select evidence per ingredient, correct supported gaps and expand the Swedish catalogue gradually. Preserve unknowns where evidence is insufficient. No permission-enquiry workflow is required.
+Follow the current [source decision](source-decision.md): select one primary source per ingredient, correct supported gaps and expand the Swedish catalogue gradually. Record source limitations and disagreements even though the interface remains binary. No permission-enquiry workflow is required.
 
 Nordic expansion requires separate country evidence. Swedish months are not a fallback for another country.

@@ -21,7 +21,7 @@ For an ingredient with an explicit Swedish season range from a grower or produce
 
 ## Complete comparison of the existing sample
 
-These are **positive listings**, not proposed final seasons. Unlisted months remain unknown. January–April Från Sverige files are named 2027; May–December files are named 2026. This mixed edition is what the live index currently provides, not an observed harvest year.
+These are **positive source observations**, not claims that either source is exhaustive. Under the current binary product rule, the selected primary source supplies each ingredient's in-season months and every unlisted month is shown as out of season. January–April Från Sverige files are named 2027; May–December files are named 2026. This mixed edition is what the live index currently provides, not an observed harvest year.
 
 | Ingredient | ICA calendar | Från Sverige posters |
 | --- | --- | --- |
@@ -61,7 +61,7 @@ The other sample entries also have different coverage in the table above. Longer
 | Morot | Jan-Dec | SydGront 2025 product calendar, pages 1-2 | May added; stored availability included |
 | Plommon | Aug-Sep | Hebe, Swedish plum section | September added; supplier explicitly names both months |
 
-Each ingredient page now links its own primary reference. Other ingredient records retain their existing evidence. Unresolved boundaries remain unknown; no unsupported months are filled by interpolation.
+Each ingredient page now links its own primary reference. Other ingredient records retain their existing evidence. Source differences remain documented; the interface follows the selected primary source instead of combining ranges.
 
 ## Next content pass
 
@@ -69,7 +69,7 @@ Review the remaining seven ingredients against precise Swedish evidence, then ex
 
 ## Catalogue expansion, 2026-09-13
 
-Added ten everyday vegetables, bringing the catalogue to twenty. Existing ingredient records are unchanged. All twelve months were assessed for each addition; unsupported months remain unknown.
+Added ten everyday vegetables, bringing the catalogue to twenty. Existing ingredient records are unchanged. All twelve months were assessed for each addition; under the current binary rule, months outside the supported list are out of season.
 
 | Addition | Supported months | Primary evidence |
 | --- | --- | --- |
@@ -90,7 +90,7 @@ Each addition uses an unmodified CC0 Open Crop Icons illustration pinned in `dat
 
 ## Second catalogue expansion, 2026-09-13
 
-Added ten ingredients, bringing the catalogue to thirty. Reviewed all twelve monthly lists in [ICA's Swedish seasonal calendar](https://www.ica.se/artikel/svenska-gronsaker-och-frukt-i-sasong/) for these additions. The table records positive listings; omissions remain unknown, including gaps between listed months. Existing seasonal records are unchanged.
+Added ten ingredients, bringing the catalogue to thirty. Reviewed all twelve monthly lists in [ICA's Swedish seasonal calendar](https://www.ica.se/artikel/svenska-gronsaker-och-frukt-i-sasong/) for these additions. The table records positive listings; under the current binary rule, omissions and gaps between listed months are out of season. Existing seasonal records are unchanged.
 
 | Addition | Supported months | Source locator |
 | --- | --- | --- |
@@ -124,17 +124,17 @@ Added ten ingredients, bringing the catalogue to forty. Reviewed all twelve list
 | Röd lök | Jan–Mar, Jun–Dec |
 | Savoykål | Jul–Dec |
 
-January kale is conditional on frost and Swedish availability; the detail page retains that caveat. Celery includes the synonym stjälkselleri. Red onion includes explicitly named red bunch onions, but not unspecified onions. Dill excludes generic potted herbs; parsley's July omission remains unknown. No gaps are interpolated.
+January kale is conditional on frost and Swedish availability; the detail page retains that caveat. Celery includes the synonym stjälkselleri. Red onion includes explicitly named red bunch onions, but not unspecified onions. Dill excludes generic potted herbs; parsley's July omission is classified as out of season. No gaps are interpolated into the in-season list.
 
 Existing ingredient records are unchanged. New illustrations are unmodified CC0 Open Crop Icons from the existing pinned revision, with provenance in `data/images.json`. The cherry and bean illustrations do not identify Swedish cultivars. Sort weights use existing gaps to preserve Swedish alphabetical order.
 
-## Three season states, 2026-09-14
+## Binary season states, 2026-09-19
 
-The interface now distinguishes months outside documented source ranges from missing evidence. This supersedes the earlier blanket unknown treatment for unlisted months in explicit ranges. Ingredient records explicitly store `out_of_season_months`; the UI never derives negative evidence from an omission.
+The earlier interface separated months outside documented source ranges from months where the selected source merely omitted an ingredient. That produced a third “uppgift saknas” state and required a separate `out_of_season_months` list.
 
-Applied the complement of the selected SydGrönt ranges to its nine ingredient records and of Hebe's August–September range to plums, with two exceptions from the review above: February red cabbage and June–July plums remain unknown because sources conflict. Year-round ranges have no out-of-season months. ICA and Från Sverige monthly examples retain unknown omissions, including internal gaps.
+The product now uses one consistent rule: months in `listed_months` are in season and its complement across January–December is out of season. The redundant negative-month lists and the unknown UI state were removed. Source disagreements remain in editorial notes, but the selected primary source determines the displayed classification rather than leaving a third state.
 
-These statuses describe the cited source's season, not guaranteed nationwide availability. Detail pages with out-of-season months explain that scope. No new agricultural evidence was collected for this interface change; source checked dates are unchanged.
+These two statuses describe the selected source's season, not guaranteed nationwide availability. Every detail page explains that scope. No new agricultural evidence was collected for this policy change; source checked dates are unchanged.
 
 ## Fourth catalogue expansion, 2026-09-19
 
@@ -164,6 +164,6 @@ Added nineteen ingredients, bringing the catalogue to fifty-nine. The complete p
 
 SydGrönt ranges describe the supplier's availability, including protected cultivation where applicable, not uniform national harvest boundaries. Säsongens Bästa is operated by Swedish horticultural producers through LRF Trädgård and is used where its ingredient-specific range is clearer.
 
-Two source differences are retained as unknown shoulders rather than silently resolved. Säsongens Bästa gives May–August for spring onion while SydGrönt gives May–October, so September–October are unknown. Säsongens Bästa gives July–October for sugar peas while SydGrönt starts in June, so June is unknown. SydGrönt's July–December black-kale supplier range is broader than Säsongens Bästa's qualitative harvest description beginning in September; the ingredient note states that distinction.
+Two source differences are recorded rather than silently merged. Säsongens Bästa gives May–August for spring onion while SydGrönt gives May–October; the selected primary source makes September–October out of season. Säsongens Bästa gives July–October for sugar peas while SydGrönt starts in June; the selected primary source makes June out of season. SydGrönt's July–December black-kale supplier range is broader than Säsongens Bästa's qualitative harvest description beginning in September; the ingredient note states that distinction.
 
 All nineteen illustrations are unmodified CC0 Open Crop Icons from the existing pinned revision. The radish illustration depicts a white elongated form, the chard illustration depicts mixed colours, and none of the artwork establishes a Swedish cultivar.

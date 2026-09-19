@@ -18,8 +18,8 @@
     {% set bar_labelled = true %}
     {% set bar_id = 'season-' ~ page.extra.id %}
     {% include "partials/season-bar.html" %}
-    <div class="legend"><span><i class="season-fill--listed" aria-hidden="true"></i>I säsong</span><span><i class="season-fill--out" aria-hidden="true"></i>Ur säsong</span><span><i class="season-fill--unknown" aria-hidden="true"></i>Uppgift saknas</span></div>
-    {% if season.out_of_season_months | default(value=[]) | length > 0 %}<p class="ingredient-note">Ur säsong avser tiden utanför den angivna källans säsong. Tillgång kan variera mellan odlare och år.</p>{% endif %}
+    <div class="legend"><span><i class="season-fill--listed" aria-hidden="true"></i>I säsong</span><span><i class="season-fill--out" aria-hidden="true"></i>Ur säsong</span></div>
+    {% if season.listed_months | length < 12 %}<p class="ingredient-note">Ur säsong avser månader som inte ingår i den angivna källans säsong. Tillgång kan variera mellan odlare och år.</p>{% endif %}
     {% set citation = source %}
     {% set citation_id = 'source-' ~ page.extra.id %}
     {% set citation_checked = season.checked %}

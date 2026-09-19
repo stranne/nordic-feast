@@ -64,7 +64,7 @@
     "publication_date": null,
     "basis": "domestic_seasonal_availability",
     "coverage": "explicit_month_range",
-    "review_note": "Explicitly gives May-August for Swedish spring onion. SydGrönt gives May-October, so September-October remain unknown rather than out of season."
+    "review_note": "Explicitly gives May-August for Swedish spring onion. SydGrönt gives May-October; the catalogue follows the selected primary source and therefore classifies September-October as out of season."
   },
   "sasongensbasta-artskidor": {
     "name": "Säsongens Bästa: Ärtskidor och bönor",
@@ -75,7 +75,7 @@
     "publication_date": null,
     "basis": "domestic_seasonal_availability",
     "coverage": "explicit_month_range",
-    "review_note": "The page covers sugar peas and wax beans and gives July-October as the Swedish season. SydGrönt starts sugar peas in June, so June remains unknown for that ingredient."
+    "review_note": "The page covers sugar peas and wax beans and gives July-October as the Swedish season. SydGrönt starts sugar peas in June; the catalogue follows the selected primary source and therefore classifies June as out of season."
   },
   "hebe-plommon": {
     "name": "Hebe Frukt & Grönt",
