@@ -38,10 +38,6 @@ h1 { font-size: clamp(2.7rem, 6vw, 4.7rem); line-height: 1.1; letter-spacing: -.
 .month-step { display: flex; gap: 0; }
 .month-step a { width: 44px; height: 44px; display: grid; place-items: center; font-size: 1.3rem; text-decoration: none; }
 .month-step a:hover { background: var(--wash); }
-.month-picker { margin-bottom: 16px; }
-.month-picker summary { width: fit-content; min-height: 44px; padding: 12px 4px; cursor: pointer; color: var(--accent); }
-.month-picker summary:hover { text-decoration: underline; }
-.month-picker[open] summary { margin-bottom: 8px; }
 .month-nav { display: grid; grid-template-columns: repeat(auto-fit, minmax(3em, 1fr)); gap: 8px; padding-block: 0 20px; }
 .month-nav a { display: grid; place-items: center; min-height: 44px; font-size: .88rem; text-decoration: none; color: var(--muted); }
 .month-nav a:hover { background: var(--wash); }

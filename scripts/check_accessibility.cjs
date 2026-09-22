@@ -25,7 +25,7 @@ const base = process.env.PREVIEW_URL || 'http://127.0.0.1:1111';
     await page.keyboard.press('Enter');
     assert(await page.locator(':focus').evaluate(el => !!el.closest('.ingredient-card')));
 
-    for (const [path, searchTabs] of [['/sverige/september/', 10], ['/ravaror/', 7]]) {
+    for (const [path, searchTabs] of [['/sverige/september/', 21], ['/ravaror/', 7]]) {
       await page.goto(base + path);
       // Verify the ordinary sequence as well as the shortcut, without focus().
       for (let i = 0; i < searchTabs; i++) await page.keyboard.press('Tab');
@@ -52,11 +52,8 @@ const base = process.env.PREVIEW_URL || 'http://127.0.0.1:1111';
     }
 
     await page.goto(`${base}/sverige/september/?q=morot`);
+    assert.equal(await page.locator('.month-nav a:visible').count(), 12);
     for (let i = 0; i < 9; i++) await page.keyboard.press('Tab');
-    assert.equal(await page.locator(':focus').textContent(), 'Välj månad');
-    await page.keyboard.press('Enter');
-    assert(await page.locator('.month-picker').evaluate(el => el.open));
-    await page.keyboard.press('Tab');
     assert.equal(await page.locator(':focus').getAttribute('aria-label'), 'Januari');
     await page.keyboard.press('Enter');
     await page.waitForURL(/\/sverige\/januari\/?\?q=morot$/);
@@ -65,7 +62,7 @@ const base = process.env.PREVIEW_URL || 'http://127.0.0.1:1111';
     await page.keyboard.press('Tab');
     await page.keyboard.press('Enter');
     assert.equal(await page.locator(':focus').textContent(), 'Rensa filter');
-    results.push('Month disclosure opens with Enter and preserves filters; empty-result shortcut focuses reset');
+    results.push('All twelve months immediately visible; direct keyboard selection preserves filters; empty-result shortcut focuses reset');
 
     await page.goto(`${base}/sverige/september/`);
     await page.keyboard.press('Tab');
@@ -111,7 +108,7 @@ const base = process.env.PREVIEW_URL || 'http://127.0.0.1:1111';
     for (const width of [320, 390, 760, 1280]) {
       await page.setViewportSize({ width, height: 800 });
       await page.goto(`${base}/sverige/september/`);
-      await page.locator('.month-picker summary').press('Space');
+      assert.equal(await page.locator('.month-nav a:visible').count(), 12);
       for (const size of ['100%', '200%']) {
         await page.evaluate(size => document.documentElement.style.fontSize = size, size);
         assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
@@ -135,6 +132,7 @@ const base = process.env.PREVIEW_URL || 'http://127.0.0.1:1111';
     await fallback.locator('[data-month="9"]').focus();
     await fallback.keyboard.press('Enter');
     await fallback.waitForURL(/\/sverige\/september\/?$/);
+    assert.equal(await fallback.locator('.month-nav a:visible').count(), 12);
     assert.equal(await fallback.locator('.skip-filters').isVisible(), false);
     assert.equal(await fallback.getByRole('searchbox').isVisible(), false);
     await fallback.keyboard.press('Tab');

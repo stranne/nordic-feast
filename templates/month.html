@@ -14,10 +14,7 @@
     <a href="{{ get_url(path='sverige/' ~ months[next_index].slug ~ '/') }}" data-keep-filters aria-label="Nästa månad: {{ months[next_index].name }}">{% set icon_direction = "right" %}{% include "partials/icon.html" %}</a>
   </nav>
 </div>
-<details class="month-picker">
-  <summary>Välj månad</summary>
-  {% include "partials/month-nav.html" %}
-</details>
+{% include "partials/month-nav.html" %}
 {% include "partials/ingredient-filters.html" %}
 <section id="results" aria-label="Råvaror i säsong" tabindex="-1">
 {% include "partials/ingredient-empty.html" %}
