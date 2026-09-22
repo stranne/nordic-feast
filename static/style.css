@@ -1,3 +1,17 @@
+@font-face {
+  font-family: "Lora";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/lora-latin-400.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Source Sans 3";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("fonts/source-sans-3-latin-variable.woff2") format("woff2");
+}
 :root {
   color-scheme: light;
   --paper: #f6f4ee;
@@ -9,7 +23,7 @@
   --accent: #36523e;
   --radius: 4px;
   --radius-marker: 1px;
-  font-family: "Segoe UI", system-ui, sans-serif;
+  font-family: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
   color: var(--ink);
   background: var(--paper);
   font-synthesis: none;
@@ -27,11 +41,11 @@ img { display: block; max-width: 100%; }
 .back-link { gap: .4em; }
 h1, h2, p { margin: 0; }
 h1, h2 { overflow-wrap: anywhere; }
-h1, .wordmark { font-family: "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; font-weight: 400; }
-h1 { font-size: clamp(2.7rem, 6vw, 4.7rem); line-height: 1.1; letter-spacing: -.045em; }
+h1, .wordmark { font-family: "Lora", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; font-weight: 400; }
+h1 { font-size: clamp(2.7rem, 6vw, 4.7rem); line-height: 1.1; letter-spacing: -.02em; }
 .shell { width: min(1100px, calc(100% - 96px)); margin-inline: auto; }
 .site-header { min-height: 88px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px; border-bottom: 1px solid var(--line); }
-.wordmark { font-size: 1.8rem; letter-spacing: -.06em; text-decoration: none; white-space: nowrap; }
+.wordmark { font-size: 1.8rem; letter-spacing: -.025em; text-decoration: none; }
 .wordmark span { color: #897446; }
 .site-nav { display: flex; flex-wrap: wrap; gap: 30px; font-size: .9rem; }
 .site-nav a { display: inline-flex; align-items: center; min-height: 44px; padding-block: 13px; text-decoration: none; white-space: nowrap; color: var(--muted); }
@@ -63,7 +77,7 @@ h1 { font-size: clamp(2.7rem, 6vw, 4.7rem); line-height: 1.1; letter-spacing: -.
 .ingredient-art { display: grid; place-items: center; height: 132px; }
 .ingredient-art img { width: 108px; height: 108px; object-fit: contain; }
 .ingredient-card .season-bar { margin: 16px 0 0; }
-.ingredient-card h2 { margin-top: 12px; text-align: center; font-weight: 400; font-size: 1rem; letter-spacing: -.02em; }
+.ingredient-card h2 { margin-top: 12px; text-align: center; font-weight: 400; font-size: 1.125rem; }
 .ingredient-card a:hover h2 { text-decoration: underline; text-underline-offset: .24em; }
 .back-link { display: inline-flex; align-items: center; min-height: 44px; margin-top: 24px; color: var(--muted); font-size: .9rem; text-decoration: none; }
 .ingredient-detail { display: grid; grid-template-columns: 180px minmax(0, 1fr); gap: 48px; align-items: start; max-width: 860px; margin: 40px auto 64px; }
