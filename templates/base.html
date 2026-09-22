@@ -24,13 +24,11 @@
     <nav class="site-nav" aria-label="Huvudmeny">
       <a href="{{ get_url(path='@/sverige/_index.md') }}" data-keep-filters data-nav-country {% block country_current %}{% endblock country_current %}>Sverige</a>
       <a href="{{ get_url(path='@/ravaror/_index.md') }}" data-keep-filters data-nav-ingredients {% block ingredients_current %}{% endblock ingredients_current %}>Alla råvaror</a>
+      <a href="{{ get_url(path='@/om.md') }}" data-keep-filters {% block about_current %}{% endblock about_current %}>Om</a>
     </nav>
   </header>
   <main id="innehall" class="shell" tabindex="-1">
     {% block content %}{% endblock content %}
   </main>
-  <footer class="site-footer shell">
-    <a href="{{ get_url(path='@/om.md') }}" data-keep-filters>Om kalendern</a>
-  </footer>
 </body>
 </html>

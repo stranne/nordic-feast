@@ -27,11 +27,11 @@ h1, h2 { overflow-wrap: anywhere; }
 h1, .wordmark { font-family: "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; font-weight: 400; }
 h1 { font-size: clamp(2.7rem, 6vw, 4.7rem); line-height: 1.1; letter-spacing: -.045em; }
 .shell { width: min(1100px, calc(100% - 96px)); margin-inline: auto; }
-.site-header { min-height: 88px; display: flex; align-items: center; justify-content: space-between; gap: 24px; border-bottom: 1px solid var(--line); }
+.site-header { min-height: 88px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px; border-bottom: 1px solid var(--line); }
 .wordmark { font-size: 1.8rem; letter-spacing: -.06em; text-decoration: none; white-space: nowrap; }
 .wordmark span { color: #897446; }
-.site-nav { display: flex; gap: 30px; font-size: .9rem; }
-.site-nav a { display: inline-flex; align-items: center; min-height: 44px; padding-block: 13px; text-decoration: none; color: var(--muted); }
+.site-nav { display: flex; flex-wrap: wrap; gap: 30px; font-size: .9rem; }
+.site-nav a { display: inline-flex; align-items: center; min-height: 44px; padding-block: 13px; text-decoration: none; white-space: nowrap; color: var(--muted); }
 .site-nav a[aria-current] { color: var(--ink); text-decoration: underline; text-decoration-thickness: 1px; }
 .page-heading { padding: 32px 0 20px; display: flex; flex-wrap: wrap; justify-content: flex-start; align-items: center; gap: 24px; }
 .page-heading h1 { font-size: 3.25rem; }
@@ -62,8 +62,6 @@ h1 { font-size: clamp(2.7rem, 6vw, 4.7rem); line-height: 1.1; letter-spacing: -.
 .ingredient-card .season-bar { margin: 16px 0 0; }
 .ingredient-card h2 { margin-top: 12px; text-align: center; font-weight: 400; font-size: 1rem; letter-spacing: -.02em; }
 .ingredient-card a:hover h2 { text-decoration: underline; text-underline-offset: .24em; }
-.site-footer { display: flex; justify-content: space-between; gap: 24px; margin-top: 35px; padding-block: 28px 35px; border-top: 1px solid var(--line); font-size: .84rem; color: var(--muted); }
-.site-footer a { display: inline-flex; align-items: center; min-height: 44px; }
 .back-link { display: inline-flex; align-items: center; min-height: 44px; margin-top: 24px; color: var(--muted); font-size: .9rem; text-decoration: none; }
 .ingredient-detail { display: grid; grid-template-columns: 180px minmax(0, 1fr); gap: 48px; align-items: start; max-width: 860px; margin: 40px auto 64px; }
 .ingredient-detail h1 { font-size: 3.25rem; }
@@ -73,7 +71,6 @@ h1 { font-size: clamp(2.7rem, 6vw, 4.7rem); line-height: 1.1; letter-spacing: -.
 .season-summary-label { display: block; color: var(--muted); font-size: .8rem; margin-bottom: 4px; }
 .ingredient-note { color: var(--muted); font-size: .875rem; line-height: 1.6; max-width: 42ch; margin-top: 20px; }
 .detail-copy { min-width: 0; container-type: inline-size; }
-main:has(> .ingredient-detail) + .site-footer { margin-top: 0; }
 /* Four equal quarters, each containing three equal months. Both views share this geometry. */
 .season-bar { position: relative; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; }
 .season-quarter { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; }
