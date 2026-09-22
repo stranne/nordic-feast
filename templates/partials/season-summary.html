@@ -1,0 +1,21 @@
+{# Use contiguous calendar ranges so gaps never become implied availability. #}
+<p class="season-summary">
+  <span class="season-summary-label">I säsong i {{ config.extra.country_name }}</span>
+  <span class="season-summary-range">
+    {%- if season.listed_months | length == 12 -%}
+      Hela året
+    {%- else -%}
+      {%- for number in season.listed_months -%}
+        {%- set previous = number - 1 -%}
+        {%- set next = number + 1 -%}
+        {%- set index = number - 1 -%}
+        {%- if previous not in season.listed_months -%}
+          {%- if not loop.first -%}, {% endif -%}
+          {%- if loop.first -%}{{ months[index].name }}{%- else -%}{{ months[index].name | lower }}{%- endif -%}
+        {%- elif next not in season.listed_months -%}
+          –{{ months[index].name | lower }}
+        {%- endif -%}
+      {%- endfor -%}
+    {%- endif -%}
+  </span>
+</p>

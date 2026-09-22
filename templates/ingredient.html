@@ -13,13 +13,13 @@
   <div class="detail-art"><img src="{{ get_url(path=page.extra.image) }}" alt="" width="256" height="256"></div>
   <div class="detail-copy">
     <h1>{{ page.title }}</h1>
-    {% if season.note %}<p class="ingredient-note">{{ season.note }}</p>{% endif %}
+    {% include "partials/season-summary.html" %}
     {% set bar_season = season %}
     {% set bar_labelled = true %}
     {% set bar_id = 'season-' ~ page.extra.id %}
     {% include "partials/season-bar.html" %}
     <div class="legend"><span><i class="season-fill--listed" aria-hidden="true"></i>I säsong</span><span><i class="season-fill--out" aria-hidden="true"></i>Ur säsong</span></div>
-    {% if season.listed_months | length < 12 %}<p class="ingredient-note">Ur säsong avser månader som inte ingår i den angivna källans säsong. Tillgång kan variera mellan odlare och år.</p>{% endif %}
+    {% if season.note %}<p class="ingredient-note">{{ season.note }}</p>{% endif %}
     {% set citation = source %}
     {% set citation_id = 'source-' ~ page.extra.id %}
     {% set citation_checked = season.checked %}

@@ -41,6 +41,12 @@ The monthly grid now uses unboxed illustrations and names; the full catalogue re
 
 Checks passed for month/catalogue layout at 320, 390, 760 and 1280 CSS pixels, including 200% text at 320px without horizontal overflow. Search with accent matching, category filtering, empty/reset focus, detail/back filter preservation, catalogue focus tooltips and Escape, forced-colour selection underlines, reduced-motion animation removal, and JavaScript-disabled month-to-detail navigation passed. Content validation, Zola check and build passed. The separate detail-page design study is a local proposal, not part of this implementation.
 
+## Open ingredient details, 2026-09-22
+
+The ingredient name and a plain-language season summary lead the unboxed detail layout. The labelled calendar and its two-state legend remain; ingredient notes and the source follow them. General availability guidance stays on the About page. The source label is visible on details and retains the existing tooltip and keyboard behaviour.
+
+All 59 rendered summaries were expanded back into month lists and matched against their source data, including year-round seasons, isolated months and gaps. Content validation, Zola check and build passed. Detail layouts for Plommon, Äpple, Persilja and Isbergssallad had no horizontal overflow at 320, 390, 760 and 1280 CSS pixels, including 200% text at 320px. Source focus/click, Escape and outside-click dismissal passed. Keyboard back navigation preserved the month and category; the summary, twelve calendar labels and source metadata remained available without JavaScript.
+
 ## Before release
 
 Do a manual NVDA or VoiceOver pass, including reading order and verbosity, and check keyboard use, browser zoom, and tooltip behaviour with a screen magnifier. Automated checks and accessibility-tree inspection do not replace that review. Repeat the relevant short checks when changing navigation, season bars, or layout.
