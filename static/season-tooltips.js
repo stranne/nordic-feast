@@ -35,7 +35,9 @@ for (const card of document.querySelectorAll(".ingredient-card")) {
     const bounds = tooltip.getBoundingClientRect();
     const left = Math.max(16, Math.min(bounds.left, document.documentElement.clientWidth - bounds.width - 16));
     tooltip.style.left = `${left - bounds.left}px`;
-    if (bounds.top < 8) tooltip.classList.add("season-tooltip--below");
+    const calendarHeading = card.closest(".ingredient-calendar")?.querySelector(".calendar-heading");
+    const topLimit = Math.max(8, (calendarHeading?.getBoundingClientRect().bottom || 0) + 8);
+    if (bounds.top < topLimit) tooltip.classList.add("season-tooltip--below");
   }
 
   function showYear() {

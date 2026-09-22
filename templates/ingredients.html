@@ -7,9 +7,20 @@
 {% include "partials/ingredient-filters.html" %}
 <section id="results" aria-label="Alla råvaror" tabindex="-1">
 {% include "partials/ingredient-empty.html" %}
-<ul id="ingredients" class="ingredient-grid" aria-label="Alla råvaror">
-  {% for ingredient in section.pages %}{% include "partials/card.html" %}{% endfor %}
-</ul>
+<div class="ingredient-calendar">
+  <div class="calendar-heading" aria-hidden="true">
+    <span class="calendar-key"><i></i>I säsong</span>
+    <div class="calendar-months">
+      {% set months = load_data(path='data/months.json') %}
+      {% for month in months %}
+      <span><span class="calendar-month-full">{{ month.short }}</span><span class="calendar-month-initial">{{ month.short | truncate(length=1, end="") }}</span></span>
+      {% endfor %}
+    </div>
+  </div>
+  <ul id="ingredients" class="calendar-list" aria-label="Alla råvaror">
+    {% for ingredient in section.pages %}{% include "partials/card.html" %}{% endfor %}
+  </ul>
+</div>
 </section>
 {% include "partials/ingredient-filters-script.html" %}
 {% endblock content %}

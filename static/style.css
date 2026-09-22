@@ -79,6 +79,42 @@ h1 { font-size: clamp(2.7rem, 6vw, 4.7rem); line-height: 1.1; letter-spacing: -.
 .ingredient-card .season-bar { margin: 16px 0 0; }
 .ingredient-card h2 { margin-top: 12px; text-align: center; font-weight: 400; font-size: 1.125rem; }
 .ingredient-card a:hover h2 { text-decoration: underline; text-underline-offset: .24em; }
+/* One shared month scale for the full catalogue, aligned with every season bar. */
+.ingredient-calendar { --calendar-art: 48px; --calendar-name: 172px; --calendar-gap: 16px; container-type: inline-size; }
+.filter-empty:not([hidden]) + .ingredient-calendar { display: none; }
+.calendar-heading { position: sticky; top: 0; z-index: 3; display: grid; grid-template-columns: calc(var(--calendar-art) + var(--calendar-name) + var(--calendar-gap)) minmax(0, 1fr); gap: var(--calendar-gap); align-items: center; min-height: 52px; background: var(--paper); border-bottom: 1px solid var(--line); }
+.calendar-key { display: inline-flex; align-items: center; gap: 8px; color: var(--muted); font-size: .8rem; }
+.calendar-key i { width: 20px; height: 8px; background: var(--accent); border-radius: var(--radius-marker); }
+.calendar-months { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); text-align: center; color: var(--muted); font-size: .8rem; }
+.calendar-month-initial { display: none; }
+.calendar-list { list-style: none; padding: 0 0 40px; margin: 0; }
+.calendar-list .ingredient-card { border-bottom: 1px solid var(--line); scroll-margin-block: 64px 12px; }
+.calendar-list .ingredient-card a { display: grid; grid-template-columns: var(--calendar-art) minmax(0, var(--calendar-name)) minmax(0, 1fr); gap: var(--calendar-gap); align-items: center; min-height: 76px; padding: 12px 0; scroll-margin-block: 64px 12px; }
+.calendar-list .ingredient-art { height: auto; }
+.calendar-list .ingredient-art img { width: 44px; height: 44px; }
+.calendar-list .ingredient-card h2 { margin: 0; text-align: left; font-size: 1rem; line-height: 1.3; }
+.calendar-list .ingredient-card .season-bar { margin: 0; gap: 0; }
+.calendar-list .season-quarter { gap: 0; }
+.calendar-list .season-month { display: grid; align-items: center; min-height: 44px; padding: 0; margin: 0; border-left: 1px solid var(--line); }
+.calendar-list .season-quarter:first-child .season-month:first-child { border-left: 0; }
+.calendar-list .season-fill { height: 10px; border-radius: 0; }
+.calendar-list .season-fill--out { height: 2px; background: var(--line); box-shadow: none; }
+.calendar-list .ingredient-card a:hover { background: var(--wash); }
+@container (max-width: 42em) {
+  .calendar-heading, .calendar-list { --calendar-art: 32px; --calendar-name: 88px; --calendar-gap: 8px; }
+  .calendar-list .ingredient-art img { width: 30px; height: 30px; }
+  .calendar-list .ingredient-card a { min-height: 64px; }
+  .calendar-list .ingredient-card h2 { font-size: .9rem; }
+  .calendar-month-full { display: none; }
+  .calendar-month-initial { display: inline; }
+}
+/* At enlarged text sizes, put names above their bars and keep the shared axis. */
+@container (max-width: 17em) {
+  .calendar-heading { grid-template-columns: minmax(0, 1fr); gap: 4px; padding-block: 8px; }
+  .calendar-key { display: none; }
+  .calendar-list .ingredient-card a { grid-template-columns: 32px minmax(0, 1fr); row-gap: 0; }
+  .calendar-list .ingredient-card .season-bar { grid-column: 1 / -1; margin-top: 4px; }
+}
 .back-link { display: inline-flex; align-items: center; min-height: 44px; margin-top: 24px; color: var(--muted); font-size: .9rem; text-decoration: none; }
 .ingredient-detail { display: grid; grid-template-columns: 180px minmax(0, 1fr); gap: 48px; align-items: start; max-width: 860px; margin: 40px auto 64px; }
 .ingredient-detail h1 { font-size: 3.25rem; }

@@ -114,7 +114,39 @@ const base = process.env.PREVIEW_URL || 'http://127.0.0.1:1111';
         assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
         assert(await page.locator('.month-nav a').evaluateAll(links => links.every(link => link.scrollWidth <= link.clientWidth)));
       }
+      await page.goto(`${base}/ravaror/`);
+      for (const size of ['100%', '200%']) {
+        await page.evaluate(size => document.documentElement.style.fontSize = size, size);
+        assert(await page.evaluate(() => {
+          const centers = elements => [...elements].map(el => {
+            const box = el.getBoundingClientRect();
+            return box.x + box.width / 2;
+          });
+          const months = centers(document.querySelector('.calendar-months').children);
+          return document.documentElement.scrollWidth <= innerWidth
+            && [...document.querySelectorAll('.calendar-list h2')].every(el => el.scrollWidth <= el.clientWidth)
+            && [...document.querySelectorAll('.calendar-list .season-bar')].every(bar =>
+              centers(bar.querySelectorAll('.season-month')).every((x, i) => Math.abs(x - months[i]) < 1));
+        }), `Catalogue month alignment and text reflow at ${width}px / ${size}`);
+      }
     }
+    await page.evaluate(() => { document.documentElement.style.fontSize = '100%'; scrollTo(0, 1000); });
+    assert.equal(await page.locator('.calendar-heading').evaluate(el => el.getBoundingClientRect().top), 0);
+    const firstUncoveredRow = await page.locator('.calendar-list .ingredient-card a').evaluateAll(links => {
+      const bottom = document.querySelector('.calendar-heading').getBoundingClientRect().bottom;
+      return links.findIndex(link => link.getBoundingClientRect().top >= bottom);
+    });
+    const row = page.locator('.calendar-list .ingredient-card a').nth(firstUncoveredRow);
+    await page.keyboard.press('Tab');
+    await row.focus();
+    assert(await row.locator('.season-tooltip').isVisible());
+    assert(await row.locator('.season-tooltip').evaluate(el => el.getBoundingClientRect().top >= document.querySelector('.calendar-heading').getBoundingClientRect().bottom));
+    await page.keyboard.press('Escape');
+    await page.getByRole('searchbox').fill('zzzz');
+    assert.equal(await page.locator('.calendar-heading').isVisible(), false);
+    await page.locator('.filter-empty button').click();
+    assert(await page.locator('.calendar-heading').isVisible());
+    results.push('Catalogue: shared month alignment and long names at all widths/text sizes; sticky header; tooltip clearance; empty/reset');
     await page.evaluate(() => document.documentElement.style.fontSize = '100%');
     await page.emulateMedia({ forcedColors: 'active', reducedMotion: 'reduce' });
     await page.getByRole('searchbox').focus();
@@ -144,6 +176,11 @@ const base = process.env.PREVIEW_URL || 'http://127.0.0.1:1111';
     await fallback.waitForURL('**/ravaror/**');
     assert(await fallback.locator('.ingredient-detail').isVisible());
     results.push('No-JavaScript month chooser at 200% text and keyboard month-to-detail navigation');
+    await fallback.goto(`${base}/ravaror/`);
+    assert.equal(await fallback.locator('.calendar-list .ingredient-card:visible').count(), 59);
+    assert(await fallback.locator('.calendar-heading').isVisible());
+    assert.equal(await fallback.locator('.calendar-months > span').count(), 12);
+    results.push('No-JavaScript catalogue: all 59 seasons and the shared month scale remain visible');
     await plain.close();
     assert.deepEqual(errors, []);
     console.log(JSON.stringify({ passed: results }, null, 2));
