@@ -36,7 +36,10 @@
     empty.hidden = count !== 0;
     document.dispatchEvent(new Event('ingredient-filters-change'));
     clearTimeout(announcement);
-    if (announce) announcement = setTimeout(() => { status.textContent = `${count} ${count === 1 ? 'råvara' : 'råvaror'}`; }, 200);
+    if (announce) announcement = setTimeout(() => {
+      const selection = buttons.find(button => button.dataset.category === category).textContent;
+      status.textContent = `${count} ${count === 1 ? 'råvara' : 'råvaror'}. Kategori: ${selection}.${input.value.trim() ? ` Sökning: ${input.value.trim()}.` : ''}`;
+    }, 200);
   }
 
   function update() {

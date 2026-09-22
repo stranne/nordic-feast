@@ -47,6 +47,21 @@ The ingredient name and a plain-language season summary lead the unboxed detail 
 
 All 59 rendered summaries were expanded back into month lists and matched against their source data, including year-round seasons, isolated months and gaps. Content validation, Zola check and build passed. Detail layouts for Plommon, Äpple, Persilja and Isbergssallad had no horizontal overflow at 320, 390, 760 and 1280 CSS pixels, including 200% text at 320px. Source focus/click, Escape and outside-click dismissal passed. Keyboard back navigation preserved the month and category; the summary, twelve calendar labels and source metadata remained available without JavaScript.
 
+## Homepage keyboard review, 2026-09-22
+
+The homepage redirects to the current Swedish month. The review covered that listing, the no-JavaScript month chooser and the shared catalogue controls.
+
+Findings and fixes:
+
+- Search required 20 Tab presses from a fresh page. A second skip link now reaches it with Tab, Tab, Enter. The original main-content skip link remains. Skip links stay inside the viewport when focused and are fully offscreen otherwise; the filter shortcut is hidden without JavaScript.
+- At 320px with 200% text, several abbreviated months overflowed their cells and the no-JavaScript chooser expanded the page to 429px. Both grids now reflow according to text size. The same cases fit within 320px.
+- Search relied on a disappearing placeholder and a faint bottom border. It now has a persistent visible label and a darker enclosing border. Keyboard focus uses a 3px outline on the homepage's links, search and filter buttons, consistent with [W3C's focus-visible guidance](https://www.w3.org/WAI/WCAG22/Understanding/focus-visible).
+- Month arrows now announce both direction and destination. Filter status includes the query and category as well as the result count, so different selections with equal counts produce distinct status text.
+
+`node scripts/check_accessibility.cjs` passed in headless Chrome: both skip links, typing and Escape, empty-result reset, Space activation, hidden-card exclusion, Enter to details, return-focus/filter restoration and reverse Tab. It also passed no-JavaScript month-to-detail navigation, normal and 200% text at 320/390/760/1280px, forced-colour focus and reduced motion. Axe found zero violations and zero incomplete checks on September, the catalogue and the Hallon detail page. Desktop and mobile renders were visually inspected. Content validation, Zola check and an isolated production build passed.
+
+These checks verify the exercised browser behaviour; they do not establish full WCAG conformance.
+
 ## Before release
 
 Do a manual NVDA or VoiceOver pass, including reading order and verbosity, and check keyboard use, browser zoom, and tooltip behaviour with a screen magnifier. Automated checks and accessibility-tree inspection do not replace that review. Repeat the relevant short checks when changing navigation, season bars, or layout.

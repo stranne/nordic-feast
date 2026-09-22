@@ -9,7 +9,7 @@
   <link rel="icon" href="{{ get_url(path='favicon.svg') }}" type="image/svg+xml">
   <link rel="stylesheet" href="{{ get_url(path='style.css') }}">
   <noscript><style>
-    .ingredient-filters { display: none; }
+    .ingredient-filters, .skip-filters { display: none; }
     .source-tooltip[hidden] { display: block; }
     .source-info:disabled { display: none; }
   </style></noscript>
@@ -20,6 +20,7 @@
 </head>
 <body>
   <a class="skip-link" href="#innehall">Till innehållet</a>
+  {% block skip_links %}{% endblock skip_links %}
   <header class="site-header shell">
     <a class="wordmark" href="{{ get_url(path='/') }}" data-keep-filters>Nordic Feast<span aria-hidden="true">.</span></a>
     <nav class="site-nav" aria-label="Huvudmeny">

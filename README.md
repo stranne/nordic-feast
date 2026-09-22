@@ -63,7 +63,14 @@ zola check
 zola build
 ```
 
-No frontend unit, snapshot or visual regression test suite. Use a short manual check of month navigation, narrow screens, keyboard focus, images and JavaScript-disabled navigation after interface changes. `zola check` also checks external links and can fail when a source site is temporarily unavailable; inspect that failure rather than deleting the citation.
+Run the browser accessibility regression check against the local preview with Chrome installed:
+
+```sh
+npm install --prefix .cache/a11y-tools --no-audit --no-fund playwright axe-core
+node scripts/check_accessibility.cjs
+```
+
+Set `PREVIEW_URL` for another preview address or `BROWSER_CHANNEL=msedge` to use Edge. The optional tools stay in the ignored cache and are not build dependencies. The check covers keyboard navigation, filtering and return focus, axe checks, enlarged text, forced colours, reduced motion and JavaScript-disabled navigation. No snapshot or visual regression suite is installed. `zola check` also checks external links and can fail when a source site is temporarily unavailable; inspect that failure rather than deleting the citation.
 
 ## GitHub Pages
 
