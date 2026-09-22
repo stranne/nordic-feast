@@ -87,5 +87,4 @@
   });
   window.addEventListener('popstate', readUrl);
   readUrl();
-  controls.hidden = false;
 })();
