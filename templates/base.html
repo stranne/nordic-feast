@@ -14,22 +14,23 @@
   </style></noscript>
   <script src="{{ get_url(path='season-tooltips.js') }}" defer></script>
   <script src="{{ get_url(path='source-tooltips.js') }}" defer></script>
+  <script src="{{ get_url(path='filter-navigation.js') }}" defer></script>
   {% block head %}{% endblock head %}
 </head>
 <body>
   <a class="skip-link" href="#innehall">Till innehållet</a>
   <header class="site-header shell">
-    <a class="wordmark" href="{{ get_url(path='/') }}">Nordic Feast<span aria-hidden="true">.</span></a>
+    <a class="wordmark" href="{{ get_url(path='/') }}" data-keep-filters>Nordic Feast<span aria-hidden="true">.</span></a>
     <nav class="site-nav" aria-label="Huvudmeny">
-      <a href="{{ get_url(path='@/sverige/_index.md') }}" data-nav-country {% block country_current %}{% endblock country_current %}>Sverige</a>
-      <a href="{{ get_url(path='@/ravaror/_index.md') }}" data-nav-ingredients {% block ingredients_current %}{% endblock ingredients_current %}>Alla råvaror</a>
+      <a href="{{ get_url(path='@/sverige/_index.md') }}" data-keep-filters data-nav-country {% block country_current %}{% endblock country_current %}>Sverige</a>
+      <a href="{{ get_url(path='@/ravaror/_index.md') }}" data-keep-filters data-nav-ingredients {% block ingredients_current %}{% endblock ingredients_current %}>Alla råvaror</a>
     </nav>
   </header>
   <main id="innehall" class="shell" tabindex="-1">
     {% block content %}{% endblock content %}
   </main>
   <footer class="site-footer shell">
-    <a href="{{ get_url(path='@/om.md') }}">Om kalendern</a>
+    <a href="{{ get_url(path='@/om.md') }}" data-keep-filters>Om kalendern</a>
   </footer>
 </body>
 </html>

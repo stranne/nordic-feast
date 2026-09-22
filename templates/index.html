@@ -6,7 +6,7 @@
 <div class="page-heading"><h1>Välj månad</h1></div>
 <nav class="year-grid" aria-label="Månad">
   {% for month in months %}
-  <a href="{{ get_url(path='sverige/' ~ month.slug ~ '/') }}" data-month="{{ month.number }}">{{ month.name }}</a>
+  <a href="{{ get_url(path='sverige/' ~ month.slug ~ '/') }}" data-keep-filters data-month="{{ month.number }}">{{ month.name }}</a>
   {% endfor %}
 </nav>
 {% endblock content %}

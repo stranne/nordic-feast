@@ -10,8 +10,8 @@
 <div class="page-heading">
   <h1>{{ page.title }}</h1>
   <nav class="month-step" aria-label="Byt månad">
-    <a href="{{ get_url(path='sverige/' ~ months[previous_index].slug ~ '/') }}" aria-label="{{ months[previous_index].name }}">{% set icon_direction = "left" %}{% include "partials/icon.html" %}</a>
-    <a href="{{ get_url(path='sverige/' ~ months[next_index].slug ~ '/') }}" aria-label="{{ months[next_index].name }}">{% set icon_direction = "right" %}{% include "partials/icon.html" %}</a>
+    <a href="{{ get_url(path='sverige/' ~ months[previous_index].slug ~ '/') }}" data-keep-filters aria-label="{{ months[previous_index].name }}">{% set icon_direction = "left" %}{% include "partials/icon.html" %}</a>
+    <a href="{{ get_url(path='sverige/' ~ months[next_index].slug ~ '/') }}" data-keep-filters aria-label="{{ months[next_index].name }}">{% set icon_direction = "right" %}{% include "partials/icon.html" %}</a>
   </nav>
 </div>
 {% include "partials/month-nav.html" %}

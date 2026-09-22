@@ -33,6 +33,8 @@ Search has an accessible label. Category buttons expose their pressed state, wit
 
 Browser checks passed for combined search/category filtering, case and accent matching, empty results, reset focus, keyboard activation, Escape, existing card tooltips, URL reload, browser Back and the detail back link. Return-scroll verification covered reordered URL parameters. Catalogue and detail pages had no horizontal overflow at 320, 390, 760 and 1280 CSS pixels, including 200% text at 320px. Forced-colour checks preserved the selected filter underline and focus outline. JavaScript-disabled listing and detail navigation passed. Desktop and mobile screenshots were inspected for the filter row and reduced detail illustration and spacing.
 
+Filter navigation was also checked across month arrows and tabs, the catalogue, ingredient details, About, and the home/country redirects. Search and category survived reload and new-tab navigation; Back and Forward restored each page's selection. Empty months retained the filters, and reset cleared destination links. Keyboard month navigation and the filtered layout at 390px passed.
+
 ## Before release
 
 Do a manual NVDA or VoiceOver pass, including reading order and verbosity, and check keyboard use, browser zoom, and tooltip behaviour with a screen magnifier. Automated checks and accessibility-tree inspection do not replace that review. Repeat the relevant short checks when changing navigation, season bars, or layout.

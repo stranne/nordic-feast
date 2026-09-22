@@ -34,6 +34,7 @@
     }
     for (const button of buttons) button.setAttribute('aria-pressed', String(button.dataset.category === category));
     empty.hidden = count !== 0;
+    document.dispatchEvent(new Event('ingredient-filters-change'));
     clearTimeout(announcement);
     if (announce) announcement = setTimeout(() => { status.textContent = `${count} ${count === 1 ? 'råvara' : 'råvaror'}`; }, 200);
   }
