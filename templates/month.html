@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block title %}{{ page.title }} · {{ config.title }}{% endblock title %}
 {% block country_current %}aria-current="true"{% endblock country_current %}
-{% block skip_links %}<a class="skip-link skip-filters" href="#ingredient-search">Till sök och filter</a>{% endblock skip_links %}
+{% block skip_links %}{% include "partials/listing-shortcuts.html" %}{% endblock skip_links %}
 {% block content %}
 {% set ingredients = get_section(path='ravaror/_index.md') %}
 {% set months = load_data(path='data/months.json') %}
@@ -14,8 +14,13 @@
     <a href="{{ get_url(path='sverige/' ~ months[next_index].slug ~ '/') }}" data-keep-filters aria-label="Nästa månad: {{ months[next_index].name }}">{% set icon_direction = "right" %}{% include "partials/icon.html" %}</a>
   </nav>
 </div>
-{% include "partials/month-nav.html" %}
+<details class="month-picker">
+  <summary>Välj månad</summary>
+  {% include "partials/month-nav.html" %}
+</details>
 {% include "partials/ingredient-filters.html" %}
+<section id="results" aria-label="Råvaror i säsong" tabindex="-1">
+{% include "partials/ingredient-empty.html" %}
 <ul id="ingredients" class="ingredient-grid" aria-label="Råvaror i säsong">
   {% for ingredient in ingredients.pages %}
     {% set season = ingredient.extra.seasons[config.extra.country] %}
@@ -24,5 +29,6 @@
     {% endif %}
   {% endfor %}
 </ul>
+</section>
 {% include "partials/ingredient-filters-script.html" %}
 {% endblock content %}

@@ -19,8 +19,9 @@
   {% block head %}{% endblock head %}
 </head>
 <body>
-  <a class="skip-link" href="#innehall">Till innehållet</a>
-  {% block skip_links %}{% endblock skip_links %}
+  <nav class="skip-links" aria-label="Genvägar">
+    {% block skip_links %}<a class="skip-link" href="#innehall">Till innehållet</a>{% endblock skip_links %}
+  </nav>
   <header class="site-header shell">
     <a class="wordmark" href="{{ get_url(path='/') }}" data-keep-filters>Nordic Feast<span aria-hidden="true">.</span></a>
     <nav class="site-nav" aria-label="Huvudmeny">

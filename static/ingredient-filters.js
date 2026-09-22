@@ -13,6 +13,12 @@
   }));
   let category = '';
   let announcement;
+  // The native fragment still reaches the results when JavaScript is disabled.
+  document.querySelector('.skip-results').addEventListener('click', event => {
+    const target = cards.find(({ card }) => !card.hidden)?.link || empty.querySelector('button');
+    event.preventDefault();
+    target.focus();
+  });
   const storageKey = () => {
     const params = new URLSearchParams(location.search);
     params.sort();

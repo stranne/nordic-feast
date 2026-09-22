@@ -62,6 +62,16 @@ Findings and fixes:
 
 These checks verify the exercised browser behaviour; they do not establish full WCAG conformance.
 
+## Shorter routes to food and search, 2026-09-22
+
+The earlier two-Tab search claim described activating a shortcut, not the ordinary Tab sequence. After that change, the monthly page still required 21 sequential Tabs to reach search. The main-content shortcut also stopped above the month controls instead of reaching the food.
+
+Listing pages now offer two shortcuts together when either receives focus. “Till råvarorna” is first and focuses the first visible food link. It focuses the reset button when filters have no matches. “Till sök och filter” is second and focuses search. Without JavaScript, the food shortcut uses a native fragment to focus the named results region, with the next Tab reaching the first food link. Other pages retain their main-content shortcut. This follows the [W3C bypass-block technique](https://www.w3.org/WAI/WCAG21/Techniques/general/G1): a shortcut must move focus, not just scroll.
+
+The twelve month links are inside a native details/summary disclosure. Previous/next links remain beside the page heading. Closed month links are absent from the Tab sequence; Enter or Space opens the chooser. The search controls and food results have separately named landmarks. All foods remain ordinary links, preserving native navigation and browser commands.
+
+Verified with `BROWSER_CHANNEL=msedge node scripts/check_accessibility.cjs`: from a fresh listing, Tab then Enter focuses the first food, and Tab twice then Enter focuses search. Without activating shortcuts, search takes 10 Tabs on September and 7 on the catalogue. All 44 September links and 59 catalogue links received visible focus in sequence. The check also covered month selection with retained filters, empty-result reset focus, detail navigation and return focus, no-JavaScript navigation, 200% text, narrow layouts, forced colours and reduced motion. Axe reported no violations on the three audited routes. Desktop and mobile layouts were inspected with the chooser closed and open.
+
 ## Before release
 
 Do a manual NVDA or VoiceOver pass, including reading order and verbosity, and check keyboard use, browser zoom, and tooltip behaviour with a screen magnifier. Automated checks and accessibility-tree inspection do not replace that review. Repeat the relevant short checks when changing navigation, season bars, or layout.

@@ -1,12 +1,15 @@
 {% extends "base.html" %}
 {% block title %}{{ section.title }} · {{ config.title }}{% endblock title %}
 {% block ingredients_current %}aria-current="page"{% endblock ingredients_current %}
-{% block skip_links %}<a class="skip-link skip-filters" href="#ingredient-search">Till sök och filter</a>{% endblock skip_links %}
+{% block skip_links %}{% include "partials/listing-shortcuts.html" %}{% endblock skip_links %}
 {% block content %}
 <div class="page-heading"><h1>{{ section.title }}</h1></div>
 {% include "partials/ingredient-filters.html" %}
+<section id="results" aria-label="Alla råvaror" tabindex="-1">
+{% include "partials/ingredient-empty.html" %}
 <ul id="ingredients" class="ingredient-grid" aria-label="Alla råvaror">
   {% for ingredient in section.pages %}{% include "partials/card.html" %}{% endfor %}
 </ul>
+</section>
 {% include "partials/ingredient-filters-script.html" %}
 {% endblock content %}
