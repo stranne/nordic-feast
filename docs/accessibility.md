@@ -27,6 +27,12 @@ Verified in headless Edge: native navigation ran the 180ms fade; reduced motion 
 
 The audit tools and scripts are local ignored files under `.cache/`, not application dependencies or a frontend test suite.
 
+## Search, filters and compact details, 2026-09-22
+
+Search has an accessible label. Category buttons expose their pressed state, with an underline as well as a background change. Result counts are announced after a short delay; zero results expose a reset button that returns focus to search. Hidden cards leave the tab order. The controls appear only when their script initializes.
+
+Browser checks passed for combined search/category filtering, case and accent matching, empty results, reset focus, keyboard activation, Escape, existing card tooltips, URL reload, browser Back and the detail back link. Return-scroll verification covered reordered URL parameters. Catalogue and detail pages had no horizontal overflow at 320, 390, 760 and 1280 CSS pixels, including 200% text at 320px. Forced-colour checks preserved the selected filter underline and focus outline. JavaScript-disabled listing and detail navigation passed. Desktop and mobile screenshots were inspected for the filter row and reduced detail illustration and spacing.
+
 ## Before release
 
 Do a manual NVDA or VoiceOver pass, including reading order and verbosity, and check keyboard use, browser zoom, and tooltip behaviour with a screen magnifier. Automated checks and accessibility-tree inspection do not replace that review. Repeat the relevant short checks when changing navigation, season bars, or layout.

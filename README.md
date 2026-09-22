@@ -25,6 +25,8 @@ zola serve
 
 The home page selects the current month in Stockholm time using a small optional script. Without JavaScript it provides twelve month links. Month navigation, ingredient pages, images and source links work without JavaScript. Changing months never requires a rebuild.
 
+Monthly pages and the full catalogue have an optional search field and category filters. Search ignores case and accents and combines with the selected category. Filter state is stored in the URL and carried through ingredient detail links. Returning restores the filters and, when session storage is available, the previous scroll position. Without JavaScript, the complete listing remains visible and inactive filter controls stay hidden.
+
 Month cards include a `from-month` query parameter so the detail page's optional script can point the back link to that month, display its name and keep “Sverige” selected in the main navigation, even when referrer information is unavailable. Older links also support same-site month referrers with or without a trailing slash. Visits without a known month or without JavaScript keep the “Alla råvaror” fallback.
 
 The back-link script is included directly in the generated HTML, immediately after the link. It runs during parsing without a separate download or waiting for deferred scripts, avoiding a visible change from the fallback label to the month name.

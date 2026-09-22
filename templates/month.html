@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block title %}{{ page.title }} · {{ config.title }}{% endblock title %}
 {% block country_current %}aria-current="true"{% endblock country_current %}
+{% block head %}<script src="{{ get_url(path='ingredient-filters.js') }}" defer></script>{% endblock head %}
 {% block content %}
 {% set ingredients = get_section(path='ravaror/_index.md') %}
 {% set months = load_data(path='data/months.json') %}
@@ -14,7 +15,8 @@
   </nav>
 </div>
 {% include "partials/month-nav.html" %}
-<ul class="ingredient-grid" aria-label="Råvaror i säsong">
+{% include "partials/ingredient-filters.html" %}
+<ul id="ingredients" class="ingredient-grid" aria-label="Råvaror i säsong">
   {% for ingredient in ingredients.pages %}
     {% set season = ingredient.extra.seasons[config.extra.country] %}
     {% if page.extra.month in season.listed_months %}

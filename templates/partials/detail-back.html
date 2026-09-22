@@ -6,7 +6,8 @@
   if (!link) return;
 
   const months = JSON.parse(link.dataset.months);
-  const fromMonth = new URLSearchParams(window.location.search).get("from-month");
+  const params = new URLSearchParams(window.location.search);
+  const fromMonth = params.get("from-month");
   const monthUrl = ({ slug }) => new URL(`${slug}/`, link.dataset.monthRoot);
   let month = months.find(({ number }) => String(number) === fromMonth);
 
@@ -19,9 +20,13 @@
       );
     }
   }
+  const returnUrl = month ? monthUrl(month) : new URL(link.href);
+  for (const [from, to] of [['from-q', 'q'], ['from-category', 'category']]) {
+    if (params.get(from)) returnUrl.searchParams.set(to, params.get(from));
+  }
+  link.href = returnUrl.href;
   if (!month) return;
 
-  link.href = monthUrl(month).href;
   link.querySelector("[data-back-label]").textContent = month.name;
 
   // Keep the main navigation aligned with the month context as well as the back link.

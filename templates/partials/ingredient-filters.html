@@ -1,0 +1,17 @@
+<div class="ingredient-filters" hidden>
+  <label class="ingredient-search">
+    <span class="visually-hidden">Sök råvara</span>
+    <input type="search" placeholder="Sök råvara…" autocomplete="off" aria-controls="ingredients">
+  </label>
+  <div class="category-filters" role="group" aria-label="Kategori">
+    <button type="button" data-category="" aria-pressed="true">Alla</button>
+    <button type="button" data-category="gronsaker" aria-pressed="false">Grönsaker</button>
+    <button type="button" data-category="frukt" aria-pressed="false">Frukt</button>
+    <button type="button" data-category="bar" aria-pressed="false">Bär</button>
+  </div>
+</div>
+<p class="filter-status visually-hidden" role="status" aria-live="polite" aria-atomic="true"></p>
+<div class="filter-empty" hidden>
+  <p>Inga träffar</p>
+  <button type="button">Rensa filter</button>
+</div>

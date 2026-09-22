@@ -1,4 +1,4 @@
-<li class="ingredient-card">
+<li class="ingredient-card" data-category="{{ ingredient.extra.category }}">
   <a href="{{ ingredient.permalink }}{% if page is defined and page.extra.month is defined %}?from-month={{ page.extra.month }}{% endif %}" aria-labelledby="name-{{ ingredient.extra.id }}" aria-describedby="season-{{ ingredient.extra.id }}">
     <div class="ingredient-art">
       <img src="{{ get_url(path=ingredient.extra.image) }}" alt="" width="144" height="144" decoding="async">
