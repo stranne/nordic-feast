@@ -3,6 +3,7 @@
 for (const card of document.querySelectorAll(".ingredient-card")) {
   const link = card.querySelector("a");
   const bar = card.querySelector(".season-bar");
+  if (!bar) continue;
   const tooltip = bar.querySelector(".season-tooltip");
   const content = tooltip.querySelector(".season-tooltip-content");
   const months = [...bar.querySelectorAll(".season-month")];

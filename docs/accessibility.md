@@ -4,7 +4,7 @@ Aim for WCAG 2.2 AA while keeping the interface minimal. This is an implementati
 
 ## Season bars
 
-- A card is one link and one tab stop. Its accessible name is the ingredient; its description gives all twelve month names and evidence states.
+- A card is one link and one tab stop. Its accessible name is the ingredient. Full-catalogue links also describe all twelve month names and evidence states; monthly links omit the redundant annual bar and description.
 - Hovering a segment shows its month and status. Keyboard focus shows the annual summary. Tooltips persist while hovered and Escape dismisses them, following [W3C's guidance on hover/focus content](https://www.w3.org/WAI/WCAG22/Understanding/content-on-hover-or-focus.html).
 - The popup is a visual equivalent of the existing accessible description, so it is hidden from the accessibility tree to avoid duplicate announcements. It contains no controls.
 - Touch opens the ingredient's labelled calendar directly. The labelled calendar and accessible descriptions work without JavaScript.
@@ -29,11 +29,17 @@ The audit tools and scripts are local ignored files under `.cache/`, not applica
 
 ## Search, filters and compact details, 2026-09-22
 
-Search has an accessible label. Category buttons expose their pressed state, with an underline as well as a background change. Result counts are announced after a short delay; zero results expose a reset button that returns focus to search. Hidden cards leave the tab order. The controls appear only when their script initializes.
+Search has an accessible label. Category buttons expose selection through an underline and their accessible pressed state. Result counts are announced after a short delay; zero results expose a reset button that returns focus to search. Hidden cards leave the tab order. The controls appear only when their script initializes.
 
 Browser checks passed for combined search/category filtering, case and accent matching, empty results, reset focus, keyboard activation, Escape, existing card tooltips, URL reload, browser Back and the detail back link. Return-scroll verification covered reordered URL parameters. Catalogue and detail pages had no horizontal overflow at 320, 390, 760 and 1280 CSS pixels, including 200% text at 320px. Forced-colour checks preserved the selected filter underline and focus outline. JavaScript-disabled listing and detail navigation passed. Desktop and mobile screenshots were inspected for the filter row and reduced detail illustration and spacing.
 
 Filter navigation was also checked across month arrows and tabs, the catalogue, ingredient details, About, and the home/country redirects. Search and category survived reload and new-tab navigation; Back and Forward restored each page's selection. Empty months retained the filters, and reset cleared destination links. Keyboard month navigation and the filtered layout at 390px passed.
+
+## Open listing layout, 2026-09-22
+
+The monthly grid now uses unboxed illustrations and names; the full catalogue retains annual bars below names. Header and control spacing is reduced. Month links and category buttons identify selection with underlines. Mobile months form two rows of six, and ingredient links retain visible focus outlines.
+
+Checks passed for month/catalogue layout at 320, 390, 760 and 1280 CSS pixels, including 200% text at 320px without horizontal overflow. Search with accent matching, category filtering, empty/reset focus, detail/back filter preservation, catalogue focus tooltips and Escape, forced-colour selection underlines, reduced-motion animation removal, and JavaScript-disabled month-to-detail navigation passed. Content validation, Zola check and build passed. The separate detail-page design study is a local proposal, not part of this implementation.
 
 ## Before release
 

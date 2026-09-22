@@ -27,41 +27,40 @@ h1, h2 { overflow-wrap: anywhere; }
 h1, .wordmark { font-family: "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; font-weight: 400; }
 h1 { font-size: clamp(2.7rem, 6vw, 4.7rem); line-height: 1.1; letter-spacing: -.045em; }
 .shell { width: min(1100px, calc(100% - 96px)); margin-inline: auto; }
-.site-header { min-height: 120px; display: flex; align-items: center; justify-content: space-between; gap: 24px; border-bottom: 1px solid var(--line); }
-.wordmark { font-size: 2rem; letter-spacing: -.06em; text-decoration: none; white-space: nowrap; }
+.site-header { min-height: 88px; display: flex; align-items: center; justify-content: space-between; gap: 24px; border-bottom: 1px solid var(--line); }
+.wordmark { font-size: 1.8rem; letter-spacing: -.06em; text-decoration: none; white-space: nowrap; }
 .wordmark span { color: #897446; }
 .site-nav { display: flex; gap: 30px; font-size: .9rem; }
 .site-nav a { display: inline-flex; align-items: center; min-height: 44px; padding-block: 13px; text-decoration: none; color: var(--muted); }
 .site-nav a[aria-current] { color: var(--ink); text-decoration: underline; text-decoration-thickness: 1px; }
-.page-heading { padding: 64px 0 35px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px; }
-.month-step { display: flex; gap: 10px; }
-.month-step a { width: 46px; height: 46px; display: grid; place-items: center; border: 1px solid var(--line); border-radius: 50%; font-size: 1.3rem; text-decoration: none; }
+.page-heading { padding: 32px 0 20px; display: flex; flex-wrap: wrap; justify-content: flex-start; align-items: center; gap: 24px; }
+.page-heading h1 { font-size: 3.25rem; }
+.month-step { display: flex; gap: 0; }
+.month-step a { width: 44px; height: 44px; display: grid; place-items: center; font-size: 1.3rem; text-decoration: none; }
 .month-step a:hover { background: var(--wash); }
-.month-nav { display: grid; grid-template-columns: repeat(12, 1fr); gap: 3px; padding-block: 8px 25px; }
-.month-nav a { display: grid; place-items: center; min-height: 44px; font-size: .88rem; text-decoration: none; color: var(--muted); border-radius: 3px; }
+.month-nav { display: grid; grid-template-columns: repeat(12, 1fr); gap: 8px; padding-block: 0 20px; }
+.month-nav a { display: grid; place-items: center; min-height: 44px; font-size: .88rem; text-decoration: none; color: var(--muted); }
 .month-nav a:hover { background: var(--wash); }
-.month-nav a[aria-current] { color: var(--paper); background: var(--accent); }
-.ingredient-filters { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px; margin-bottom: 20px; }
+.month-nav a[aria-current] { color: var(--ink); text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 9px; }
+.ingredient-filters { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px; margin-bottom: 16px; padding-bottom: 14px; border-bottom: 1px solid var(--line); }
 .ingredient-filters[hidden], .filter-empty[hidden], .ingredient-card[hidden] { display: none; }
-.ingredient-search { flex: 1 1 220px; max-width: 340px; }
-.ingredient-search input { width: 100%; min-height: 44px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 6px; background: var(--card); color: var(--ink); font: inherit; }
+.ingredient-search { flex: 1 1 220px; max-width: 260px; }
+.ingredient-search input { width: 100%; min-height: 44px; padding: 10px 0; border: 0; border-bottom: 1px solid var(--line); border-radius: 0; background: transparent; color: var(--ink); font: inherit; font-size: .9rem; }
 .ingredient-search input::placeholder { color: var(--muted); opacity: 1; }
 .category-filters { display: flex; flex-wrap: wrap; gap: 4px; }
-.category-filters button, .filter-empty button { min-height: 44px; padding: 10px 12px; border: 1px solid transparent; border-radius: 6px; background: transparent; color: var(--muted); font: inherit; font-size: .875rem; cursor: pointer; }
+.category-filters button, .filter-empty button { min-height: 44px; padding: 10px 12px; border: 1px solid transparent; border-radius: 0; background: transparent; color: var(--muted); font: inherit; font-size: .875rem; cursor: pointer; }
 .category-filters button:hover, .filter-empty button:hover { background: var(--wash); color: var(--ink); }
-.category-filters button[aria-pressed="true"] { background: var(--wash); color: var(--ink); border-color: var(--line); text-decoration: underline; text-underline-offset: .24em; }
+.category-filters button[aria-pressed="true"] { color: var(--ink); text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 8px; }
 .ingredient-filters :focus-visible, .filter-empty button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 .filter-empty { padding: 32px 0; color: var(--muted); }
 .filter-empty button { margin-top: 8px; text-decoration: underline; text-underline-offset: .24em; }
-.ingredient-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px 30px; padding: 8px 0 40px; margin: 0; list-style: none; }
-.ingredient-card a { display: block; position: relative; height: 100%; padding: 14px 14px 20px; text-decoration: none; background: var(--card); border: 1px solid var(--line); border-radius: 12px; }
-.ingredient-card a:focus-visible { outline-offset: 4px; border-radius: 12px; }
-.ingredient-art { display: grid; place-items: center; height: 205px; background: var(--wash); border-radius: 7px; }
-.ingredient-art img { object-fit: contain; }
-.ingredient-card .season-bar { margin: 12px 0 15px; }
-.ingredient-card h2 { font-weight: 400; font-size: 1.14rem; letter-spacing: -.02em; }
-.ingredient-card a:hover { border-color: #a5b19c; box-shadow: 0 3px 12px #293c310d; }
-.ingredient-card a:hover .ingredient-art { background: #e2e7d9; }
+.ingredient-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 28px 32px; padding: 8px 0 40px; margin: 0; list-style: none; }
+.ingredient-card a { display: block; position: relative; height: 100%; padding: 8px 0 12px; text-decoration: none; }
+.ingredient-card a:focus-visible { outline-offset: 4px; border-radius: 2px; }
+.ingredient-art { display: grid; place-items: center; height: 132px; }
+.ingredient-art img { width: 108px; height: 108px; object-fit: contain; }
+.ingredient-card .season-bar { margin: 16px 0 0; }
+.ingredient-card h2 { margin-top: 12px; text-align: center; font-weight: 400; font-size: 1rem; letter-spacing: -.02em; }
 .ingredient-card a:hover h2 { text-decoration: underline; text-underline-offset: .24em; }
 .site-footer { display: flex; justify-content: space-between; gap: 24px; margin-top: 35px; padding-block: 28px 35px; border-top: 1px solid var(--line); font-size: .84rem; color: var(--muted); }
 .site-footer a { display: inline-flex; align-items: center; min-height: 44px; }
@@ -133,8 +132,6 @@ h1 { font-size: clamp(2.7rem, 6vw, 4.7rem); line-height: 1.1; letter-spacing: -.
   @view-transition { navigation: auto; }
   main { view-transition-name: page-content; }
   .month-nav { view-transition-name: month-navigation; }
-  .ingredient-card a { transition: border-color 180ms ease, box-shadow 180ms ease; }
-  .ingredient-art { transition: background-color 180ms ease; }
   /* Keep the site chrome and month controls steady; fade only the content. */
   ::view-transition-group(*) { animation: none; }
   ::view-transition-old(root),
@@ -155,15 +152,19 @@ h1 { font-size: clamp(2.7rem, 6vw, 4.7rem); line-height: 1.1; letter-spacing: -.
 }
 @media (max-width: 760px) {
   .shell { width: calc(100% - 40px); }
-  .site-header { min-height: 100px; gap: 16px; }
+  .site-header { min-height: 80px; gap: 16px; }
   .wordmark { font-size: 1.65rem; }
   .site-nav { gap: 17px; font-size: .8rem; }
-  .page-heading { padding-top: 40px; padding-bottom: 25px; }
-  .month-nav { grid-template-columns: repeat(auto-fit, minmax(2.5rem, 1fr)); gap: 6px; }
-  .ingredient-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 23px 18px; }
-  .ingredient-card a { padding: 10px 10px 16px; }
-  .ingredient-art { height: 170px; }
-  .ingredient-art img { width: 115px; height: 115px; }
+  .page-heading { padding: 24px 0 14px; justify-content: space-between; gap: 8px; }
+  .page-heading h1 { font-size: 2.5rem; }
+  .month-nav { grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 0 4px; padding-bottom: 12px; }
+  .ingredient-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 24px; }
+  .ingredient-art { height: 110px; }
+  .ingredient-art img { width: 92px; height: 92px; }
+  .ingredient-card h2 { margin-top: 8px; }
+  .ingredient-filters { gap: 4px; margin-bottom: 12px; padding-bottom: 8px; }
+  .category-filters { width: 100%; justify-content: space-between; }
+  .category-filters button { padding-inline: 8px; }
   .ingredient-search { max-width: none; }
   .ingredient-detail { grid-template-columns: 1fr; gap: 20px; padding: 20px; }
   .detail-art { height: 120px; aspect-ratio: auto; width: 100%; }
@@ -175,10 +176,5 @@ h1 { font-size: clamp(2.7rem, 6vw, 4.7rem); line-height: 1.1; letter-spacing: -.
   .site-header { flex-wrap: wrap; justify-content: flex-start; gap: 0; padding-block: 16px 8px; }
   .wordmark { width: 100%; }
   .site-nav { gap: 24px; }
-  .ingredient-art { height: 145px; }
-  .ingredient-card h2 { font-size: 1rem; }
-  .month-step { gap: 4px; }
-  .month-step a { width: 44px; height: 44px; }
-  .page-heading { gap: 8px; }
-  .page-heading h1 { font-size: 2.25rem; }
+  .page-heading h1 { font-size: 2.15rem; }
 }
