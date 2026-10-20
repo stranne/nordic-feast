@@ -20,28 +20,28 @@ Sources do not consistently separate fresh harvest, storage and greenhouse produ
 
 ## Run locally
 
-On Windows with Python 3.11 or newer:
+On Windows:
 
 ```powershell
 .\scripts\preview.ps1
 ```
 
-This validates the content, downloads a checksum-verified Zola 0.23.6 into the ignored `.tools` directory if needed, and serves the site at http://127.0.0.1:1111. Use `-Port 1112` if the default port is occupied.
+This downloads a checksum-verified Zola 0.23.6 into the ignored `.tools` directory if needed and serves the site at http://127.0.0.1:1111. Use `-Port 1112` if the default port is occupied.
 
 With Zola 0.23.6 installed, on any platform:
 
 ```sh
-python scripts/check_content.py
 zola serve
 ```
 
 ## Checks
 
 ```sh
-python scripts/check_content.py     # content structure and references
-zola check --skip-external-links    # templates and internal links
-python scripts/check_links.py       # cited source and image credit links (network)
+zola build                          # content structure and references
+zola check --skip-external-links    # internal links in Markdown content
 ```
+
+The build stops with a message when an ingredient, source, image credit or month page is invalid, or when the weights put the catalogue out of alphabetical order. `zola serve` runs the same checks. They live in `templates/partials/check-ingredient.html` and `check-catalogue.html`. `zola check` does not render templates, so it does not run them.
 
 The browser check covers keyboard navigation, filters, axe rules, enlarged text, forced colours, reduced motion and JavaScript-disabled navigation. It needs Node.js, Chrome and a running preview:
 
@@ -54,7 +54,7 @@ Set `PREVIEW_URL` for another preview address or `BROWSER_CHANNEL=msedge` to use
 
 ## Deployment
 
-The [Site workflow](.github/workflows/site.yml) runs the checks on every pull request. On `main`, it also builds the site and deploys it to GitHub Pages. A [weekly workflow](.github/workflows/links.yml) checks that the cited sources still respond. It can fail when a source site is temporarily unavailable, so inspect a failure before changing a citation.
+The [Site workflow](.github/workflows/site.yml) runs the checks on every pull request. On `main`, it also deploys the site to GitHub Pages.
 
 To set up hosting:
 
@@ -72,8 +72,8 @@ The workflow takes the site address from Pages, so builds use the github.io addr
 | `content/ravaror/` | One ingredient per file, with its season in TOML front matter |
 | `content/sverige/` | One page per month |
 | `data/` | Sources, image provenance and month names |
-| `templates/`, `static/` | Layout, styles, scripts, fonts and icons |
-| `scripts/` | Preview, content validator, browser checks and share image |
+| `templates/`, `static/` | Layout, content checks, styles, scripts, fonts and icons |
+| `scripts/` | Preview, browser checks and share image |
 | `docs/` | [Interface behaviour](docs/interface.md), [accessibility review](docs/accessibility.md) and source reviews |
 
 ## Contributing

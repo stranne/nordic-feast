@@ -1,0 +1,31 @@
+{#- Fails the build when shared data is invalid. Renders nothing. Required: section (content/ravaror).
+    Each ingredient page checks its own data with check-ingredient.html. -#}
+{%- set months = load_data(path="data/months.json") -%}
+{%- if months | length != 12 -%}{{ throw(message="data/months.json must list twelve months") }}{%- endif -%}
+{%- for month in months -%}
+  {%- if month.number != loop.index -%}{{ throw(message="Months must be in calendar order: " ~ month.slug) }}{%- endif -%}
+  {%- set month_page = get_page(path="sverige/" ~ month.slug ~ ".md", allow_missing=true) -%}
+  {%- if not month_page or month_page.extra.month != month.number or month_page.title != month.name -%}
+    {{ throw(message="Month page does not match data/months.json: " ~ month.slug) }}
+  {%- endif -%}
+{%- endfor -%}
+
+{%- set assets = load_data(path="data/images.json") -%}
+{%- if assets.license != "CC0-1.0" or assets.license_url is not starting_with(pat="https://") -%}{{ throw(message="Missing image licence") }}{%- endif -%}
+{%- for ingredient, attributions in assets.images | group_by(attribute="ingredient") -%}
+  {%- if attributions | length > 1 -%}{{ throw(message="Duplicate image attribution: " ~ ingredient) }}{%- endif -%}
+{%- endfor -%}
+{#- Zola leaves pages without a weight out of the catalogue, so a count mismatch also finds them. -#}
+{%- if section.pages | length != assets.images | length -%}
+  {{ throw(message="The catalogue lists " ~ section.pages | length ~ " ingredients but data/images.json has " ~ assets.images | length ~ " attributions. Give every ingredient a weight and remove unused attributions.") }}
+{%- endif -%}
+
+{#- Weights must keep the catalogue in Swedish alphabetical order, where å, ä and ö follow z. -#}
+{%- set_global previous_key = "" -%}
+{%- set_global previous_title = "" -%}
+{%- for ingredient in section.pages -%}
+  {%- set key = ingredient.title | lower | replace(from="å", to="{") | replace(from="ä", to="|") | replace(from="ö", to="}") -%}
+  {%- if key <= previous_key -%}{{ throw(message="Adjust the weights so that " ~ ingredient.title ~ " comes before " ~ previous_title) }}{%- endif -%}
+  {%- set_global previous_key = key -%}
+  {%- set_global previous_title = ingredient.title -%}
+{%- endfor -%}

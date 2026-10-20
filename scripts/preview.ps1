@@ -7,8 +7,6 @@ $zolaExecutable = Join-Path $toolDirectory 'zola.exe'
 
 Push-Location $projectRoot
 try {
-    python scripts/check_content.py
-    if ($LASTEXITCODE -ne 0) { throw 'Content validation failed.' }
     if (-not (Test-Path -LiteralPath $zolaExecutable)) {
         New-Item -ItemType Directory -Path $toolDirectory -Force | Out-Null
         $archivePath = Join-Path $toolDirectory 'zola.zip'

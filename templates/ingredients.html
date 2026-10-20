@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% block checks %}{% include "partials/check-catalogue.html" %}{% endblock checks %}
 {% block meta %}
 {%- set meta_title = section.title ~ " · " ~ config.title -%}
 {%- set meta_description = "Säsongskalender för " ~ section.pages | length ~ " svenska grönsaker, frukter och bär, med källa för varje råvara." -%}

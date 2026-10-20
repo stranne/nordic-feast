@@ -6,7 +6,7 @@ Corrections and improvements are welcome. The most useful contribution is a seas
 
 - **Evidence first.** Every in-season month comes from the source named on the ingredient page. Review a change against that source, update the checked date, and record disagreements between sources in the [source review](docs/source-decision.md). Different ingredients may use different sources.
 - **Local, reviewed data.** Keep source data in the repository. Do not add a live scraper, API or AI generation to the build.
-- **The validator checks structure, not facts.** `scripts/check_content.py` catches broken references and malformed months. It cannot tell whether a month is right.
+- **The build checks structure, not facts.** `zola build` fails on broken references and malformed months. It cannot tell whether a month is right.
 - **Sources and permissions.** Attribute every source. Raise a concrete source-use restriction if you find one; a missing open licence or an unanswered permission enquiry does not block a change on its own.
 - **Country means origin.** A country view shows produce grown in that country, not the visitor's location. Add a country only with its own reviewed records.
 - **Simple, accessible interface.** Keep features visible and usable without JavaScript. See [interface behaviour](docs/interface.md) and the [accessibility review](docs/accessibility.md).
@@ -21,7 +21,7 @@ Corrections and improvements are welcome. The most useful contribution is a seas
 
 ## Add an ingredient
 
-1. Create `content/ravaror/<id>.md`, using an existing ingredient as a template. The file name and `id` must match. `weight` sets the sort order and must be unique.
+1. Create `content/ravaror/<id>.md`, using an existing ingredient as a template. The file name and `id` must match. Set `weight` to place the ingredient in Swedish alphabetical order, where å, ä and ö follow z; the build fails if the catalogue is out of order.
 2. Set `category` to `gronsaker`, `frukt` or `bar`.
 3. Add an unmodified icon from [Open Crop Icons](https://github.com/openfarmcc/open-crop-icons) at the revision in `data/images.json` as `static/images/crops/<id>.svg`.
 4. Add the icon to `data/images.json` with its exact upstream URL.
@@ -34,9 +34,11 @@ Add a record to `data/sources.json` with the source's name, publisher, URL, chec
 ## Check your change
 
 ```sh
-python scripts/check_content.py
+zola build
 zola check --skip-external-links
 ```
+
+The build stops with a message naming the ingredient or source to fix.
 
 For template, script or style changes, also run the browser checks against a running preview (Chrome or Edge required):
 

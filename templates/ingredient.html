@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% block checks %}{% include "partials/check-ingredient.html" %}{% endblock checks %}
 {% block meta %}
 {%- set season = page.extra.seasons[config.extra.country] -%}
 {%- set months = load_data(path="data/months.json") -%}

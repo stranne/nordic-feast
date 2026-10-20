@@ -1,0 +1,36 @@
+{#- Fails the build when an ingredient's data is invalid. Renders nothing. Required: page.
+    Shared data is checked once by check-catalogue.html. -#}
+{%- set id = page.extra.id -%}
+{%- if page.relative_path != "ravaror/" ~ id ~ ".md" -%}{{ throw(message="ID must match the file name: " ~ page.relative_path) }}{%- endif -%}
+{%- if not page.title -%}{{ throw(message="Missing title: " ~ id) }}{%- endif -%}
+{%- if page.extra.category not in ["gronsaker", "frukt", "bar"] -%}{{ throw(message="Unknown category: " ~ id) }}{%- endif -%}
+
+{%- set assets = load_data(path="data/images.json") -%}
+{%- set attributions = assets.images | group_by(attribute="ingredient") -%}
+{%- if id not in attributions or attributions[id][0].file != page.extra.image -%}{{ throw(message="Missing image attribution: " ~ id) }}{%- endif -%}
+{%- if attributions[id][0].upstream is not containing(pat=assets.commit) -%}{{ throw(message="Unpinned image source: " ~ id) }}{%- endif -%}
+{%- if not get_image_metadata(path=page.extra.image, allow_missing=true) -%}{{ throw(message="Missing local image: " ~ id) }}{%- endif -%}
+
+{%- set sources = load_data(path="data/sources.json") -%}
+{%- if config.extra.country not in page.extra.seasons -%}{{ throw(message="Missing active country: " ~ id) }}{%- endif -%}
+{%- for country, season in page.extra.seasons -%}
+  {%- if season.source not in sources -%}{{ throw(message="Unknown source: " ~ id ~ "/" ~ season.source) }}{%- endif -%}
+  {%- set source = sources[season.source] -%}
+  {%- if source.country != country -%}{{ throw(message="Country/source mismatch: " ~ id) }}{%- endif -%}
+  {%- if source.url is not starting_with(pat="https://") -%}{{ throw(message="Missing source URL: " ~ season.source) }}{%- endif -%}
+  {%- if not source.basis or not source.coverage -%}{{ throw(message="Undefined seasonal meaning: " ~ season.source) }}{%- endif -%}
+  {%- if source.scope is not string -%}{{ throw(message="Missing source scope (use an empty string for none): " ~ season.source) }}{%- endif -%}
+  {#- The date filter also fails on dates that do not exist. -#}
+  {%- if season.checked | date(format="%Y-%m-%d") != season.checked -%}{{ throw(message="Checked date must be YYYY-MM-DD: " ~ id) }}{%- endif -%}
+  {%- if source.checked | date(format="%Y-%m-%d") != source.checked -%}{{ throw(message="Checked date must be YYYY-MM-DD: " ~ season.source) }}{%- endif -%}
+  {%- if season.reviewed_months != range(start=1, end=13) -%}{{ throw(message="Incomplete annual review: " ~ id) }}{%- endif -%}
+  {%- set listed = season.listed_months -%}
+  {%- if not listed -%}{{ throw(message="Season must include at least one month: " ~ id) }}{%- endif -%}
+  {%- for month in listed -%}
+    {%- if month is not integer or month < 1 or month > 12 or (not loop.first and month <= listed[loop.index0 - 1]) -%}
+      {{ throw(message="Listed months must be 1–12, in calendar order and without duplicates: " ~ id) }}
+    {%- endif -%}
+  {%- endfor -%}
+  {%- if season.out_of_season_months is defined -%}{{ throw(message="Redundant out-of-season months: " ~ id) }}{%- endif -%}
+  {%- if not season.source_terms -%}{{ throw(message="Missing source locator terms: " ~ id) }}{%- endif -%}
+{%- endfor -%}
