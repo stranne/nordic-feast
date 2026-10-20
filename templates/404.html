@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}Sidan saknas · {{ config.title }}{% endblock title %}
+{% block meta %}{% set meta_title = "Sidan saknas · " ~ config.title %}{% set meta_description = config.description %}{% include "partials/meta.html" %}{% endblock meta %}
 {% block content %}
 <div class="prose"><h1>Sidan saknas</h1><a href="{{ get_url(path='/') }}" data-keep-filters>Till kalendern {% set icon_direction = "right" %}{% include "partials/icon.html" %}</a></div>
 {% endblock content %}

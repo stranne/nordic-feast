@@ -1,4 +1,5 @@
 param([int]$Port = 1111)
+# Keep the Zola version in step with .github/actions/setup-zola/action.yml.
 $ErrorActionPreference = 'Stop'
 $projectRoot = Split-Path -Parent $PSScriptRoot
 $toolDirectory = Join-Path $projectRoot '.tools/zola-0.23.6'

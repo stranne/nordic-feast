@@ -1,10 +1,17 @@
 {% extends "base.html" %}
+{% block meta %}
+{%- set meta_title = config.title ~ " · Säsongskalender för svenska råvaror" -%}
+{%- set meta_description = config.description -%}
+{%- set meta_url = current_url -%}
+{% include "partials/meta.html" %}
+{%- endblock meta %}
+{# The script redirect starts before the first render, so a page transition cannot run. #}
+{% block head %}<style>@view-transition { navigation: none; }</style>{% endblock head %}
 {% block country_current %}aria-current="page"{% endblock country_current %}
-{% block head %}<script src="{{ get_url(path='current-month.js') }}" defer></script>{% endblock head %}
 {% block content %}
 {% set months = load_data(path='data/months.json') %}
-<div class="page-heading"><h1>Välj månad</h1></div>
-<nav class="year-grid" aria-label="Månad">
+<div class="page-heading"><hgroup><p class="page-eyebrow">I säsong i {{ config.extra.country_name }}</p><h1>Välj månad</h1></hgroup></div>
+<nav class="year-grid" data-current-month-redirect aria-label="Månad">
   {% for month in months %}
   <a href="{{ get_url(path='sverige/' ~ month.slug ~ '/') }}" data-keep-filters data-month="{{ month.number }}">{{ month.name }}</a>
   {% endfor %}

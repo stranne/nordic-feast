@@ -1,5 +1,6 @@
+{# Visible text is the accessible name (WCAG 2.5.3): full names where they fit, abbreviations otherwise. #}
 <nav class="month-nav" aria-label="Månad">
   {% for month in months %}
-  <a href="{{ get_url(path='sverige/' ~ month.slug ~ '/') }}" data-keep-filters aria-label="{{ month.name }}" {% if month.number == page.extra.month %}aria-current="page"{% endif %}>{{ month.short }}</a>
+  <a href="{{ get_url(path='sverige/' ~ month.slug ~ '/') }}" data-keep-filters {% if month.number == page.extra.month %}aria-current="page"{% endif %}><span class="month-name">{{ month.name }}</span><span class="month-short">{{ month.short }}</span></a>
   {% endfor %}
 </nav>

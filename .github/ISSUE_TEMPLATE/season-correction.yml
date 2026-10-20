@@ -1,0 +1,35 @@
+name: Season correction
+description: Report a month that is wrong or missing for an ingredient.
+title: "Season: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Each ingredient follows one published source, shown on its page. A correction needs a source that states the Swedish season, for example a producer calendar or a growers' organisation. Your own observations are welcome as context. Swedish or English is fine.
+  - type: input
+    id: ingredient
+    attributes:
+      label: Ingredient
+      placeholder: Hallon
+    validations:
+      required: true
+  - type: textarea
+    id: change
+    attributes:
+      label: What should change?
+      description: Which months are wrong or missing?
+      placeholder: June should be in season.
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Source
+      description: A link to the page or document that supports the change.
+      placeholder: https://
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Anything else

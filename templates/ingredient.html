@@ -1,5 +1,13 @@
 {% extends "base.html" %}
-{% block title %}{{ page.title }} · {{ config.title }}{% endblock title %}
+{% block meta %}
+{%- set season = page.extra.seasons[config.extra.country] -%}
+{%- set months = load_data(path="data/months.json") -%}
+{%- set range | trim | lower %}{% include "partials/season-range.html" %}{% endset -%}
+{%- set meta_title = page.title ~ " · " ~ config.title -%}
+{%- set meta_description = page.title ~ " är i säsong i " ~ config.extra.country_name ~ " " ~ range ~ "." -%}
+{%- set meta_url = current_url -%}
+{% include "partials/meta.html" %}
+{%- endblock meta %}
 {% block ingredients_current %}aria-current="true"{% endblock ingredients_current %}
 {% block content %}
 {% set sources = load_data(path='data/sources.json') %}
@@ -19,7 +27,8 @@
     {% set bar_id = 'season-' ~ page.extra.id %}
     {% include "partials/season-bar.html" %}
     <div class="legend"><span><i class="season-fill--listed" aria-hidden="true"></i>I säsong</span><span><i class="season-fill--out" aria-hidden="true"></i>Ur säsong</span></div>
-    {% if season.note %}<p class="ingredient-note">{{ season.note }}</p>{% endif %}
+    {# The source scope explains periods that include storage or protected cultivation. #}
+    {% if season.note or source.scope %}<p class="ingredient-note">{{ season.note }}{% if season.note and source.scope %} {% endif %}{{ source.scope }}</p>{% endif %}
     {% set citation = source %}
     {% set citation_id = 'source-' ~ page.extra.id %}
     {% set citation_checked = season.checked %}

@@ -30,7 +30,9 @@
   -webkit-font-smoothing: antialiased;
 }
 * { box-sizing: border-box; }
-body { margin: 0; min-width: 280px; }
+/* Short pages keep the footer at the bottom of the viewport. */
+body { margin: 0; min-width: 280px; min-height: 100vh; display: flex; flex-direction: column; }
+main { flex: 1 0 auto; }
 a { color: inherit; text-underline-offset: .24em; }
 button, a { -webkit-tap-highlight-color: transparent; }
 a, button, input { border-radius: var(--radius); }
@@ -50,15 +52,23 @@ h1 { font-size: clamp(2.7rem, 6vw, 4.7rem); line-height: 1.1; letter-spacing: -.
 .site-nav { display: flex; flex-wrap: wrap; gap: 30px; font-size: .9rem; }
 .site-nav a { display: inline-flex; align-items: center; min-height: 44px; padding-block: 13px; text-decoration: none; white-space: nowrap; color: var(--muted); }
 .site-nav a[aria-current] { color: var(--ink); text-decoration: underline; text-decoration-thickness: 1px; }
-.page-heading { padding: 32px 0 20px; display: flex; flex-wrap: wrap; justify-content: flex-start; align-items: center; gap: 24px; }
-.page-heading h1 { font-size: 3.25rem; }
-.month-step { display: flex; gap: 0; }
+.page-heading { --heading-size: 3.25rem; padding: 32px 0 20px; display: flex; flex-wrap: wrap; justify-content: flex-start; align-items: flex-end; gap: 24px; }
+.page-heading h1 { font-size: var(--heading-size); }
+.page-eyebrow { color: var(--muted); font-size: .875rem; margin-bottom: 4px; }
+/* Centre the arrows on the heading line, not on the label above it. */
+.month-step { display: flex; gap: 0; margin-bottom: max(0px, (var(--heading-size) * 1.1 - 44px) / 2); }
 .month-step a { width: 44px; height: 44px; display: grid; place-items: center; font-size: 1.3rem; text-decoration: none; }
 .month-step a:hover { background: var(--wash); }
-.month-nav { display: grid; grid-template-columns: repeat(auto-fit, minmax(3em, 1fr)); gap: 8px; padding-block: 0 20px; }
+.month-nav { container-type: inline-size; display: grid; grid-template-columns: repeat(auto-fit, minmax(3em, 1fr)); gap: 8px; padding-block: 0 20px; }
 .month-nav a { display: grid; place-items: center; min-height: 44px; font-size: .88rem; text-decoration: none; color: var(--muted); }
 .month-nav a:hover { background: var(--wash); }
 .month-nav a[aria-current] { color: var(--ink); text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 9px; }
+.month-name { display: none; }
+/* rem follows enlarged text, so long names give way to abbreviations before they overflow. */
+@container (min-width: 58rem) {
+  .month-nav .month-name { display: inline; }
+  .month-nav .month-short { display: none; }
+}
 .ingredient-filters { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px; margin-bottom: 16px; padding-bottom: 14px; border-bottom: 1px solid var(--line); }
 .filter-empty[hidden], .ingredient-card[hidden] { display: none; }
 .ingredient-search { flex: 1 1 220px; max-width: 260px; }
@@ -87,6 +97,8 @@ h1 { font-size: clamp(2.7rem, 6vw, 4.7rem); line-height: 1.1; letter-spacing: -.
 .calendar-key i { width: 20px; height: 8px; background: var(--accent); border-radius: var(--radius-marker); }
 .calendar-months { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); text-align: center; color: var(--muted); font-size: .8rem; }
 .calendar-month-initial { display: none; }
+/* The current month is a visual reference only; month pages carry the same information. */
+.calendar-months .is-current-month { color: var(--ink); font-weight: 600; text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 6px; }
 .calendar-list { list-style: none; padding: 0 0 40px; margin: 0; }
 .calendar-list .ingredient-card { border-bottom: 1px solid var(--line); scroll-margin-block: 64px 12px; }
 .calendar-list .ingredient-card a { display: grid; grid-template-columns: var(--calendar-art) minmax(0, var(--calendar-name)) minmax(0, 1fr); gap: var(--calendar-gap); align-items: center; min-height: 76px; padding: 12px 0; scroll-margin-block: 64px 12px; }
@@ -99,6 +111,7 @@ h1 { font-size: clamp(2.7rem, 6vw, 4.7rem); line-height: 1.1; letter-spacing: -.
 .calendar-list .season-quarter:first-child .season-month:first-child { border-left: 0; }
 .calendar-list .season-fill { height: 10px; border-radius: 0; }
 .calendar-list .season-fill--out { height: 2px; background: var(--line); box-shadow: none; }
+.calendar-list .season-month.is-current-month { background: var(--wash); }
 .calendar-list .ingredient-card a:hover { background: var(--wash); }
 @container (max-width: 42em) {
   .calendar-heading, .calendar-list { --calendar-art: 32px; --calendar-name: 88px; --calendar-gap: 8px; }
@@ -135,6 +148,7 @@ h1 { font-size: clamp(2.7rem, 6vw, 4.7rem); line-height: 1.1; letter-spacing: -.
 .season-bar--labelled { margin: 28px 0 16px; }
 .season-bar--labelled .season-fill { height: 12px; }
 .season-label { display: block; margin-top: 10px; text-align: center; font-size: clamp(.625rem, 1.6vw, .75rem); color: var(--muted); }
+.is-current-month .season-label { color: var(--ink); font-weight: 600; text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 4px; }
 /* Enlarged text reflows whole quarters instead of overlapping month labels. */
 @container (max-width: 17em) {
   .season-bar--labelled { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 18px; }
@@ -173,6 +187,9 @@ h1 { font-size: clamp(2.7rem, 6vw, 4.7rem); line-height: 1.1; letter-spacing: -.
 .year-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 14em), 1fr)); gap: 18px; margin-bottom: 60px; }
 .year-grid a { overflow-wrap: anywhere; min-width: 0; display: flex; justify-content: space-between; padding: 24px; background: var(--wash); text-decoration: none; }
 .year-grid a:hover { text-decoration: underline; }
+.site-footer { display: flex; flex-wrap: wrap; gap: 0 28px; padding-block: 8px 24px; border-top: 1px solid var(--line); font-size: .875rem; }
+.site-footer a { display: inline-flex; align-items: center; gap: .3em; min-height: 44px; color: var(--muted); text-decoration: none; }
+.site-footer a:hover { color: var(--ink); text-decoration: underline; }
 .skip-links { border-radius: var(--radius); position: fixed; top: 0; left: 16px; z-index: 10; display: flex; flex-wrap: wrap; gap: 8px; max-width: calc(100% - 32px); padding: 8px; background: var(--paper); border: 1px solid var(--accent); transform: translateY(calc(-100% - 10px)); }
 .skip-links:focus-within { top: 8px; transform: none; }
 .skip-link { display: block; padding: 12px; min-height: 44px; }
@@ -195,7 +212,7 @@ h1 { font-size: clamp(2.7rem, 6vw, 4.7rem); line-height: 1.1; letter-spacing: -.
 @keyframes content-in { from { opacity: 0; } }
 /* Preserve both seasonal states when Windows high contrast removes backgrounds. */
 @media (forced-colors: active) {
-  .season-fill--listed { background: CanvasText; border: 1px solid CanvasText; forced-color-adjust: none; }
+  .season-fill--listed, .calendar-key i { background: CanvasText; border: 1px solid CanvasText; forced-color-adjust: none; }
   .season-fill--out { background: Canvas; border: 1px solid CanvasText; box-shadow: none; }
   .month-nav a[aria-current] { outline: 2px solid Highlight; outline-offset: -2px; }
 }
@@ -204,8 +221,7 @@ h1 { font-size: clamp(2.7rem, 6vw, 4.7rem); line-height: 1.1; letter-spacing: -.
   .site-header { min-height: 80px; gap: 16px; }
   .wordmark { font-size: 1.65rem; }
   .site-nav { gap: 17px; font-size: .8rem; }
-  .page-heading { padding: 24px 0 14px; justify-content: space-between; gap: 8px; }
-  .page-heading h1 { font-size: 2.5rem; }
+  .page-heading { --heading-size: 2.5rem; padding: 24px 0 14px; justify-content: space-between; gap: 8px; }
   .month-nav { grid-template-columns: repeat(auto-fit, minmax(max(2.75em, calc((100% - 20px) / 6)), 1fr)); gap: 0 4px; padding-bottom: 12px; }
   .ingredient-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 24px; }
   .ingredient-art { height: 110px; }
@@ -228,5 +244,5 @@ h1 { font-size: clamp(2.7rem, 6vw, 4.7rem); line-height: 1.1; letter-spacing: -.
   .site-header { flex-wrap: wrap; justify-content: flex-start; gap: 0; padding-block: 16px 8px; }
   .wordmark { width: 100%; }
   .site-nav { gap: 24px; }
-  .page-heading h1 { font-size: 2.15rem; }
+  .page-heading { --heading-size: 2.15rem; }
 }

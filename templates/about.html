@@ -1,11 +1,16 @@
 {% extends "base.html" %}
-{% block title %}{{ page.title }} · {{ config.title }}{% endblock title %}
+{% block meta %}
+{%- set meta_title = page.title ~ " · " ~ config.title -%}
+{%- set meta_description = page.description -%}
+{%- set meta_url = current_url -%}
+{% include "partials/meta.html" %}
+{%- endblock meta %}
 {% block about_current %}aria-current="page"{% endblock about_current %}
 {% block content %}
 <article class="prose">
   <h1>{{ page.title }}</h1>
   {{ page.content | safe }}
-  <h2>Källor</h2>
+  <h2 id="kallor">Källor</h2>
   {% set sources = load_data(path='data/sources.json') %}
   <ul class="source-list">
     {% for id, source in sources %}

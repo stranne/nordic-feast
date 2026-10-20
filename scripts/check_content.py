@@ -66,6 +66,7 @@ def check():
             require(source["country"] == country, f"Country/source mismatch: {identifier}")
             require(source["url"].startswith("https://"), f"Missing source URL: {source_id}")
             require(source["basis"] and source["coverage"], f"Undefined seasonal meaning: {source_id}")
+            require(type(source["scope"]) is str, f"Missing source scope (use an empty string for none): {source_id}")
             date.fromisoformat(season["checked"])
             date.fromisoformat(source["checked"])
             require(season["reviewed_months"] == MONTHS, f"Incomplete annual review: {identifier}")

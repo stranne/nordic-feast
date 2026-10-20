@@ -1,10 +1,12 @@
-base_url = "http://127.0.0.1:1111"
+# `zola serve` replaces base_url with the local preview address.
+base_url = "https://nordicfeast.stranne.se"
 title = "Nordic Feast"
+description = "Se vilka svenska grönsaker, frukter och bär som är i säsong, månad för månad, med källa för varje råvara."
 default_language = "sv"
 compile_sass = false
 build_search_index = false
 generate_feeds = false
-generate_sitemap = false
+generate_sitemap = true
 
 [markdown]
 smart_punctuation = true
@@ -12,5 +14,6 @@ smart_punctuation = true
 [extra]
 country = "se"
 country_name = "Sverige"
-# Controls search-engine indexing of the local preview; does not deploy the site.
-publication_ready = false
+repository = "https://github.com/stranne/nordic-feast"
+# Set to false to keep a deployment out of search engines.
+publication_ready = true

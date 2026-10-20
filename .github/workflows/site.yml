@@ -1,0 +1,88 @@
+name: Site
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: site-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  check:
+    name: Content and build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: ./.github/actions/setup-zola
+      - name: Validate content
+        run: python3 scripts/check_content.py
+      # Cited source links are checked weekly by links.yml, so a slow source site cannot block a change.
+      - name: Check templates and internal links
+        run: zola check --skip-external-links
+      - name: Build
+        run: zola build
+
+  accessibility:
+    name: Accessibility
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: ./.github/actions/setup-zola
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 24
+          cache: npm
+      - name: Install check tools
+        run: npm ci
+      - name: Start preview
+        run: |
+          zola serve --interface 127.0.0.1 --port 1111 > "$RUNNER_TEMP/zola-serve.log" 2>&1 &
+          for attempt in $(seq 1 30); do
+            curl --silent --fail --output /dev/null http://127.0.0.1:1111/ && exit 0
+            sleep 1
+          done
+          cat "$RUNNER_TEMP/zola-serve.log"
+          exit 1
+      # Uses the Google Chrome installed on GitHub's Ubuntu runners.
+      - name: Check accessibility
+        run: npm run check:a11y
+
+  deploy:
+    name: Deploy to GitHub Pages
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    needs: [check, accessibility]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: ./.github/actions/setup-zola
+      - id: pages
+        uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6.0.0
+      # Pages reports the custom domain once it is configured, otherwise the github.io address.
+      - name: Build
+        env:
+          BASE_URL: ${{ steps.pages.outputs.base_url }}
+        run: zola build --base-url "$BASE_URL"
+      - uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
+        with:
+          path: public
+      - id: deployment
+        uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5.0.1

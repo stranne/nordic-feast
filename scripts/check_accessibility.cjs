@@ -1,8 +1,6 @@
-// Run against the local preview. Optional audit dependencies live in .cache.
-// npm install --prefix .cache/a11y-tools --no-audit --no-fund playwright axe-core
-// node scripts/check_accessibility.cjs
-const { chromium } = require('../.cache/a11y-tools/node_modules/playwright');
-const axePath = require.resolve('../.cache/a11y-tools/node_modules/axe-core/axe.min.js');
+// Run against a running preview: npm ci, then npm run check:a11y.
+const { chromium } = require('playwright');
+const axePath = require.resolve('axe-core/axe.min.js');
 const assert = require('node:assert/strict');
 const base = process.env.PREVIEW_URL || 'http://127.0.0.1:1111';
 
@@ -54,7 +52,7 @@ const base = process.env.PREVIEW_URL || 'http://127.0.0.1:1111';
     await page.goto(`${base}/sverige/september/?q=morot`);
     assert.equal(await page.locator('.month-nav a:visible').count(), 12);
     for (let i = 0; i < 9; i++) await page.keyboard.press('Tab');
-    assert.equal(await page.locator(':focus').getAttribute('aria-label'), 'Januari');
+    assert.equal(await page.locator(':focus').innerText(), 'Januari');
     await page.keyboard.press('Enter');
     await page.waitForURL(/\/sverige\/januari\/?\?q=morot$/);
     assert.equal(await page.getByRole('searchbox').inputValue(), 'morot');
@@ -98,7 +96,7 @@ const base = process.env.PREVIEW_URL || 'http://127.0.0.1:1111';
     assert.equal(await page.locator(':focus').textContent(), 'Bär');
     results.push('Keyboard skip links, search, Escape, empty/reset, Space, hidden cards, detail return and reverse Tab');
 
-    for (const path of ['/sverige/september/', '/ravaror/', '/ravaror/hallon/']) {
+    for (const path of ['/sverige/september/', '/ravaror/', '/ravaror/hallon/', '/ravaror/bjornbar/', '/om/']) {
       await page.goto(base + path);
       await page.addScriptTag({ path: axePath });
       const audit = await page.evaluate(() => axe.run(document, { runOnly: { type: 'tag', values: ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa', 'best-practice'] } }));

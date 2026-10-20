@@ -1,8 +1,10 @@
 # Third-party material
 
+The project's own code and content are licensed under the [MIT licence](LICENSE). The material below keeps its own licence.
+
 ## Open Crop Icons
 
-Files: `static/images/crops/*.svg`
+Files: `static/images/crops/*.svg`. Six of the icons also appear in `static/social-card.png`, the share image rendered from `scripts/social-card.html`.
 
 Project: https://github.com/openfarmcc/open-crop-icons
 
@@ -39,6 +41,6 @@ Licence: **SIL Open Font License 1.1**. Complete copyright and licence notices a
 
 ## Seasonal references
 
-Seasonal observations are attributed to the sources listed in `data/sources.json`. They are not covered by the image licence. No open licence or permission for the derived seasonal dataset has been established. Do not infer publication clearance from this notice or from the availability of the original web pages.
+The in-season months are this project's own summary of the months each source lists for an ingredient. Every ingredient page names and links its source, and `data/sources.json` records how each source was reviewed. The MIT licence covers this project's selection and presentation. It does not cover the source publications, which remain with their publishers.
 
 No source photographs, poster artwork, full source articles or origin-certification logos are included.

@@ -1,5 +1,6 @@
 +++
 title = "Om kalendern"
+description = "Hur kalendern fungerar, vilka källor den bygger på och varifrån bilderna kommer."
 template = "about.html"
 +++
 

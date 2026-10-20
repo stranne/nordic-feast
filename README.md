@@ -1,12 +1,24 @@
 # Nordic Feast
 
-A small, Swedish-language seasonal produce calendar. Built with Zola; all pages and illustrations are local static files.
+A Swedish-language calendar of Swedish vegetables, fruit and berries in season, month by month. Every ingredient cites the source its season comes from.
 
-**Status: local prototype with fifty-nine reviewed ingredients.** Seasonal data uses a suitable source per ingredient. The current catalogue draws on ICA, Från Sverige, SydGrönt, Säsongens Bästa and Hebe. See the [source review](docs/source-decision.md) for evidence and source differences.
+**Site:** https://nordicfeast.stranne.se
 
-The first corrections add June for raspberries, May for carrots, and September for plums. Every month not listed for an ingredient is classified as out of season.
+![The full catalogue: each ingredient's season as a bar across the twelve months](docs/screenshot.png)
 
-## Preview
+- **Month pages** show which of the 59 ingredients are in season, with search and category filters.
+- **The catalogue** shows every ingredient's season on one shared month scale.
+- **Ingredient pages** show the season as a labelled calendar with a link to its source.
+
+The site is static, built with [Zola](https://www.getzola.org/). Every page works without JavaScript; small optional scripts open the current month and remember filters. Accessibility is a design requirement, not an add-on.
+
+## How the season data works
+
+Each ingredient in `content/ravaror/` uses one primary source, chosen per ingredient: ICA, Från Sverige, SydGrönt, Säsongens Bästa or Hebe. A month the source lists is **in season**; every other month is **out of season**. There are no estimated peaks or harvest windows.
+
+Sources do not consistently separate fresh harvest, storage and greenhouse production, so periods can include stored or protected-grown produce. Ingredient notes say so where it matters. The [source review](docs/source-decision.md) records how each source was evaluated and where sources disagree.
+
+## Run locally
 
 On Windows with Python 3.11 or newer:
 
@@ -14,78 +26,60 @@ On Windows with Python 3.11 or newer:
 .\scripts\preview.ps1
 ```
 
-This validates the content, downloads a checksum-verified Zola 0.23.6 into the ignored `.tools` directory if needed, and serves the site at http://127.0.0.1:1111. Stop with Ctrl+C. Use `-Port 1112` if the default port is occupied.
+This validates the content, downloads a checksum-verified Zola 0.23.6 into the ignored `.tools` directory if needed, and serves the site at http://127.0.0.1:1111. Use `-Port 1112` if the default port is occupied.
 
-With Zola 0.23.6 already installed, on any supported platform:
+With Zola 0.23.6 installed, on any platform:
 
 ```sh
 python scripts/check_content.py
 zola serve
 ```
 
-The home page selects the current month in Stockholm time using a small optional script. Without JavaScript it provides twelve month links. Month navigation, ingredient pages, images and source links work without JavaScript. Changing months never requires a rebuild.
-
-Monthly pages and the full catalogue have an optional search field and category filters. Search ignores case and accents and combines with the selected category. Filter state is stored in the URL and carried through month navigation, the main menu, ingredient details and the About page. The home page and country redirects also preserve filters. Clearing a filter updates destination links immediately; browser history and links opened in new tabs retain their own selection. Returning from a detail restores the filters and, when session storage is available, the previous scroll position. Without JavaScript, the complete listing remains visible and inactive filter controls stay hidden.
-
-Month cards include a `from-month` query parameter so the detail page's optional script can point the back link to that month, display its name and keep “Sverige” selected in the main navigation, even when referrer information is unavailable. Older links also support same-site month referrers with or without a trailing slash. Visits without a known month or without JavaScript keep the “Alla råvaror” fallback.
-
-The back-link script is included directly in the generated HTML, immediately after the link. It runs during parsing without a separate download or waiting for deferred scripts, avoiding a visible change from the fallback label to the month name.
-
-## Content
-
-- `content/ravaror/`: one ingredient per Markdown file, with country-specific seasonal evidence in TOML frontmatter.
-- `data/sources.json`: source provenance, meaning and checked dates.
-- `data/images.json`: exact upstream image URLs, revision, licence and any modifications.
-- `data/months.json`: Swedish month labels and URLs.
-- `templates/` and `static/style.css`: the shared layout and visual design.
-
-Source citations share `templates/partials/source.html`. Set `citation` to a record from `data/sources.json` and `citation_id` to a unique ID on the page; optionally set `citation_checked` to the ingredient's review date. The component uses a small, muted inline source link with a document icon and an assistive-text “Källa” label. Hovering or focusing the citation reveals the checked date and publisher; tapping the document icon also opens the information. The source link navigates normally; Escape and outside taps dismiss it. Without JavaScript the metadata stays visible. Used on ingredient pages and the about page's source list. Ingredient details use an open layout with the illustration beside the name and season summary. The source is an unbordered metadata line with a visible “Källa” label. Ingredient-specific notes sit below the labelled calendar; general guidance remains on the About page.
-
-`listed_months` is the single source of truth for the binary season status. A listed month is **in season**; every other calendar month is **out of season**. The selected source can support the list through monthly guidance, a calendar or a stated range. `reviewed_months` records which months were assessed against that source. No separate negative-month list is stored, and no early, peak, late, harvest or storage periods are calculated. The detail summary groups consecutive listed months in calendar order and preserves gaps, for example “Juni, augusti–november”. Twelve listed months render as “Hela året”. This summary is rendered by `templates/partials/season-summary.html` without JavaScript.
-
-Monthly listings show unboxed illustrations and names, with four columns on desktop and two on narrow screens. Annual bars are omitted because the selected month already establishes season status. The full catalogue uses calendar rows with an illustration, name and annual bar aligned under one sticky month header. Solid green bars mark in-season months; thin neutral tracks mark the rest. Month initials replace abbreviations on narrow screens. At enlarged text sizes, names move above the bars while the shared month scale stays aligned. Empty searches hide the calendar header. Ingredient pages retain their labelled, quarter-grouped bars and two-state legend. Both views share `templates/partials/season-bar.html` and expose a full month-by-month text alternative to assistive technology. The bars need no JavaScript. Hovering an ingredient subtly highlights the row and underlines its name; season bars show no popups on hover or keyboard focus. Each ingredient remains a single tab stop, and touch users open the labelled detail page normally.
-
-Accessibility is a design requirement: Swedish document language, landmarks, skip link, visible keyboard focus, descriptive navigation, patterned season states, and Windows high-contrast styles. Ingredient links sit directly on the page, with a visible focus outline and an underlined name on hover. Selected months and categories use underlines, and controls retain their 44px height. Supporting browsers crossfade page content over 180ms while keeping the header and month controls steady; reduced-motion preferences disable transitions. Other browsers use normal navigation. There is no smooth scrolling. Diagonal arrows identify external links only. After UI changes, check keyboard-only navigation (including skip link, visible ingredient focus and Enter), narrow/zoomed layouts, forced colours, reduced motion, and the JavaScript-disabled detail view. A manual screen-reader pass with NVDA or VoiceOver is still needed before claiming accessibility conformance; automated checks alone are insufficient.
-
-On listing pages, the first keyboard shortcut, “Till råvarorna”, focuses the first visible ingredient with Tab then Enter. Tab twice then Enter activates “Till sök och filter”. Both shortcuts appear together on keyboard focus. With JavaScript disabled, the food shortcut focuses the results region; another Tab reaches its first link. Empty filtered results send the shortcut to “Rensa filter”. The month page keeps previous/next links and all twelve month links immediately visible for direct selection. Keep basic features visible and directly usable; do not add an expand step to month navigation, search or filters. Search and results have named landmarks for assistive navigation. Ingredient links retain their normal Tab and Enter behaviour.
-
-See the [accessibility review](docs/accessibility.md) for verified behaviour and remaining release checks.
-
-Keep source data local. Do not introduce a live scraper, API or AI generation into the build. Review changes against the source, update the checked date, and record disagreements in the evidence review. The validator checks structure and references; it cannot verify agricultural facts. Use different sources where appropriate. Raise concrete source-use restrictions if discovered; permission enquiries and missing open licences are not blanket project gates.
-
-Restart `zola serve` after changing files in `data/`; that directory is outside Zola's default watched content paths. The normal content, template and CSS edits reload automatically.
-
-The sources do not separate storage and greenhouse production consistently. Country means the origin of the produce, not the visitor's location. The data structure keeps countries separate; additional country views should only be added with their own reviewed records.
-
 ## Checks
 
 ```sh
-python scripts/check_content.py
-zola check
-zola build
+python scripts/check_content.py     # content structure and references
+zola check --skip-external-links    # templates and internal links
+python scripts/check_links.py       # cited source and image credit links (network)
 ```
 
-Run the browser accessibility regression check against the local preview with Chrome installed:
+The browser check covers keyboard navigation, filters, axe rules, enlarged text, forced colours, reduced motion and JavaScript-disabled navigation. It needs Node.js, Chrome and a running preview:
 
 ```sh
-npm install --prefix .cache/a11y-tools --no-audit --no-fund playwright axe-core
-node scripts/check_accessibility.cjs
+npm ci
+npm run check:a11y
 ```
 
-Set `PREVIEW_URL` for another preview address or `BROWSER_CHANNEL=msedge` to use Edge. The optional tools stay in the ignored cache and are not build dependencies. The check covers keyboard navigation, filtering and return focus, axe checks, enlarged text, forced colours, reduced motion and JavaScript-disabled navigation. No snapshot or visual regression suite is installed. `zola check` also checks external links and can fail when a source site is temporarily unavailable; inspect that failure rather than deleting the citation.
+Set `PREVIEW_URL` for another preview address or `BROWSER_CHANNEL=msedge` to use Edge. The npm packages are development checks only; the site has no npm dependencies.
 
-## GitHub Pages
+## Deployment
 
-The site supports a project subpath through Zola's `base_url`; templates resolve assets and internal links with Zola. For example:
+The [Site workflow](.github/workflows/site.yml) runs the checks on every pull request. On `main`, it also builds the site and deploys it to GitHub Pages. A [weekly workflow](.github/workflows/links.yml) checks that the cited sources still respond. It can fail when a source site is temporarily unavailable, so inspect a failure before changing a citation.
 
-```sh
-zola build --base-url https://OWNER.github.io/nordic-feast
-```
+To set up hosting:
 
-There is no deployment workflow yet. When preparing a release, run the checks above, configure the public `base_url`, and set `publication_ready = true` to allow search-engine indexing. The preview currently includes `noindex`; the flag does not deploy anything.
+1. In the repository settings, set **Pages → Source** to **GitHub Actions**.
+2. Verify `stranne.se` under **GitHub account settings → Pages** to protect the domain from takeover.
+3. Add a DNS `CNAME` record from `nordicfeast.stranne.se` to `stranne.github.io`.
+4. Set **Pages → Custom domain** to `nordicfeast.stranne.se` and enable **Enforce HTTPS** once the certificate is issued.
 
-GitHub Actions can build Zola and publish `public/` with GitHub's Pages artifact workflow. See [Zola's deployment documentation](https://www.getzola.org/documentation/deployment/github-pages/).
+The workflow takes the site address from Pages, so builds use the github.io address until the custom domain is active. `base_url` in `zola.toml` only affects local `zola build`.
 
-## Images
+## Project layout
 
-The fifty-nine illustrations are unmodified [Open Crop Icons](https://github.com/openfarmcc/open-crop-icons), licensed CC0. See [third-party notices](THIRD_PARTY_NOTICES.md). They are reference illustrations, not claims about a particular cultivar.
+| Path | Contents |
+| --- | --- |
+| `content/ravaror/` | One ingredient per file, with its season in TOML front matter |
+| `content/sverige/` | One page per month |
+| `data/` | Sources, image provenance and month names |
+| `templates/`, `static/` | Layout, styles, scripts, fonts and icons |
+| `scripts/` | Preview, content validator, browser checks and share image |
+| `docs/` | [Interface behaviour](docs/interface.md), [accessibility review](docs/accessibility.md) and source reviews |
+
+## Contributing
+
+Season corrections with a source are especially welcome. See [CONTRIBUTING.md](CONTRIBUTING.md).
+
+## Licence
+
+The code and content are available under the [MIT licence](LICENSE). The illustrations are [Open Crop Icons](https://github.com/openfarmcc/open-crop-icons) (CC0), and the fonts and interface icons keep their own licences. See [third-party notices](THIRD_PARTY_NOTICES.md). The illustrations show each ingredient in general, not a particular cultivar.

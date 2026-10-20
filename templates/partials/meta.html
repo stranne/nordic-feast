@@ -1,0 +1,7 @@
+{# Required: meta_title, meta_description. Optional: meta_url (canonical; unknown on the 404 page). #}
+<title>{{ meta_title }}</title>
+  <meta name="description" content="{{ meta_description }}">
+  <meta property="og:title" content="{{ meta_title }}">
+  <meta property="og:description" content="{{ meta_description }}">
+  {% if meta_url is defined %}<link rel="canonical" href="{{ meta_url }}">
+  <meta property="og:url" content="{{ meta_url }}">{% endif %}

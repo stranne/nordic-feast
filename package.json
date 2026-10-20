@@ -1,0 +1,14 @@
+{
+  "name": "nordic-feast",
+  "private": true,
+  "description": "Development checks for Nordic Feast. The site itself is built by Zola and has no npm dependencies.",
+  "license": "MIT",
+  "scripts": {
+    "check:a11y": "node scripts/check_accessibility.cjs",
+    "social-card": "node scripts/render_social_card.cjs"
+  },
+  "devDependencies": {
+    "axe-core": "^4.14.0",
+    "playwright": "^1.64.1"
+  }
+}

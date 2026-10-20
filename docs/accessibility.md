@@ -71,6 +71,20 @@ All twelve month links remain visible for direct selection, with previous/next l
 
 The regression check covers the restored visible month navigation: from a fresh listing, Tab then Enter focuses the first food, and Tab twice then Enter focuses search. Without activating shortcuts, search takes 21 Tabs on September and 7 on the catalogue. It checks visible focus for all 44 September links and 59 catalogue links, immediate visibility of all twelve months, month selection with retained filters, empty-result reset focus, detail navigation and return focus, no-JavaScript navigation, 200% text, narrow layouts, forced colours, reduced motion and axe audits on three routes.
 
+## Label in name, current month and footer, 2026-10-20
+
+axe-core 4.14 enables its label-in-name rule (WCAG 2.5.3, Level A), which earlier versions marked experimental. Month links failed it: they showed “Sep” while their accessible name was “September”. Month links now use their visible text as the accessible name. They show full names when the navigation is at least 58rem wide and abbreviations otherwise, so enlarged text switches to abbreviations before names overflow.
+
+Other changes in this round:
+
+- Listing pages and the home page have a short label above the heading, grouped with it in an `hgroup`.
+- A footer landmark links to the sources on the About page and to the source code.
+- The current month is marked in the catalogue header, as a column in the catalogue, and in ingredient calendar labels. It uses an underline and heavier text, not colour alone, and is a visual reference only.
+- The catalogue's “I säsong” key swatch was invisible under forced colours. It now uses the same forced-colour fill as the season bars.
+- Ingredient pages show the source's scope note, for example that a supplier calendar can include storage and protected cultivation.
+
+`npm run check:a11y` passed in headless Chrome, with axe on five routes: September, the catalogue, Hallon, Björnbär and the About page. Month pages, the catalogue and an ingredient page were inspected at 1280 and 390px, and the catalogue under forced colours. The browser check now installs from `package.json` and runs on every pull request.
+
 ## Before release
 
 Do a manual NVDA or VoiceOver pass, including reading order and verbosity, and check keyboard use, browser zoom, and tooltip behaviour with a screen magnifier. Automated checks and accessibility-tree inspection do not replace that review. Repeat the relevant short checks when changing navigation, season bars, or layout.

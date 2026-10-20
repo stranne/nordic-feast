@@ -1,5 +1,11 @@
 {% extends "base.html" %}
-{% block title %}{{ page.title }} · {{ config.title }}{% endblock title %}
+{% block meta %}
+{%- set month_name = page.title | lower -%}
+{%- set meta_title = "I säsong i " ~ month_name ~ " · " ~ config.title -%}
+{%- set meta_description = "Svenska grönsaker, frukter och bär i säsong i " ~ month_name ~ "." -%}
+{%- set meta_url = current_url -%}
+{% include "partials/meta.html" %}
+{%- endblock meta %}
 {% block country_current %}aria-current="true"{% endblock country_current %}
 {% block skip_links %}{% include "partials/listing-shortcuts.html" %}{% endblock skip_links %}
 {% block content %}
@@ -8,7 +14,7 @@
 {% set previous_index = (page.extra.month + 10) % 12 %}
 {% set next_index = page.extra.month % 12 %}
 <div class="page-heading">
-  <h1>{{ page.title }}</h1>
+  <hgroup><p class="page-eyebrow">I säsong i {{ config.extra.country_name }}</p><h1>{{ page.title }}</h1></hgroup>
   <nav class="month-step" aria-label="Byt månad">
     <a href="{{ get_url(path='sverige/' ~ months[previous_index].slug ~ '/') }}" data-keep-filters aria-label="Föregående månad: {{ months[previous_index].name }}">{% set icon_direction = "left" %}{% include "partials/icon.html" %}</a>
     <a href="{{ get_url(path='sverige/' ~ months[next_index].slug ~ '/') }}" data-keep-filters aria-label="Nästa månad: {{ months[next_index].name }}">{% set icon_direction = "right" %}{% include "partials/icon.html" %}</a>

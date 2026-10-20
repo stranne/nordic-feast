@@ -4,7 +4,16 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light">
-  <title>{% block title %}{{ config.title }}{% endblock title %}</title>
+  <meta name="theme-color" content="#f6f4ee">
+  {% block meta %}{% set meta_title = config.title %}{% set meta_description = config.description %}{% include "partials/meta.html" %}{% endblock meta %}
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="{{ config.title }}">
+  <meta property="og:locale" content="sv_SE">
+  <meta property="og:image" content="{{ get_url(path='social-card.png') }}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="{{ config.title }}: svenska grönsaker, frukter och bär i säsong">
+  <meta name="twitter:card" content="summary_large_image">
   {% if not config.extra.publication_ready %}<meta name="robots" content="noindex, nofollow">{% endif %}
   <link rel="icon" href="{{ get_url(path='favicon.svg') }}" type="image/svg+xml">
   <link rel="preload" href="{{ get_url(path='fonts/lora-latin-400.woff2') }}" as="font" type="font/woff2" crossorigin>
@@ -15,6 +24,7 @@
     .source-tooltip[hidden] { display: block; }
     .source-info:disabled { display: none; }
   </style></noscript>
+  <script src="{{ get_url(path='current-month.js') }}" defer></script>
   <script src="{{ get_url(path='source-tooltips.js') }}" defer></script>
   <script src="{{ get_url(path='filter-navigation.js') }}" defer></script>
   {% block head %}{% endblock head %}
@@ -34,5 +44,9 @@
   <main id="innehall" class="shell" tabindex="-1">
     {% block content %}{% endblock content %}
   </main>
+  <footer class="site-footer shell">
+    <a href="{{ get_url(path='@/om.md') }}#kallor" data-keep-filters>Källor och bilder</a>
+    {% if config.extra.repository %}<a href="{{ config.extra.repository }}">Källkod på GitHub {% set icon_direction = "up-right" %}{% include "partials/icon.html" %}</a>{% endif %}
+  </footer>
 </body>
 </html>

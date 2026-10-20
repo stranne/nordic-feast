@@ -8,6 +8,7 @@
     "publication_date": null,
     "basis": "domestic_availability_including_storage",
     "coverage": "positive_monthly_lists",
+    "scope": "",
     "review_note": "All twelve monthly lists reviewed. Positive examples, not proof of absence or complete season boundaries. See docs/source-decision.md. All twelve lists reviewed again on 2026-09-14 for the third catalogue expansion; conditional January kale availability retained in its ingredient note."
   },
   "fran-sverige": {
@@ -19,6 +20,7 @@
     "publication_date": null,
     "basis": "domestic_seasonal_guidance",
     "coverage": "positive_monthly_posters",
+    "scope": "",
     "review_note": "All twelve currently linked posters visually reviewed for the ten sample ingredients. January-April filenames are 2027; May-December are 2026. Used for raspberries listed in June-August. See docs/evidence/source-comparison-2026-09-13.json."
   },
   "sydgront-calendar": {
@@ -31,6 +33,7 @@
     "edition": "2025",
     "basis": "domestic_availability_including_storage",
     "coverage": "explicit_monthly_producer_calendar",
+    "scope": "Källan är en leverantörskalender där perioden kan omfatta lagring och skyddad odling, till exempel i växthus.",
     "review_note": "Visually reviewed monthly grid and product ranges. Used for carrots and the catalogue additions documented in docs/source-decision.md. Supplier availability includes storage and protected cultivation; it is not a national harvest calendar. The 2025 edition remained the latest calendar found on 2026-09-19."
   },
   "sasongensbasta-aubergine": {
@@ -42,6 +45,7 @@
     "publication_date": null,
     "basis": "domestic_seasonal_availability",
     "coverage": "explicit_month_range",
+    "scope": "",
     "review_note": "Explicitly states that Swedish-grown aubergine is available May-October, in limited quantities."
   },
   "sasongensbasta-kal": {
@@ -53,6 +57,7 @@
     "publication_date": null,
     "basis": "domestic_seasonal_availability",
     "coverage": "explicit_month_range",
+    "scope": "",
     "review_note": "The cabbage overview explicitly gives June-October for Swedish Chinese cabbage (salladskål)."
   },
   "sasongensbasta-lok": {
@@ -64,6 +69,7 @@
     "publication_date": null,
     "basis": "domestic_seasonal_availability",
     "coverage": "explicit_month_range",
+    "scope": "",
     "review_note": "Explicitly gives May-August for Swedish spring onion. SydGrönt gives May-October; the catalogue follows the selected primary source and therefore classifies September-October as out of season."
   },
   "sasongensbasta-artskidor": {
@@ -75,6 +81,7 @@
     "publication_date": null,
     "basis": "domestic_seasonal_availability",
     "coverage": "explicit_month_range",
+    "scope": "",
     "review_note": "The page covers sugar peas and wax beans and gives July-October as the Swedish season. SydGrönt starts sugar peas in June; the catalogue follows the selected primary source and therefore classifies June as out of season."
   },
   "hebe-plommon": {
@@ -86,6 +93,7 @@
     "publication_date": null,
     "basis": "domestic_seasonal_availability",
     "coverage": "explicit_month_range",
+    "scope": "",
     "review_note": "The Swedish plum section explicitly gives August into September. Do not apply pear cultivar dates from the same page to plums."
   }
 }
