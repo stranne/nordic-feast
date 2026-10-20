@@ -6,7 +6,6 @@ runs:
     - name: Install Zola
       shell: bash
       env:
-        # Keep in step with scripts/preview.ps1.
         ZOLA_VERSION: 0.23.6
         ZOLA_SHA256: 8f5132b3522412d04e395e0b25f6d68613ad272a873e54a2b3ebf664873024a4
       run: |

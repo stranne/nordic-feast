@@ -20,19 +20,13 @@ Sources do not consistently separate fresh harvest, storage and greenhouse produ
 
 ## Run locally
 
-On Windows:
-
-```powershell
-.\scripts\preview.ps1
-```
-
-This downloads a checksum-verified Zola 0.23.6 into the ignored `.tools` directory if needed and serves the site at http://127.0.0.1:1111. Use `-Port 1112` if the default port is occupied.
-
-With Zola 0.23.6 installed, on any platform:
+Install [Zola](https://www.getzola.org/documentation/getting-started/installation/), for example with `winget install getzola.zola` on Windows or `brew install zola` on macOS. Use the version pinned in the [CI setup](.github/actions/setup-zola/action.yml), because template behaviour can change between Zola releases. Then run:
 
 ```sh
 zola serve
 ```
+
+The site is served at http://127.0.0.1:1111. Use `--port 1112` if the default port is occupied.
 
 ## Checks
 
@@ -73,7 +67,7 @@ The workflow takes the site address from Pages, so builds use the github.io addr
 | `content/sverige/` | One page per month |
 | `data/` | Sources, image provenance and month names |
 | `templates/`, `static/` | Layout, content checks, styles, scripts, fonts and icons |
-| `scripts/` | Preview, browser checks and share image |
+| `scripts/` | Browser checks and share image |
 | `docs/` | [Interface behaviour](docs/interface.md), [accessibility review](docs/accessibility.md) and source reviews |
 
 ## Contributing
